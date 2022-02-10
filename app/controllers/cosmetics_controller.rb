@@ -1,0 +1,2 @@
+class CosmeticsController < ApplicationController
+end
