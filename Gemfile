@@ -32,6 +32,8 @@ gem 'devise'
 
 gem 'pundit'
 
+gem 'ocr_space'
+
 gem 'rest-client', '~> 2.1'
 
 gem 'acts_as_favoritor'
