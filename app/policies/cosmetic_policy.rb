@@ -3,12 +3,21 @@ class CosmeticPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-    def update?
-      true
-    end
+  end
 
-    def create?
-      true
-    end
+  def update?
+    true
+  end
+
+  def create?
+    true
+  end
+
+  def index?
+    true
+  end
+
+  def show?
+    true
   end
 end
