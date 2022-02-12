@@ -4,7 +4,7 @@ class CosmeticPolicy < ApplicationPolicy
       scope.all
     end
     def update?
-      true
+      user == current_user
     end
 
     def create?
