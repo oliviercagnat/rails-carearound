@@ -3,12 +3,20 @@ class CosmeticPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-    def update?
-      user == current_user
-    end
 
-    def create?
-      true
-    end
+  def update?
+    true
+  end
+
+  def create?
+    true
+  end
+
+  def index?
+    true
+  end
+
+  def show?
+    true
   end
 end
