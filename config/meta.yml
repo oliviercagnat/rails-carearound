@@ -1,0 +1,5 @@
+meta_product_name: "CareAround"
+meta_title: "CareAround-Skincare"
+meta_description: "Find the perfect skin care in your new country"
+meta_image: "meta-picture.jpeg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
