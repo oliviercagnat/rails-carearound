@@ -14,6 +14,9 @@
           <span class="tag tag-teal"><%= cosmetic.category.capitalize %></span>
           <h3> <%= cosmetic.name %>
           </h3>
+          <div class="like-icon mx-2 <%= 'red' if current_user.favorited?(cosmetic) %>" data-id="<%= cosmetic.id %>">
+            <i class="fas fa-heart"></i>
+          </div>
           <h4>from <%= cosmetic.brand.capitalize %></h4>
           <p>
             <%= cosmetic.description %>
