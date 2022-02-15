@@ -4,6 +4,7 @@ class CosmeticPolicy < ApplicationPolicy
       scope.all
     end
   end
+  
   def update?
     true
   end
