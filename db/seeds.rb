@@ -1,5 +1,5 @@
 require "json"
-require "rest-client"
+require "open-uri"
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -103,10 +103,10 @@ puts "Creating users..."
   puts "#{Ingredient.count} ingredients created!"
 
   #!!!! API Seeds below !!!!!!!
-  json = RestClient.get "http://makeup-api.herokuapp.com/api/v1/products.json"
+  json = URI.open("http://makeup-api.herokuapp.com/api/v1/products.json").read
   item_info = JSON.parse(json)
     item_info.each do |item|
-      Cosmetic.create(
+      new_cosmetic = Cosmetic.create(
       name: item["name"],
       description: item["description"],
       brand: item["brand"],
@@ -114,6 +114,8 @@ puts "Creating users..."
       category: item["product_type"],
       cosmetic_image: item["image_link"]
       )
+      new_cosmetic.tag_list = item["tag_list"]
+      new_cosmetic.save
     end
 
 

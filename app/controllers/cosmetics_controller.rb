@@ -8,13 +8,15 @@ class CosmeticsController < ApplicationController
   end
 
   def show
-    @cosmetic = Cosmetic.find(params[:id])
     cosmetic_policy_authorize
   end
 
   def update
     @cosmetic = Cosmetic.find(params[:id])
-    @cosmetic.update(cosmetic_params)
+    #@cosmetic.update(cosmetic_params)
+    @cosmetic.tag_list.add(cosmetic_params[:tag_list])
+    @cosmetic.save
+    cosmetic_policy_authorize
     redirect_to root_path
   end
 
@@ -29,7 +31,7 @@ class CosmeticsController < ApplicationController
   end
 
   def cosmetic_params
-    params.require(:cosmetic).permit(:cosmetic_image, :name, :description, :brand, :average_price, :category, :ingredient_id, :tag_list)
+    params.require(:cosmetic).permit(:cosmetic_image, :name, :description, :brand, :average_price, :category, :ingredient_id, tag_list: [])
   end
 
 end
