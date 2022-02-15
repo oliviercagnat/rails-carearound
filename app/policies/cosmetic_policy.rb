@@ -5,19 +5,20 @@ class CosmeticPolicy < ApplicationPolicy
     end
   end
 
-  def update?
-    true
-  end
+    def update?
+      true
+    end
 
-  def create?
-    true
-  end
+    def create?
+      true
+    end
 
-  def index?
-    true
-  end
+    def index?
+      true
+    end
 
-  def show?
-    true
+    def show?
+      true
+    end
   end
 end

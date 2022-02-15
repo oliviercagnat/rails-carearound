@@ -1,11 +1,11 @@
 
 <div class="container">
   <div class="col-12">
-    <div class="card">
-      <div class="card-header">
-        <%= image_tag @cosmetic.cosmetic_image, class: "img w-100"%>
+    <div class="cosme-card">
+      <div class="cosme-card-header">
+        <%= image_tag @cosmetic.cosmetic_image, class: "img"%>
       </div>
-      <div class="card-body">
+      <div class="cosme-card-body">
         <span class="tag tag-teal"><%= @cosmetic.category.capitalize %></span>
         <h3> <%= @cosmetic.name %>
         </h3>
