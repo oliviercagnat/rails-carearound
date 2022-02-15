@@ -3,21 +3,28 @@
 
 <h1>CareAround</h1>
 
-<div class="column cosmetics">
+<div class="container">
   <%= @cosmetics.each do |cosmetic| %>
-    <div class="card-cosmetics my-3">
-        <% if cosmetic.cosmetic_image? %>
-          <%= image_tag cosmetic.cosmetic_image, class: "card-cosmetics-img", style: "max-height:200px; max-width:150px" %>
-        <% end %>
-      <div class="card-cosmetics-info">
-        <div class="card-cosmetics-info-content"></div>
-          <h5>Name: <%= cosmetic.name %></h5>
-          <p>Brand: <%= cosmetic.brand %></p>
-          <p>Category: <%= cosmetic.category %></p>
-          <p>Average price: <%= cosmetic.average_price %></p>
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <%= image_tag cosmetic.cosmetic_image, class: "img w-100"%>
+        </div>
+        <div class="card-body">
+          <span class="tag tag-teal"><%= cosmetic.category.capitalize %></span>
+          <h3> <%= cosmetic.name %>
+          </h3>
+          <h4>from <%= cosmetic.brand.capitalize %></h4>
+          <p>
+            <%= cosmetic.description %>
+          </p>
+            <div class="price-info">
+              <h5>Average price</h5>
+              <small>¥<%= cosmetic.average_price %></small>
+            </div>
+          <%= link_to "See more", cosmetic_path(cosmetic), class:"btn btn-success"  %>
         </div>
       </div>
     </div>
   <% end %>
 </div>
-
