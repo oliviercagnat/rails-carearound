@@ -3,6 +3,7 @@ class CosmeticsController < ApplicationController
   before_action :set_cosmectic, only: %i[show]
 
   def index
+    # The first 5 is temporary
     @cosmetics = policy_scope(Cosmetic).first(5)
   end
 
