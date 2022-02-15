@@ -7,7 +7,6 @@ class CosmeticsController < ApplicationController
   end
 
   def show
-    @cosmetic = Cosmetic.find(params[:id])
     cosmetic_policy_authorize
   end
 
