@@ -22,7 +22,7 @@
           <% if policy(Cosmetic).update? %>
             <%= render 'layouts/tag_form' %>
               <% @cosmetic.tag_list.each do |tag| %>
-                <li class= "tag tag-teal"><%= tag %></li>
+                <li class="tag tag-teal"><%= tag %></li>
               <% end %>
             </span>
           <% end %>
