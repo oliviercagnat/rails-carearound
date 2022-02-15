@@ -1,4 +1,4 @@
-.card {
+.cosme-card {
   margin: 10px;
   background-color: #fff;
   border-radius: 10px;
@@ -6,12 +6,12 @@
   overflow: hidden;
   width: 300px;
 }
-.card-header img {
+.cosme-card-header img {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
-.card-body {
+.cosme-card-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,7 +40,7 @@
   background-color: #cd5b9f;
 }
 
-.card-body p {
+.cosme-card-body p {
   font-size: 13px;
   margin: 0 0 40px;
 }
