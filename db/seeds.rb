@@ -12,7 +12,6 @@ require "rest-client"
 #!!!! Hard coded seeds !!!!!
 
 puts "Cleaning DB..."
-Cosmetic.destroy_all
 Review.destroy_all
 User.destroy_all
 Ingredient.destroy_all
@@ -103,20 +102,33 @@ puts "Creating users..."
   puts "#{Ingredient.count} ingredients created!"
 
   #!!!! API Seeds below !!!!!!!
-  json = RestClient.get "http://makeup-api.herokuapp.com/api/v1/products.json"
+  puts Dir.pwd
+  file_path = File.join(Rails.root, "Cosmetics_file.json") #=> In order to speed up the process I downloded the file (Also there were issues from too many pull requests)
+  json = File.read(file_path)
   item_info = JSON.parse(json)
     item_info.each do |item|
-      Cosmetic.create(
+      created_cosmetic = Cosmetic.create!(  # => I saved the new cosmetic created into the a varible to be used later on while creating reviews
       name: item["name"],
-      description: item["description"],
-      brand: item["brand"],
+      description: item["description"].blank? ? "Test" : item["description"],  # Some of the itmes were not getting anything for the below field so i needed to add ternary operators
+      brand: item["brand"].blank? ? "Test" : item["brand"] ,
       average_price: rand(1000...20000),
-      category: item["product_type"],
-      cosmetic_image: item["image_link"]
+      category: item["product_type"].blank? ? "Test" : item["product_type"],
+      cosmetic_image: item["image_link"].blank? ? "Test" : item["image_link"]
       )
+
+      new_review = ["This is a test review 1","This is a test review 2","This is a test review 3", "This is a test review 4", "This is a test review 5"].sample  # Just test reviews made for now. I can hard code some in
+
+      # Can create a random number of reviews for products we saved above (only the product we just save)
+      5.times do
+        Review.create!(cosmetic_id: created_cosmetic.id,
+        user_id: user.id,
+        content: new_review.sample,
+        rating: rand(1..5),
+        shop_url: ["https://www.the-body-shop.co.jp/shop/","https://www.sephora.com/", "https://www.maccosmetics.jp/collections-ruby-woo-tokyo", "https://maison.kose.co.jp/site/awake/c/c01/", "https://online.naturesway.jp/"].sample
+        )
+      end
     end
 
 
  puts "#{Cosmetic.count} cosmetics created!"
-
-
+# Create review for each cosmetic ()

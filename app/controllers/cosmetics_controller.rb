@@ -10,13 +10,13 @@ class CosmeticsController < ApplicationController
     authorize @cosmetic
     @cosmetic = Cosmetic.find(params[:id])
   end
-  
+
   def update
     @cosmetic = Cosmetic.find(params[:id])
     @cosmetic.update(cosmetic_params)
     redirect_to root_path
   end
-  
+
   private
 
   def cosmetic_policy_authorize
