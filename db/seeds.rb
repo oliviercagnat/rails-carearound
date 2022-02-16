@@ -1,5 +1,5 @@
 require "json"
-require "rest-client"
+require "open-uri"
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -102,9 +102,10 @@ puts "Creating users..."
   puts "#{Ingredient.count} ingredients created!"
 
   #!!!! API Seeds below !!!!!!!
-  puts Dir.pwd
+  puts Dir.pwd # => is it really usefull ?
   file_path = File.join(Rails.root, "Cosmetics_file.json") #=> In order to speed up the process I downloded the file (Also there were issues from too many pull requests)
   json = File.read(file_path)
+# json = URI.open("http://makeup-api.herokuapp.com/api/v1/products.json").read => original file
   item_info = JSON.parse(json)
     item_info.each do |item|
       created_cosmetic = Cosmetic.create!(  # => I saved the new cosmetic created into the a varible to be used later on while creating reviews
@@ -127,6 +128,9 @@ puts "Creating users..."
         shop_url: ["https://www.the-body-shop.co.jp/shop/","https://www.sephora.com/", "https://www.maccosmetics.jp/collections-ruby-woo-tokyo", "https://maison.kose.co.jp/site/awake/c/c01/", "https://online.naturesway.jp/"].sample
         )
       end
+# this was on master file, seems like we still need it
+      # new_cosmetic.tag_list = item["tag_list"]
+      # new_cosmetic.save
     end
 
 

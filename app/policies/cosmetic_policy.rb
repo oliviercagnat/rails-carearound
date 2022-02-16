@@ -4,7 +4,7 @@ class CosmeticPolicy < ApplicationPolicy
       scope.all
     end   # => During the testing there was an error because there needs to be an end here
   end
-
+  
   def update?
     true
   end
@@ -20,4 +20,4 @@ class CosmeticPolicy < ApplicationPolicy
   def show?
     true
   end
-end
+ end

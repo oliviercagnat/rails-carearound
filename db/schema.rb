@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_12_062943) do
+ActiveRecord::Schema.define(version: 2022_02_15_105344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2022_02_12_062943) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "cosmetic_image"
+    t.string "country_of_origin"
   end
 
   create_table "cosmetics_ingredients", id: false, force: :cascade do |t|
