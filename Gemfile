@@ -32,7 +32,7 @@ gem 'devise'
 
 gem 'pundit'
 
-gem 'ocr_space'
+gem 'rtesseract', '~> 3.1', '>= 3.1.2'
 
 gem 'rest-client', '~> 2.1'
 

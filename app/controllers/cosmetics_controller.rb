@@ -1,6 +1,6 @@
 class CosmeticsController < ApplicationController
-
-  before_action :set_cosmectic, only: %i[show]
+  before_action :set_cosmetic, only: %i[show]
+  before_action :skip_authorization, only: :search
 
   def index
     @cosmetics = policy_scope(Cosmetic).first(5)
@@ -10,20 +10,24 @@ class CosmeticsController < ApplicationController
     authorize @cosmetic
     @cosmetic = Cosmetic.find(params[:id])
   end
-  
+
   def update
     @cosmetic = Cosmetic.find(params[:id])
     @cosmetic.update(cosmetic_params)
     redirect_to root_path
   end
-  
+
+  def search
+    @photo = params[:photo]
+  end
+
   private
 
   def cosmetic_policy_authorize
     authorize @cosmetic
   end
 
-  def set_cosmectic
+  def set_cosmetic
     @cosmetic = Cosmetic.find(params[:id])
   end
 
