@@ -117,7 +117,8 @@ puts "Creating users..."
       cosmetic_image: item["image_link"].blank? ? "Test" : item["image_link"]
       )
 
-      new_review = ["This is a test review 1","This is a test review 2","This is a test review 3", "This is a test review 4", "This is a test review 5"].sample  # Just test reviews made for now. I can hard code some in
+      new_review = ["This is a test review 1", "This is a test review 2", "This is a test review 3", "This is a test review 4", "This is a test review 5"] # Just test reviews made for now. I can hard code some in
+      new_shop_url = ["https://www.the-body-shop.co.jp/shop/","https://www.sephora.com/", "https://www.maccosmetics.jp/collections-ruby-woo-tokyo", "https://maison.kose.co.jp/site/awake/c/c01/", "https://online.naturesway.jp/"]
 
       # Can create a random number of reviews for products we saved above (only the product we just save)
       5.times do
@@ -125,7 +126,7 @@ puts "Creating users..."
         user_id: user.id,
         content: new_review.sample,
         rating: rand(1..5),
-        shop_url: ["https://www.the-body-shop.co.jp/shop/","https://www.sephora.com/", "https://www.maccosmetics.jp/collections-ruby-woo-tokyo", "https://maison.kose.co.jp/site/awake/c/c01/", "https://online.naturesway.jp/"].sample
+        shop_url: new_shop_url.sample
         )
       end
 # this was on master file, seems like we still need it
