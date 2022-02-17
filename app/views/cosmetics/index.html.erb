@@ -1,19 +1,23 @@
 <h1>Cosmetics</h1>
 
-<div class="column cosmetics">
-  <%= @cosmetics.each do |cosmetic| %>
-    <div class="card-cosmetics my-3">
-        <% if cosmetic.cosmetic_image? %>
-          <%= image_tag cosmetic.cosmetic_image, class: "card-cosmetics-img", style: "max-height:200px; max-width:150px" %>
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <div class="container">
+    <h3>All cosmetics</h3>
+      <%= @cosmetics.each do |cosmetic| %>
+      <%= render 'cosmetic', cosmetic: cosmetic %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-6">
+    <div class="container">
+      <h3>Liked cosmetics</h3>
+      <div class="favorites">
+        <%= @favorite_cosmetics.each do |cosmetic| %>
+        <%= render 'cosmetic', cosmetic: cosmetic %>
         <% end %>
-      <div class="card-cosmetics-info">
-        <div class="card-cosmetics-info-content"></div>
-          <h5>Name: <%= cosmetic.name %></h5>
-          <p>Brand: <%= cosmetic.brand %></p>
-          <p>Category: <%= cosmetic.category %></p>
-          <p>Average price: <%= cosmetic.average_price %></p>
-        </div>
       </div>
     </div>
-  <% end %>
+  </div>
 </div>
