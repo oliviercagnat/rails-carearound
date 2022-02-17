@@ -16,9 +16,9 @@
         <h3>
           <%= cosmetic.name %>
         </h3>
-        <h4>from <%= cosmetic.brand.capitalize %></h4>
+        <h4>from <%= cosmetic.brand ? cosmetic.brand.capitalize : "No brand" %></h4>
         <p>
-          <%= cosmetic.description.truncate(100) %>
+          <%= cosmetic.description ? cosmetic.description.truncate(100) : "No description" %>
         </p>
         <div class="price-info">
           <h5>Average price</h5>
