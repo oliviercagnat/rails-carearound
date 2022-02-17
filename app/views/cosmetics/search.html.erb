@@ -1,11 +1,4 @@
 <div>
   <%= image_tag "test3.jpeg", alt:"cosmetic", width: 200 %>
-  <ul>
-    <li>Brand : <%= "#{@info[0]}" %></li>
-    <li>Product : <%= "#{@info[1].downcase.capitalize}"%> -
-                  <%= "#{@info[2].downcase.capitalize}" %> -
-                  <%= "#{@info[3].downcase.capitalize}" %> -
-                  <%= "#{@info[4].downcase.capitalize}" %></li>
-    <li></li>
-  </ul>
+  <%= render 'form_search' %>
 </div>

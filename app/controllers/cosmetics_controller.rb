@@ -11,6 +11,11 @@ class CosmeticsController < ApplicationController
     # The first 5 is temporary
     @cosmetics = policy_scope(Cosmetic).first(5)
     @favorite_cosmetics = current_user.favorited_by_type('Cosmetic')
+    @search = params["search"]
+    if @search.present?
+      @name = @search["name"]
+      @cosmetics = Cosmetic.where(name: @name)
+    end
   end
 
   def show
@@ -28,7 +33,7 @@ class CosmeticsController < ApplicationController
 
   def search
     @info = Tesseract.extract_text("app/assets/images/test3.jpeg")
-
+    # @cosmetic = Cosmetic.new
     # @cosmetics = Cosmetic.search_by_brand(params[:query])
   end
 
