@@ -1,10 +1,22 @@
 <h1>Cosmetics</h1>
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <div class="container">
+    <h3>All cosmetics</h3>
+      <% @cosmetics.each do |cosmetic| %>
+       <%= render 'cosmetics/cosmetic', cosmetic: cosmetic %>
+      <% end %>
+    </div>
+  </div>
 
-<div class="col-12">
-  <% @index_cosmetics.each do |cosmetic| %>
-    <div class="cosme-card">
-    <div class="cosme-card-header">
-          <%= image_tag cosmetic.cosmetic_image, class: "img"%>
+  <div class="col-xs-12 col-sm-6">
+    <div class="container">
+      <h3>Liked cosmetics</h3>
+      <div class="favorites">
+        <% @favorite_cosmetics.each do |cosmetic| %>
+        <%= render 'cosmetic', cosmetic: cosmetic %>
+        <% end %>
+
       </div>
         <div class="cosme-card-body">
           <span class="tag tag-brown"><%= cosmetic.category.capitalize %></span>
@@ -24,6 +36,6 @@
               <% end %>
         </div>
     </div>
-  <% end %>
+  </div>
 </div>
 

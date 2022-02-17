@@ -1,29 +1,14 @@
 
-<div class="col-12">
-  <h1 class= "text-center">Welcome to CareAround</h1>
-    <% @cosmetics.each do |cosmetic| %>
-      <div class="cosme-card">
-      <div class="cosme-card-header">
-            <%= image_tag cosmetic.cosmetic_image, class: "img"%>
-        </div>
-          <div class="cosme-card-body">
-            <span class="tag tag-brown"><%= cosmetic.category.capitalize %></span>
-            <h3> <%= cosmetic.name %>
-            </h3>
-            <h4>from <%= cosmetic.brand.capitalize %></h4>
-            <p>
-              <%= cosmetic.description.truncate(100) %>
-            </p>
-              <div class="price-info">
-                <h5>Average price</h5>
-                <small>¥<%= cosmetic.average_price %></small>
-              </div>
-              <br>
-                <% cosmetic.tag_list.each do |tag| %>
-                  <li class="tag tag-green"><%= tag %></li>
-                <% end %>
-              <%= link_to "See more", cosmetic_path(cosmetic), class: "btn btn-success my-1"  %>
-          </div>
-      </div>
-    <% end %>
+<h1>CareAround</h1>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <div class="container">
+    <h3>All cosmetics</h3>
+      <% @cosmetics.each do |cosmetic| %>
+       <%= render 'cosmetics/cosmetic', cosmetic: cosmetic %>
+      <% end %>
+    </div>
+  </div>
+
 </div>
