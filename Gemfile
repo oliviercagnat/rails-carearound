@@ -29,14 +29,12 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
-
 gem 'pundit'
-
 gem 'rest-client', '~> 2.1'
-
 gem 'acts_as_favoritor'
-
 gem 'acts-as-taggable-on', '~> 9.0'
+gem 'google-cloud-vision'
+gem 'google-api-client'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
