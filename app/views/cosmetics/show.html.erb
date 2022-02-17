@@ -6,13 +6,18 @@
         <%= image_tag @cosmetic.cosmetic_image, class: "img"%>
       </div>
       <div class="cosme-card-body">
-        <span class="tag tag-brown"><%= @cosmetic.category.capitalize %></span>
+        <span class="row m-1">
+          <% @cosmetic.tag_list.each do |tag| %>
+            <li class="tag tag-green"><%= tag %></li>
+          <% end %>
+        </span>
         <h3> <%= @cosmetic.name %>
         </h3>
         <h4>from <%= @cosmetic.brand.capitalize %></h4>
         <p>
           <%= @cosmetic.description %>
         </p>
+        <span class="tag tag-brown"><%= @cosmetic.category.capitalize %></span>
           <div class="price-info">
             <h5>Average price</h5>
             <small>¥<%= @cosmetic.average_price %></small>
@@ -21,10 +26,6 @@
           <p>Please type your tags seperated by a comma.</p>
           <% if policy(Cosmetic).update? %>
             <%= render 'layouts/tag_form' %>
-              <% @cosmetic.tag_list.each do |tag| %>
-                <li class="tag tag-green"><%= tag %></li>
-              <% end %>
-            </span>
           <% end %>
       </div>
     </div>
