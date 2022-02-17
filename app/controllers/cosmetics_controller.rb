@@ -4,6 +4,7 @@ class CosmeticsController < ApplicationController
 
   def index
     @cosmetics = policy_scope(Cosmetic).first(5)
+    @index_cosmetics = policy_scope(Cosmetic)
   end
 
   def show
