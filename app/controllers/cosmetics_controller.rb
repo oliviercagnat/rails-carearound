@@ -10,11 +10,12 @@ class CosmeticsController < ApplicationController
   def index
     # The first 5 is temporary
     @cosmetics = policy_scope(Cosmetic).first(5)
-    @favorite_cosmetics = current_user.favorited_by_type('Cosmetic')
+    # @favorite_cosmetics = current_user.favorited_by_type('Cosmetic')
   end
 
   def show
     cosmetic_policy_authorize
+    @review = Review.new
   end
 
   def update
