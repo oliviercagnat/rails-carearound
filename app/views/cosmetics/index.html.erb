@@ -4,7 +4,7 @@
   <div class="col-xs-12 col-sm-6">
     <div class="container">
     <h3>All cosmetics</h3>
-      <%= @cosmetics.each do |cosmetic| %>
+      <% @cosmetics.each do |cosmetic| %>
        <%= render 'cosmetic', cosmetic: cosmetic %>
       <% end %>
     </div>
@@ -14,7 +14,7 @@
     <div class="container">
       <h3>Liked cosmetics</h3>
       <div class="favorites">
-        <%= @favorite_cosmetics.each do |cosmetic| %>
+        <% @favorite_cosmetics.each do |cosmetic| %>
         <%= render 'cosmetic', cosmetic: cosmetic %>
         <% end %>
       </div>
