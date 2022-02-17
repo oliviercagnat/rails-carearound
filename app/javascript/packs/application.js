@@ -22,9 +22,16 @@ ActiveStorage.start()
 import "bootstrap";
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+//import 'jquery'
+//import 'select2'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  //$(document).ready(function () {
+    //$('.js-example-basic-multiple').select2();
+ // });
+  //console.log("hello")
 });
+
+import "controllers"
