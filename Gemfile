@@ -42,7 +42,8 @@ gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
-gem 'jquery-rails'
+# OC: I might have put this gem, I can't remember
+# gem 'jquery-rails'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

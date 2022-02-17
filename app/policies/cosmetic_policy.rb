@@ -4,7 +4,7 @@ class CosmeticPolicy < ApplicationPolicy
       scope.all
     end   # => During the testing there was an error because there needs to be an end here
   end
-  
+
   def update?
     true
   end
@@ -18,6 +18,10 @@ class CosmeticPolicy < ApplicationPolicy
   end
 
   def show?
+    true
+  end
+
+  def toggle_favorite?
     true
   end
  end
