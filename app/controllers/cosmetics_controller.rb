@@ -36,7 +36,7 @@ class CosmeticsController < ApplicationController
   end
 
   def search
-    @info = Ocr.extract_text("app/assets/images/test3.jpeg")
+    @info = Ocr.extract_text("app/assets/images/test1.jpeg")
     # @cosmetic = Cosmetic.new
     # @cosmetics = Cosmetic.search_by_brand(params[:query])
   end

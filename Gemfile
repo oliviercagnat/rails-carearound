@@ -36,6 +36,7 @@ gem 'acts-as-taggable-on', '~> 9.0'
 gem 'google-cloud-vision'
 gem 'google-api-client'
 gem 'deepl-rb', '~> 2.2'
+gem 'pg_search', '~> 2.3.0'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
