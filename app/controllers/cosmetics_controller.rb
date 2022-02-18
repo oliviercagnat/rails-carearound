@@ -1,5 +1,6 @@
 class CosmeticsController < ApplicationController
   before_action :set_cosmectic, only: %i[show]
+  before_action :skip_authorization, only: :search
   # The user must be logged in to like a cosmetic.
   # The toggle_favorite action is called if the user is logged in,
   # using the Devise helper.
