@@ -1,6 +1,7 @@
 class SearchJp
   require "nokogiri"
   require "open-uri"
+  require "deepl"
 
   def self.search
     url = "https://www.matsukiyo.co.jp/store/online/search?category=00331703"
@@ -17,10 +18,5 @@ class SearchJp
       }
       cosme << item
     end
-    cosme
   end
 end
-
-# product = html_doc.search('#itemList .ttl')
-#     product_info = product.text.strip
-#     link = product.children[0]['href']
