@@ -7,10 +7,20 @@ class SearchJp
     html_file = URI.open(url).read
     html_doc = Nokogiri::HTML(html_file)
     results = html_doc.search('#itemList .ttl')
-    cosme = {}
-    results.each do |element|
-      p element.text.strip
+    cosme = []
+    item = {}
+    results.each_with_index do |element, index|
+      item = {
+        "id:" => "#{index + 1}",
+        "description:" => "#{element.text.strip}",
+        "link:" => "#{element.children[0]['href']}"
+      }
+      cosme << item
     end
-
+    cosme
   end
 end
+
+# product = html_doc.search('#itemList .ttl')
+#     product_info = product.text.strip
+#     link = product.children[0]['href']
