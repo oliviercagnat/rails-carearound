@@ -20,3 +20,6 @@ class SearchJp
     end
   end
 end
+
+
+# "description:" => "#{DeepL.translate element.text.strip, 'JA', 'EN'}",
