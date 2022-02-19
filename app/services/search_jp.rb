@@ -13,13 +13,14 @@ class SearchJp
     results.first(5).each_with_index do |element, index|
       item = {
         "id" => "#{index + 1}",
-        "description" => "#{DeepL.translate element.text.strip, 'JA', 'EN'}",
+        "description" => "#{element.text.strip}",
         "link" => "#{element.children[0]['href']}"
       }
       cosme << item
     end
     cosme
   end
+# "description" => "#{DeepL.translate element.text.strip, 'JA', 'EN'}",
 
   def self.image(link)
     url = "https://www.matsukiyo.co.jp#{link}"
