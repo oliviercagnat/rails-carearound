@@ -1,11 +1,12 @@
 .cosme-card {
   margin: 10px;
-  background-color: #FEFAE0;
+  background-color: #FDFCE5;
   border-radius: 10px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   width: 328px;
 }
+
 .cosme-card-header img {
   width: 100%;
   object-fit: cover;
@@ -19,6 +20,10 @@
   min-height: 250px;
 }
 
+.img{
+  max-height: 200px;
+}
+
 .tag {
   background: #cccccc;
   border-radius: 50px;
@@ -30,9 +35,10 @@
   text-transform: uppercase;
   cursor: pointer;
   list-style-type: none;
+  color: #545d7a;
 }
 .tag-green {
-  background-color: #CCD5AE;
+  background-color: #E9EDC9;
 }
 .tag-brown {
   background-color: #D4A373;
@@ -46,17 +52,17 @@
   margin: 0 0 40px;
 }
 
+.cosme-card-body h4 {
+  font-style: italic;
+}
+
+.cosme-card-body small {
+  margin-bottom: 8px;
+}
+
 .price-info h5 {
   margin: 0;
 }
 .price-info small {
   color: #545d7a;
-}
-
-.card {
-      border-radius: 5px;
-    background-color: #fff;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
 }

@@ -1,0 +1,44 @@
+.button {
+  background-color: #CCD5AE;
+  padding: 8px 16px;
+  margin-top: 8px;
+  border-radius: 4px;
+  color: #545d7a;
+  border: 0ch;
+  transition: all 0.5s;
+  text-align: center;
+}
+
+.button{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 8px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover{
+  padding-right: 24px;
+  padding-left:8px;
+  color: black;
+  background-color: #E5E6FD;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
+.col-xs-12-col-sm-6-button {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,16 @@
+<h1>Results</h1>
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <div class="container">
+        <% @cosmetics.each do |cosmetic| %>
+          <div class="cosme-card-header">
+            <%= image_tag SearchJp.image(cosmetic["link"]), class: "img"%>
+          </div>
+          <div class="cosme-card-body">
+            <p>Aubout this product : <%= cosmetic["description"] %></p>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

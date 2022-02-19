@@ -1,14 +1,15 @@
-
-
 class CosmeticsController < ApplicationController
   before_action :set_cosmectic, only: %i[show]
-
+  before_action :skip_authorization, only: [:search, :compare]
   # The user must be logged in to like a cosmetic.
   # The toggle_favorite action is called if the user is logged in,
   # using the Devise helper.
   before_action :authenticate_user!, only: :toggle_favorite
 
   def index
+    # When we display all, we get some cosmetics with no brand, description, etc.
+    # Display less so we don't get too much errors
+    # Later will implement search button anyway and will get only the ones we look for.
     @cosmetics = policy_scope(Cosmetic).first(50)
     @favorite_cosmetics = current_user.favorited_by_type('Cosmetic')
   end
@@ -33,6 +34,18 @@ class CosmeticsController < ApplicationController
     cosmetic_policy_authorize
     # It checks if a user has liked it. If it’s been favourited before, it is now unfavorited and vice versa.
     current_user.favorited?(@cosmetic) ? current_user.unfavorite(@cosmetic) : current_user.favorite(@cosmetic)
+  end
+
+  def search
+    @info = Ocr.extract_text("app/assets/images/test1.jpeg")
+    # @cosmetic = Cosmetic.new
+    # @cosmetics = Cosmetic.search_by_brand(params[:query])
+  end
+
+  def compare
+    @cosmetics = SearchJp.search
+    # @image_link = SearchJp.image(@cosmetics)
+
   end
 
   private
