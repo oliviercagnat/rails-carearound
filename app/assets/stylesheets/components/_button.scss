@@ -16,6 +16,10 @@
   transition: 0.5s;
 }
 
+a.button.align-center {
+  margin-left: 25vw;
+}
+
 .button:after {
   content: '»';
   position: absolute;
