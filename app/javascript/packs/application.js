@@ -20,7 +20,6 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
-
 // Internal imports, e.g:
 //import 'jquery'
 //import 'select2'

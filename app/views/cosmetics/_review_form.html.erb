@@ -1,0 +1,31 @@
+<div class="card">
+  <div class= "row d-flex">
+     <div data-controller="collapsible">
+        <button class="btn btn-primary w-100" data-action="click->collapsible#expand">Reviews</button>
+       <div data-collapsible-target="hidden">
+        <%= simple_form_for([ @cosmetic, @review ], remote: true) do |f| %>
+          <%= f.input :content, as: :text, label: false %>
+          <%= f.button :submit, "Leave Review", class: 'btn btn-primary' %>
+      <% end %>
+      </div>
+  </div>
+
+
+     <div class ="col grid">
+     <% @cosmetic.reviews.each do |review| %>
+      <div class="card" >
+        <div class=" grid-column: 1">
+          <h3 class="mt-2 mb-0"><% current_user.name %></h3>
+             <div>
+           <p class="text-left"><span class="text-muted">4.0</span> <span class="fa fa-star star-active ml-3"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-inactive"></span></p>
+           </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</div>

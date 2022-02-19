@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+
   get 'cosmetics/search', to: 'cosmetics#search', as: :scan
   get 'cosmetics/compare', to: 'cosmetics#compare', as: :compare
+
+
+  get 'pages/user_profile' => 'pages#user_profile'
+
   # users can leave a review about a cosmetic and display them on cosmetic's page
   resources :cosmetics, except: [ :destroy ] do
     # The member scopes ensure that the id of the favourite is passed into the action,

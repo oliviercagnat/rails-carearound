@@ -16,6 +16,7 @@ class CosmeticsController < ApplicationController
 
   def show
     cosmetic_policy_authorize
+    @review = Review.new
   end
 
   def update
