@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'cosmetics/custom_path?product_id;other', to: 'cosmetics#compare', as: :compare
   get 'cosmetics/search?photo', to: 'cosmetics#search', as: :scan
+  get 'pages/user_profile', to: 'pages#user_profile'
   # get 'cosmetics/search?keyword', to: 'cosmetics#search', as: :search
   # later on displaying ingredients info
   # resources :ingredients, only: [ :show ] ?? how to grab ingredients info ??
