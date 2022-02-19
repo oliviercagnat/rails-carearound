@@ -11,15 +11,4 @@
       <% end %>
       </div>
   </div>
-
-
-  <div class="card" style="width: 18rem;">
-     <% @cosmetic.reviews.each do |review| %>
-    <div class="card-body">
-      <h5 class="card-title"><%= current_user.name %> </h5>
-      <p class="card-subtitle mb-1 text-muted"><span class="text-muted">4.0</span> <span class="fa fa-star star-active ml-3"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-inactive"></span></p>
-      <p class="card-text"><%= review.content %></p>
-    </div>
-  </div>
-     <% end %>
 </div>
