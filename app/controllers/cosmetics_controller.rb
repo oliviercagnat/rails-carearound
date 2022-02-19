@@ -11,7 +11,7 @@ class CosmeticsController < ApplicationController
     # Display less so we don't get too much errors
     # Later will implement search button anyway and will get only the ones we look for.
     @cosmetics = policy_scope(Cosmetic).first(50)
-    @favorite_cosmetics = current_user.favorited_by_type('Cosmetic')
+    # @favorite_cosmetics = current_user.favorited_by_type('Cosmetic')
   end
 
   def show
