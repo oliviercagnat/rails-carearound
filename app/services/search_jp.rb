@@ -20,7 +20,7 @@ class SearchJp
     end
     cosme
   end
-# "description" => "#{DeepL.translate element.text.strip, 'JA', 'EN'}",
+#  "description" => "#{DeepL.translate element.text.strip, 'JA', 'EN'}",
 
   def self.image(link)
     url = "https://www.matsukiyo.co.jp#{link}"
