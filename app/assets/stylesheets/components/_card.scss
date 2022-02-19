@@ -30,9 +30,10 @@
   text-transform: uppercase;
   cursor: pointer;
   list-style-type: none;
+  color: #545d7a;
 }
 .tag-green {
-  background-color: #CCD5AE;
+  background-color: #E9EDC9;
 }
 .tag-brown {
   background-color: #D4A373;
@@ -44,6 +45,14 @@
 .cosme-card-body p {
   font-size: 13px;
   margin: 0 0 40px;
+}
+
+.cosme-card-body h4 {
+  font-style: italic;
+}
+
+.cosme-card-body small {
+  margin-bottom: 8px;
 }
 
 .price-info h5 {

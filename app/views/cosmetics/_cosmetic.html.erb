@@ -20,11 +20,12 @@
         <p>
           <%= cosmetic.description ? cosmetic.description.truncate(100) : "No description" %>
         </p>
+        <span class="tag tag-brown"><%= cosmetic.category.capitalize %></span>
         <div class="price-info">
           <h5>Average price</h5>
-            <small>¥<%= cosmetic.average_price %></small>
-          <%= link_to "See more", cosmetic_path(cosmetic), class:"btn btn-success"  %>
+            <small>¥<%= cosmetic.average_price %></small><br>
         </div>
+        <%= link_to "See more", cosmetic_path(cosmetic), class: "button text-decoration-none"  %>
       </div>
     </div>
   </div>
