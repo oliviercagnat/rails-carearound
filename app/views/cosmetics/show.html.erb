@@ -21,6 +21,7 @@
             <h5>Average price</h5>
             <small>¥<%= @cosmetic.average_price %></small>
           </div>
+          <%= link_to "Find my match", compare_path, class: "button"  %>
           <br>
           <% if policy(Cosmetic).update? %>
             <%= render 'layouts/tag_form' %>
