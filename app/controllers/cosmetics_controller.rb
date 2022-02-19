@@ -1,6 +1,6 @@
 class CosmeticsController < ApplicationController
   before_action :set_cosmectic, only: %i[show]
-  before_action :skip_authorization, only: :search
+  before_action :skip_authorization, only: [:search, :compare]
   # The user must be logged in to like a cosmetic.
   # The toggle_favorite action is called if the user is logged in,
   # using the Devise helper.
@@ -37,8 +37,14 @@ class CosmeticsController < ApplicationController
 
   def search
     @info = Ocr.extract_text("app/assets/images/test1.jpeg")
+    redirect_to compare_path
     # @cosmetic = Cosmetic.new
     # @cosmetics = Cosmetic.search_by_brand(params[:query])
+  end
+
+  def compare
+    @cosmetics = SearchJp.search
+
   end
 
   private
