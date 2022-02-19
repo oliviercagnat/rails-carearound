@@ -1,11 +1,21 @@
 class ReviewsController < ApplicationController
 
+  def new
+    @review = Review.new
+  end
+
   def create
+    binding.pry
     @review = Review.new(review_params)
-    @cosmetic = Cosmetic.find(:id)
+    @cosmetic = Cosmetic.find(:cosmetic_id)
     @review.cosmetic = @cosmetic
     if @cosmetic.save
-      redirect_to cosmetic_path(@cosmetic)
+      redirect_to new_cosmetic_review_path(@cosmetic)
+      respond_to do |format|
+        format.html { redirect_to cosmetics_path(@cosmetic) }
+        format.js # render create.js.erb (default Rails behaviour at the end of an action)
+        format.json # render create.json view
+      end
     else
       render 'cosmetic/show'
     end
