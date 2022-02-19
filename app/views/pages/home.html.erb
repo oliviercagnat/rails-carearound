@@ -1,12 +1,13 @@
-<h1 class="text-center">CareAround</h1>
 <div class="row">
   <div class="col-xs-12 col-sm-6">
-    <h3 class="text-center">All cosmetics</h3>
+    <h1 class="text-center m-2">CareAround</h1>
+     <%= link_to "Find your match", scan_path, class: "button align-center" %>
       <div class="row">
         <div class="col-xs-12 col-sm-6">
-          <div class="container">
-            <% @cosmetics.each do |cosmetic| %>
-             <%= render 'cosmetics/cosmetic', cosmetic: cosmetic %>
-            <% end %>
-          </div>
+          <% @cosmetics.each do |cosmetic| %>
+            <%= render 'cosmetics/cosmetic', cosmetic: cosmetic %>
+          <% end %>
         </div>
+      </div>
+  </div>
+</div>
