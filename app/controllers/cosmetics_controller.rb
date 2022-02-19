@@ -44,6 +44,7 @@ class CosmeticsController < ApplicationController
 
   def compare
     @cosmetics = SearchJp.search
+    # @image_link = SearchJp.image(@cosmetics)
 
   end
 

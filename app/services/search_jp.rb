@@ -12,13 +12,22 @@ class SearchJp
     item = {}
     results.first(5).each_with_index do |element, index|
       item = {
-        "id:" => "#{index + 1}",
-        "description:" => "#{DeepL.translate element.text.strip, 'JA', 'EN'}",
-        "link:" => "#{element.children[0]['href']}"
+        "id" => "#{index + 1}",
+        "description" => "#{DeepL.translate element.text.strip, 'JA', 'EN'}",
+        "link" => "#{element.children[0]['href']}"
       }
       cosme << item
     end
     cosme
+  end
+
+  def self.image(link)
+    url = "https://www.matsukiyo.co.jp#{link}"
+    html_file = URI.open(url).read
+    html_doc = Nokogiri::HTML(html_file)
+    result = html_doc.search('.disp_image a')
+    attributes = result.map{ |n| n['style'][/url\((.+)\)/, 1] }
+    image_link = "https://www.matsukiyo.co.jp#{attributes[0].gsub!("'","")}"
   end
 end
 
