@@ -21,7 +21,11 @@ class CosmeticPolicy < ApplicationPolicy
     true
   end
 
+  def search?
+    true
+  end
+
   def toggle_favorite?
     true
   end
- end
+end
