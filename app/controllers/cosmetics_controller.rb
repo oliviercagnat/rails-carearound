@@ -37,7 +37,6 @@ class CosmeticsController < ApplicationController
 
   def search
     @info = Ocr.extract_text("app/assets/images/test1.jpeg")
-    redirect_to compare_path
     # @cosmetic = Cosmetic.new
     # @cosmetics = Cosmetic.search_by_brand(params[:query])
   end
