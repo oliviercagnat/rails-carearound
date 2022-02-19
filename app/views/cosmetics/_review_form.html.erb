@@ -9,14 +9,19 @@
       <% end %>
       </div>
   </div>
+
+
+     <div class ="col grid">
      <% @cosmetic.reviews.each do |review| %>
-   <div class="" > <img class="profile-pic" src="">  </div>
-     <div class="d-flex flex-column">
-      <h3 class="mt-2 mb-0"><% current_user.name %></h3>
-        <div>
-          <p class="text-left"><span class="text-muted">4.0</span> <span class="fa fa-star star-active ml-3"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-inactive"></span></p>
-        </div>
-      <% end %>
+      <div class="card" >
+        <div class=" grid-column: 1">
+          <h3 class="mt-2 mb-0"><% current_user.name %></h3>
+             <div>
+           <p class="text-left"><span class="text-muted">4.0</span> <span class="fa fa-star star-active ml-3"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-inactive"></span></p>
+           </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 
 
