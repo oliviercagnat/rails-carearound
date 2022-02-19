@@ -2,19 +2,15 @@
 <div class="row">
   <div class="col-xs-12 col-sm-6">
     <div class="container">
-      <ul>
         <% @cosmetics.each do |cosmetic| %>
-          <li><%= cosmetic %></li>
+          <div class="cosme-card-header">
+            <%= image_tag SearchJp.image(cosmetic["link"]), class: "img"%>
+          </div>
+          <div class="cosme-card-body">
+            <p>Aubout this product : <%= cosmetic["description"] %></p>
+          </div>
         <% end %>
       </ul>
-    </div>
-  </div>
-
-  <div class="col-xs-12 col-sm-6">
-    <div class="container">
-      <h3>Liked cosmetics</h3>
-
-
     </div>
   </div>
 </div>
