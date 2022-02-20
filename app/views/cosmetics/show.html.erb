@@ -10,6 +10,9 @@
             <li class="tag tag-green"><%= tag %></li>
           <% end %>
         </span>
+        <%= link_to toggle_favorite_cosmetic_path(@cosmetic), remote: true, method: :post do %>
+          <%= render 'cosmetics/like_button', cosmetic: @cosmetic %>
+        <% end %>
         <h3> <%= @cosmetic.name %>
         </h3>
         <h4>from <%= @cosmetic.brand.capitalize %></h4>
