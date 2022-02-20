@@ -1,4 +1,5 @@
-<div class="card mt-4 mb-4">
+
+<div class="card mb-4">
   <div class="text-center">
     <h1 class="my-3 border-bottom pb-3">Your information</h1>
   </div>
@@ -8,22 +9,24 @@
       <h2 class="mt-3"><%= current_user.name %></h2>
         <p class="card-text">Country: <%= current_user.country %></p>
         <p class="card-text">Skin type: <%= current_user.skin_type %></p>
-      <%= link_to "Edit", edit_user_registration_path, class:'btn btn-success w-3' %>
+        <%= link_to "Edit", edit_user_registration_path, class:'btn btn-success w-3' %>
     </div>
   </div>
 </div>
 
-<div class="row ">
-  <div class="col-xs-12 col-sm-6">
-    <div class="container">
-    <h3>Your favorited cosmetics</h3>
-      <% if current_user.all_favorites == [] %>
-        <p>No cosmetic in your basket</p>
-      <% else %>
-        <% current_user.favorited_by_type('Cosmetic').each do |cosmetic| %>
-        <%= render 'cosmetics/cosmetic', cosmetic: cosmetic %>
+<div class="global-padding">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="container">
+      <h3 class="text-center">Your favorited cosmetics</h3>
+        <% if current_user.all_favorites == [] %>
+          <p>No cosmetic in your basket</p>
+        <% else %>
+          <% current_user.favorited_by_type('Cosmetic').each do |cosmetic| %>
+          <%= render 'cosmetics/cosmetic', cosmetic: cosmetic %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
