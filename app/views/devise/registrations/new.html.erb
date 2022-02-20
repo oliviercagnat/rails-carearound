@@ -19,8 +19,8 @@
       <%= f.input :name %>
       <%= f.input :skin_type,
                   required: true %>
-      <%= f.input :country,
-                  as: :text,
+      <%= f.country_select :country,
+                  priority_countries: ["JP", "UK", "US", "FR"],
                   required: true %>
       <%= f.input :avatar,
                   as: :file %>
