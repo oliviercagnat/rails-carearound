@@ -1,13 +1,13 @@
-<div class= "card">
-  <div class= "row d-flex">
+<div class= "Review-form-card">
+  <div class= "row d-flex justify-content-center mt-2">
      <div data-controller="collapsible">
-        <button class="btn btn-primary w-100" data-action="click->collapsible#expand">Reviews</button>
+        <button class="button" data-action="click->collapsible#expand">Reviews</button>
        <div data-collapsible-target="hidden">
         <%= simple_form_for([ @cosmetic, @review ], remote: true) do |f| %>
-          <%= f.input :content, as: :text, label: false %>
-          <%= f.input :rating %>
+          <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
           <%= f.input :shop_url %>
-          <%= f.button :submit, "Leave Review", class: 'btn btn-primary' %>
+          <%= f.input :content, as: :text, label: false %>
+          <%= f.button :submit, "Leave Review", class: 'button "d-none"' %>
       <% end %>
       </div>
   </div>

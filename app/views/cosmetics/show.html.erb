@@ -25,7 +25,8 @@
           <% if policy(Cosmetic).update? %>
             <%= render 'layouts/tag_form' %>
           <% end %>
-          <div class="mt-3"> <%= render "cosmetics/review_card", locals: {cosmetic: @cosmetic} %> </div>
+           <div class=""> <%= render "cosmetics/review_form", locals: {cosmetic: @cosmetic, review: @review} %> </div>
+          <div class="user-reviews mt-3"> <%= render "cosmetics/review_card", locals: {cosmetic: @cosmetic} %> </div>
       </div>
     </div>
   </div>

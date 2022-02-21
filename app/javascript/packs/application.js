@@ -24,6 +24,10 @@ import "bootstrap";
 //import 'jquery'
 //import 'select2'
 
+import { initStarRating } from '../plugins/init_star_rating';
+
+initStarRating();
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();

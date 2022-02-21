@@ -1,5 +1,6 @@
 
 // Select the review creation form with querySelector
+var review = document.querySelector("#review");
 
 // display none form(d-none)
 
@@ -8,5 +9,6 @@
 // when you have the list you want to select it with querySelector
 
 // You want to insert adjasentHTML the new review => this will go inside the list of review
+review.insertAdjacentHTML("'afterbegin', '<%= j render @review %>'")
 
 console.log('This is the review:'  + "<%= @review.content %>")
