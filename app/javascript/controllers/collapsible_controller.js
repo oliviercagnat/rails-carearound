@@ -16,7 +16,11 @@ export default class extends Controller {
 
   expand(event) {
     event.target.display = 'none';
-    this.hiddenTarget.style.height = '150px';
+    this.hiddenTarget.style.height = "100%"; // => This is causing issues (It wont let the whole form show)
     event.target.classList.add("d-none");   // => Selecting the button (target) and using class list to change its CSS class to d-none
+  }
+
+  collapse(event) {
+    event.target.classList.add("d-none");
   }
 }
