@@ -1,7 +1,7 @@
 <%= simple_form_for :search, url: compare_path, method: "get" do |f| %>
   <%# <%= f.input :cosmetic_image, as: :file, height: 200 %>
-  <%= f.input :brand, input_html: {value: "#{@info[0].downcase.capitalize}"} %>
-  <%= f.input :name, input_html: {value: "#{@info[2].downcase.capitalize} #{@info[3].downcase.capitalize}"} %>
-  <%= f.input :description, input_html: {value: "#{@info[4].downcase.capitalize} #{@info[5].downcase.capitalize}"} %>
+  <%= f.input :brand, input_html: {value: "EGO"} %>
+  <%= f.input :name, input_html: {value: "#{@info[0].downcase.capitalize}"} %>
+  <%= f.input :description, input_html: {value: "#{@info[1].downcase.capitalize} #{@info[2].downcase.capitalize}"} %>
   <%= f.submit "Search" %>
 <% end %>

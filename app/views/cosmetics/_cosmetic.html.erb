@@ -10,9 +10,11 @@
             <li class="tag tag-green"><%= tag %></li>
           <% end %>
         </span>
-        <%= link_to toggle_favorite_cosmetic_path(cosmetic), remote: true, method: :post do %>
-          <%= render 'cosmetics/like_button', cosmetic: cosmetic %>
-        <% end %>
+        <div class="favorite-icon">
+          <%= link_to toggle_favorite_cosmetic_path(cosmetic), remote: true, method: :post do %>
+            <%= render 'cosmetics/like_button', cosmetic: cosmetic %>
+          <% end %>
+        </div>
         <h3>
           <%= cosmetic.name %>
         </h3>

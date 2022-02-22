@@ -134,8 +134,8 @@ puts "Creating users..."
       end
       end
 # this was on master file, seems like we still need it
-       #new_cosmetic.tag_list = item["tag_list"]
-       #new_cosmetic.save
+      new_cosmetic.tag_list = item["tag_list"]
+      new_cosmetic.save
 
- puts "#{Cosmetic.count} cosmetics created!"
+  puts "#{Cosmetic.count} cosmetics created!"
 # Create review for each cosmetic ()

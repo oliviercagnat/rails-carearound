@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row global-padding">
   <div class="col-xs-12 col-sm-6">
     <h3 class="text-center m-2">All cosmetics</h3>
       <div class="row">
@@ -8,18 +8,5 @@
           <% end %>
         </div>
       </div>
-  </div>
-</div>
-
-  <div class="col-xs-12 col-sm-6">
-    <div class="container">
-      <h3>Liked cosmetics</h3>
-      <div class="favorites">
-
-        <% @favorite_cosmetics.each do |cosmetic| %>
-        <%= render 'cosmetic', cosmetic: cosmetic %>
-        <% end %>
-      </div>
-    </div>
   </div>
 </div>

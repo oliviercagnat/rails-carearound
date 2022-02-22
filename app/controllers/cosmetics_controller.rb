@@ -8,10 +8,10 @@ class CosmeticsController < ApplicationController
 
   def index
     # When we display all, we get some cosmetics with no brand, description, etc.
-    # Display less so we don't get too much errors
+    # Display less so we don't get too much errors".
     # Later will implement search button anyway and will get only the ones we look for.
     @cosmetics = policy_scope(Cosmetic).first(50)
-    @favorite_cosmetics = current_user.favorited_by_type('Cosmetic')
+    # @favorite_cosmetics = current_user.favorited_by_type('Cosmetic')
   end
 
   def show
@@ -37,7 +37,7 @@ class CosmeticsController < ApplicationController
   end
 
   def search
-    @info = Ocr.extract_text("app/assets/images/test1.jpeg")
+    @info = Ocr.extract_text("https://img.makeupalley.com/0/0/1/3/2548142.JPG")
     # @cosmetic = Cosmetic.new
     # @cosmetics = Cosmetic.search_by_brand(params[:query])
   end
