@@ -4,7 +4,7 @@ class CosmeticsController < ApplicationController
   # The user must be logged in to like a cosmetic.
   # The toggle_favorite action is called if the user is logged in,
   # using the Devise helper.
-  before_action :authenticate_user!, only: :toggle_favorite
+  before_action :authenticate_user!, only: [:toggle_favorite, :update]
 
   def index
     # When we display all, we get some cosmetics with no brand, description, etc.
@@ -25,7 +25,7 @@ class CosmeticsController < ApplicationController
     @cosmetic.tag_list.add(cosmetic_params[:tag_list])
     @cosmetic.save
     cosmetic_policy_authorize
-    redirect_to root_path
+    redirect_to cosmetic_path(@cosmetic)
   end
 
   def toggle_favorite
