@@ -26,15 +26,15 @@ import "bootstrap";
 
 import { initStarRating } from '../plugins/init_star_rating';
 
-initStarRating();
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   //$(document).ready(function () {
     //$('.js-example-basic-multiple').select2();
- // });
-  //console.log("hello")
+    // });
+    //console.log("hello")
+    initStarRating();  // => You have to put hte function inside tubolinks or it wont load until the page has been reloded (AJAX)
 });
 
 import "controllers"
