@@ -3,11 +3,11 @@
      <div data-controller="collapsible">
         <button class="button" data-action="click->collapsible#expand">Reviews</button>
        <div data-collapsible-target="hidden">
-        <%= simple_form_for([ @cosmetic, @review ], remote: true) do |f| %>
+        <%= simple_form_for([ @cosmetic, @review ], remote: true, data_action: "submit->collapsible#collapse") do |f| %>
           <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
           <%= f.input :shop_url %>
           <%= f.input :content, as: :text, label: false %>
-          <%= f.button :submit, "Leave Review", class: 'button "d-none"' %>
+          <%= f.button :submit, "Leave Review", class: 'button' %>
       <% end %>
       </div>
   </div>
