@@ -3,30 +3,30 @@
   <h1 class= "text-center">Welcome to CareAround</h1>
   <%= link_to "Find your match", scan_path, class: "button align-center" %>
     <% @cosmetics.each do |cosmetic| %>
-      <div class="cosme-card">
-        <div class="cosme-card-header">
-            <%= image_tag cosmetic.cosmetic_image, class: "img"%>
-        </div>
-          <div class="cosme-card-body">
-          <span class="row m-1">
-            <% cosmetic.tag_list.each do |tag| %>
-              <li class="tag tag-green"><%= tag %></li>
-            <% end %>
-          </span>
-            <h3> <%= cosmetic.name %>
-            </h3>
-            <h4>from <%= cosmetic.brand.capitalize %></h4>
-            <p>
-              <%= cosmetic.description.truncate(100) %>
-            </p>
-            <span class="tag tag-brown"><%= cosmetic.category.capitalize %></span>
-            <div class="price-info">
-              <h5>Average price</h5>
-              <small>¥<%= cosmetic.average_price %></small>
-            </div>
-            <br>
-            <%= link_to "See more", cosmetic_path(cosmetic), class: "button"  %>
+    <div class="mini-cosme-card">
+      <div class="mini-cosme-card-header">
+        <%= image_tag cosmetic.cosmetic_image, class: "img"%>
+        <div class="mini-cosme-card-header-info">
+          <h3>Rating</h3>
+          <h3>Stars</h3>
+          <div class="mini-price-info">
+            <h4>¥<%= cosmetic.average_price %> avg.</h4>
           </div>
+          <span class="row m-1">
+          <% cosmetic.tag_list.each do |tag| %>
+            <li class="mini-tag mini-tag-green"><%= tag %></li>
+          <% end %>
+          </span>
+        </div>
       </div>
-    <% end %>
+      <div class="mini-cosme-card-line"><hr />
+      </div>
+      <div class="mini-cosme-card-body">
+        <h3><%= cosmetic.name %></h3>
+          <h4><%= cosmetic.brand.upcase %></h4>
+            <span class="mini-tag mini-tag-brown"><%= cosmetic.category.capitalize %></span>
+            <%= link_to "See more", cosmetic_path(cosmetic), class: "button"  %>
+      </div>
+    </div>
+  <% end %>
 </div>
