@@ -4,15 +4,29 @@ class CosmeticsController < ApplicationController
   # The user must be logged in to like a cosmetic.
   # The toggle_favorite action is called if the user is logged in,
   # using the Devise helper.
-  before_action :authenticate_user!, only: [:toggle_favorite, :update]
+  before_action :authenticate_user!, only: [:toggle_favorite, :update, :index]
 
   def index
+    @cosmetics = policy_scope(Cosmetic).first(50)
     # When we display all, we get some cosmetics with no brand, description, etc.
     # Display less so we don't get too much errors".
     # Later will implement search button anyway and will get only the ones we look for.
-    @cosmetics = policy_scope(Cosmetic).first(50)
+
     # @favorite_cosmetics = current_user.favorited_by_type('Cosmetic')
+    #manual typing search function below
+    if params[:query].present?
+      sql_query = " \
+      brand ILIKE :query \
+      OR cosmetics.name @@ :query \
+      OR cosmetics.category @@ :query \
+      "
+      Cosmetic.tagged_with("%#{params[:query]}%", :any => true)
+      @cosmetics = Cosmetic.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @cosmetics = policy_scope(Cosmetic).first(50)
+    end
   end
+  #OR cosmetics.tags.tag_list[] @@ :query \
 
   def show
     cosmetic_policy_authorize
