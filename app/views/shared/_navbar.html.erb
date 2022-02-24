@@ -7,7 +7,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <% if policy(Cosmetic).index? %>
-    <div class="d-flex justify-content-between form-inline"><%= render "shared/search_form" %></div>
+    <div class="d-flex justify-content-between form-inline"><small>*Separate search terms by commas</small><%= render "shared/search_form" %></div>
   <% end %>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">

@@ -39,6 +39,8 @@ gem 'deepl-rb', require: 'deepl'
 gem 'pg_search', '~> 2.3.0'
 gem 'country_select', '~> 6.0'
 
+gem 'pg_search', '~> 2.3.0'
+
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'

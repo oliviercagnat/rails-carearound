@@ -15,13 +15,19 @@ class CosmeticsController < ApplicationController
     # @favorite_cosmetics = current_user.favorited_by_type('Cosmetic')
     #manual typing search function below
     if params[:query].present?
+      unformatted_search_terms = params[:query].split(",")
+      formatted_search_terms = unformatted_search_terms.map { |term| term.squish }
       sql_query = " \
-      brand ILIKE :query \
+      cosmetics.brand @@ :query \
       OR cosmetics.name @@ :query \
       OR cosmetics.category @@ :query \
+      OR tags.name @@ :query \
       "
-      Cosmetic.tagged_with("%#{params[:query]}%", :any => true)
-      @cosmetics = Cosmetic.where(sql_query, query: "%#{params[:query]}%")
+      @cosmetics = []
+      formatted_search_terms.each do |term|
+        @cosmetics += Cosmetic.joins(:tags).where(sql_query, query: term).uniq
+      end
+      @cosmetics
     else
       @cosmetics = policy_scope(Cosmetic).first(50)
     end
