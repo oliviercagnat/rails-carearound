@@ -1,0 +1,32 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px;
+  padding-left: 0;
+  padding-right: 0;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0)), url('banner2.jpeg');
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: 1;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 4px;
+}
+
+.banner .button {
+  background-color: #e9edc9;
+}
