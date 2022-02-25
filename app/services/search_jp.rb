@@ -30,6 +30,13 @@ class SearchJp
     attributes = result.map{ |n| n['style'][/url\((.+)\)/, 1] }
     image_link = "https://www.matsukiyo.co.jp#{attributes[0].gsub!("'","")}"
   end
+
+  def self.description(link)
+    url = "https://www.matsukiyo.co.jp#{link}"
+    html_file = URI.open(url).read
+    html_doc = Nokogiri::HTML(html_file)
+    description = html_doc.search('.ctBox02 p').text.strip
+  end
 end
 
 

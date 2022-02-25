@@ -38,14 +38,10 @@ class CosmeticsController < ApplicationController
 
   def search
     @info = Ocr.extract_text("https://img.makeupalley.com/0/0/1/3/2548142.JPG")
-    # @cosmetic = Cosmetic.new
-    # @cosmetics = Cosmetic.search_by_brand(params[:query])
   end
 
   def compare
     @cosmetics = SearchJp.search
-    # @image_link = SearchJp.image(@cosmetics)
-
   end
 
   private
