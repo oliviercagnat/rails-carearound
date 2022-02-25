@@ -1,22 +1,70 @@
 .cosme-card {
+  position: relative;
   margin: 10px;
+  margin-left: 6%;
   background-color: #FDFCE5;
   border-radius: 10px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  width: 328px;
+  width: 90%;
 }
 
-.cosme-card-header img {
+.cosme-card-image img{
   width: 100%;
   object-fit: cover;
+  border-bottom: 1px solid #ddd;
 }
+
+
+.cosme-card-header {
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.cosme-card-header-info {
+  display: flex;
+}
+
+.cosme-card-header-info-rating {
+  width: 50%;
+}
+
+.cosme-card-header-info-rating-numbers {
+  display: flex;
+}
+
+.cosme-card-header-info-rating-numbers p {
+  font-size: x-small;
+  margin-left: 2px;
+}
+
+.cosme-card-header-info-price {
+  width: 50%;
+  font-size: x-small;
+}
+
+.cosme-card-header-info-price span {
+  font-size: large;
+  font-style: bold;
+}
+
+.cosme-card-line {
+  width: 100%;
+  text-align: center;
+}
+
+.cosme-card-header-tags {
+  justify-content: flex-start;
+}
+
 .cosme-card-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   padding: 20px;
+  padding-top: 0px;
   min-height: 250px;
 }
 
@@ -44,21 +92,22 @@
 }
 
 .cosme-card-body p {
-  font-size: 13px;
-  margin: 0 0 40px;
+  font-size: 16px;
+  // margin: 0 0 40px;
+  text-align: justify;
+  text-justify: inter-character;
+  margin-bottom: 8px;
 }
 
-.cosme-card-body h4 {
-  font-style: italic;
+.cosme-card-body-brand {
+  font-size: large;
+  font-weight: 600;
 }
 
 .cosme-card-body small {
   margin-bottom: 8px;
 }
 
-.price-info h5 {
-  margin: 0;
-}
-.price-info small {
-  color: #545d7a;
+.cosme-card-body-button-match {
+  width: 100%;
 }
