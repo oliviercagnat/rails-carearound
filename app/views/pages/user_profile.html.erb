@@ -23,7 +23,7 @@
           <p>No cosmetic in your basket</p>
         <% else %>
           <% current_user.favorited_by_type('Cosmetic').each do |cosmetic| %>
-          <%= render 'cosmetics/cosmetic', cosmetic: cosmetic %>
+          <%= render 'cosmetics/mini_cosme_card_with_favorite', cosmetic: cosmetic %>
           <% end %>
         <% end %>
       </div>
