@@ -1,5 +1,6 @@
 require "json"
 require "open-uri"
+import 'results.json'
 
 DEFAULT_IMAGE = "https://cdn.shopify.com/s/files/1/1338/0845/collections/lippie-pencil_grande.jpg?v=1512588769"
 
@@ -88,31 +89,6 @@ puts "Creating users..."
   cosmetic5.cosmetic_image.attach(io: image5, filename: "picture")
   puts "created Cosmetic 5"
 
-  puts "Creating Ingredients..."
-
-
-  Ingredient.create!(
-    name: "Rose water",
-    description: "Rose water is a liquid made by steeping rose petals in water or distilling rose petals with steam.",
-    pros: "Helps soothe skin irritation",
-    cons: "Not recommended to those with a rose allergy",
-  )
-
-  Ingredient.create!(
-    name: "Paraben",
-    description: "Parabens are a family of related chemicals that are commonly used as preservatives in cosmetic products. Preservatives may be used in cosmetics to prevent the growth of harmful bacteria and mold, in order to protect both the products and consumers.",
-    pros: "Allows make-up to last longer",
-    cons: "Can cause skin irritation on sensitive skin",
-  )
-
-  Ingredient.create!(
-    name: "Sulphates",
-    description: "Sulphates are ingredients synthesized in the laboratory from fatty alcohol",
-    pros: "They are cleaning, foaming and easy to rinse. They leave a clean sensation.",
-    cons: "For people with sensitive skin, sulfates may clog pores and cause acne.",
-  )
-
-  puts "#{Ingredient.count} ingredients created!"
 
 
   #!!!! API Seeds below !!!!!!!
@@ -160,3 +136,30 @@ puts "Creating users..."
 
   puts "#{Cosmetic.count} cosmetics created!"
 # Create review for each cosmetic ()
+
+#parsing the japanese json below and creating jp products for out db
+
+  file = File.read("results.json")
+  results_json = JSON.parse(file)
+  results_json.each do |result|
+    split_first_ingredient =
+      if result["composition"].match(/】/)
+        result["composition"].chomp.split("、")[0].split("】")[1]
+      else
+        result["composition"].chomp.split("、")[0].split("＞")[1]
+      end
+    rest_of_ingredient_list = result["composition"].chomp.split("、")[1..-1]
+    full_ingredient_list = rest_of_ingredient_list << split_first_ingredient
+    ingredients = []
+    full_ingredient_list.each do |ingredient_jp|
+      if Ingredient.find_by(name_jp: ingredient_jp).present?
+        ingredients << Ingredient.find_by(name_jp: ingredient_jp)
+      else
+        name_en = DeepL.translate ingredient_jp, 'JA', 'EN'
+        ingredients << Ingredient.create!(name_en: name_en.text.split(" (")[0], name_jp: ingredient_jp)
+      end
+    end
+    new_cosme = Cosmetic.create!(name: DeepL.translate(result["product"], 'JA', 'EN'), cosmetic_image: result["image_link"][1..-2], category: "Skin care", description: "Skin care is the range of practices that support skin integrity, enhance its appearance and relieve skin conditions. They can include nutrition, avoidance of excessive sun exposure and appropriate use of emollients.", average_price: rand(1000...20000), brand: ["Seiko", "SKII", "Pelume", "Japan Labo"].sample )
+    new_cosme.ingredients << ingredients
+  end
+

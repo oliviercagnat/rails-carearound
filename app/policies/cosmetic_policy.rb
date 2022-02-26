@@ -25,6 +25,10 @@ class CosmeticPolicy < ApplicationPolicy
     true
   end
 
+  def compare?
+    true
+  end
+
   def toggle_favorite?
     true
   end

@@ -41,10 +41,10 @@
         <% end %>
         <div class="cosme-card-line"><hr /></div>
         <p>Compare your product and find the best fit through the tags</p>
-        <%= link_to "Find my match", compare_path, class: "button cosme-card-body-button-match"  %>
+        <%= link_to "Find my match", compare_cosmetic_path(@cosmetic), class: "button cosme-card-body-button-match"  %>
         <div class="cosme-card-line"><hr /></div>
            <div class=""> <%= render "cosmetics/review_form", locals: {cosmetic: @cosmetic, review: @review} %> </div>
-          <div class="user-reviews"> <%= render "cosmetics/review_card", locals: {cosmetic: @cosmetic} %> </div>
+          <div class="user-reviews"> <%= render "review_card_list", reviews: @cosmetic.reviews.reverse %> </div>
       </div>
     </div>
   </div>

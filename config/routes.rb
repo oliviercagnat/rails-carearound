@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'cosmetics/search', to: 'cosmetics#search', as: :scan
-  get 'cosmetics/compare', to: 'cosmetics#compare', as: :compare
+  #get 'cosmetics//compare', to: 'cosmetics#compare', as: :compare
 
 
   get 'pages/user_profile' => 'pages#user_profile'
@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     # The generated route will look like this: cosmetics/:id/toggle_favorite
     member do
       post 'toggle_favorite', to: "cosmetics#toggle_favorite"
+      get 'compare', to: 'cosmetics#compare'
+
     end
 
     resources :reviews, only: [ :new, :create ]

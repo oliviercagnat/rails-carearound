@@ -1,4 +1,5 @@
 
+
 <div data-controller="expandable">
     <div id="review" data-expandable-target="reviews">
           <% @cosmetic.reviews.reverse_each do |review| %>
@@ -14,5 +15,6 @@
       </div>
           <% end %>
     </div>
-    <button class="button w-100" data-action="click->expandable#expand">See All Reviews!</button>
+    <p class="card-text mb-2"><%= review.content %></p>
   </div>
+</div>
