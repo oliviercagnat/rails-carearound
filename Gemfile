@@ -39,8 +39,7 @@ gem 'deepl-rb', require: 'deepl'
 gem 'pg_search', '~> 2.3.0'
 gem 'country_select', '~> 6.0'
 gem 'kimurai', '~> 1.2'
-
-gem 'pg_search', '~> 2.3.0'
+gem 'cloudinary', '~> 1.18.1'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'

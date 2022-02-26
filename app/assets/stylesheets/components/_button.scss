@@ -1,5 +1,6 @@
 .button {
-  background-color: #CCD5AE;
+  // background-color: #CCD5AE;
+  background-color: #f6dfeb;
   padding: 8px 16px;
   margin-top: 8px;
   border-radius: 4px;
@@ -49,4 +50,10 @@ a.button.align-center {
 .col-xs-12-col-sm-6-button {
   display: flex;
   justify-content: center;
+}
+
+.reveal {
+  height: 15em;
+  overflow: hidden;
+  transition: height 500ms ease-out;
 }

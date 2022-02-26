@@ -5,11 +5,15 @@
   </div>
   <div class="card-body d-flex flex-direction-column justify-content-around">
     <div class="text-center">
-      <img class="avatar-large" alt="avatar-large" src="<%= current_user.avatar %>"  />
+      <% if current_user.avatar.attached? %>
+        <%= cl_image_tag current_user.avatar.key, class: "avatar-large" %>
+      <% else %>
+        <img class="avatar-large" alt="avatar-large" src="<%= current_user.avatar %>"  />
+      <% end %>
       <h2 class="mt-3"><%= current_user.name %></h2>
         <p class="card-text">Country: <%= current_user.country %></p>
         <p class="card-text">Skin type: <%= current_user.skin_type %></p>
-        <%= link_to "Edit", edit_user_registration_path, class:'btn btn-success w-3' %>
+        <%= link_to "Edit", edit_user_registration_path, class:'button w-3' %>
     </div>
   </div>
 </div>

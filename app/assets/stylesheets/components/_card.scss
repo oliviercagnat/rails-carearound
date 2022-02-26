@@ -2,7 +2,7 @@
   position: relative;
   margin: 10px;
   margin-left: 6%;
-  background-color: #FDFCE5;
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -82,10 +82,10 @@
   color: #545d7a;
 }
 .tag-green {
-  background-color: #E9EDC9;
+  background-color: #e6f7d4;
 }
 .tag-brown {
-  background-color: #D4A373;
+  background-color: #cccccc;
 }
 .tag-pink {
   background-color: #cd5b9f;
@@ -110,4 +110,13 @@
 
 .cosme-card-body-button-match {
   width: 100%;
+}
+
+.cosmetic-review-card {
+  border-radius: 5px;
+  background-color: #fff;
+  margin-top: 20px;
+  overflow: hidden;
+  margin-top: .3rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

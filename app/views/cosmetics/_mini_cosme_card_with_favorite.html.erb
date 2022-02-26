@@ -1,7 +1,7 @@
 <div class="favorite" data-id="<%= cosmetic.id %>">
 <div class="mini-cosme-card">
   <div class="mini-cosme-card-header">
-    <%= image_tag cosmetic.cosmetic_image, class: "img"%>
+    <%= cl_image_tag cosmetic.cosmetic_image.key, class: "img"%>
     <div class="mini-cosme-card-header-info">
       <div class="favorite-icon">
         <%= link_to toggle_favorite_cosmetic_path(cosmetic), remote: true, method: :post do %>
