@@ -1,12 +1,14 @@
 
-<div class="review-card" style="width: 18rem; height: 14rem">
-  <div class="review-card-body">
-    <div class="d-flex">
-    <h5 class="card-title mr-2"><%= current_user.name %> </h5>
-      <p class="card-subtitle mb-1 text-muted">
-        <span class="text-muted"><%= render "components/star_rating", review: review %></span>
+
+<div class=“review-card” style=“width: 18rem; height: 14rem”>
+  <div class=“review-card-body”>
+    <div class=“d-flex”>
+    <h5 class=“card-title mr-2”><%= review.user.name %> </h5>
+      <p class=“card-subtitle mb-1 text-muted”>
+        <span class=“text-muted”><%= render "components/star_rating", review: review %></span>
       </p>
     </div>
-    <p class="card-text mb-2"><%= review.content %></p>
+    <button class=“button w-100” data-action="click->expandable#expand">See All Reviews!</button>
+    <p class=“card-text mb-2”><%= review.content %></p>
   </div>
 </div>

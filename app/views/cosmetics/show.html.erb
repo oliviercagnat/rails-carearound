@@ -1,7 +1,7 @@
 <div class="col-12 global-padding">
     <div class="cosme-card">
       <div class="cosme-card-image">
-        <%= image_tag @cosmetic.cosmetic_image, class: "img"%>
+        <%= cl_image_tag @cosmetic.cosmetic_image.key, class: "img"%>
       </div>
       <div class="cosme-card-header">
         <div class="cosme-card-header-info">
