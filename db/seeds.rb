@@ -126,13 +126,13 @@ puts "Creating users..."
       # Can create a random number of reviews for products we saved above (only the product we just save)
       Cosmetic.all.each do |cosmetic|
         5.times do
-        Review.create!(cosmetic_id: cosmetic.id,
-        user_id: user.id,
-        content: new_review.sample,
-        rating: rand(1..5),
-        shop_url: new_shop_url.sample
-        )
-      end
+          Review.create!(cosmetic_id: cosmetic.id,
+          user_id: user.id,
+          content: new_review.sample,
+          rating: rand(1..5),
+          shop_url: new_shop_url.sample
+          )
+        end
       end
 
 
@@ -164,3 +164,7 @@ puts "Creating users..."
     new_cosme = Cosmetic.create!(name: DeepL.translate(result["product"], 'JA', 'EN'), cosmetic_image: result["image_link"][1..-2], category: "Skin care", description: "Skin care is the range of practices that support skin integrity, enhance its appearance and relieve skin conditions. They can include nutrition, avoidance of excessive sun exposure and appropriate use of emollients.", average_price: rand(1000...20000), brand: ["Seiko", "SKII", "Pelume", "Japan Labo"].sample )
     new_cosme.ingredients << ingredients
   end
+
+
+#.text.split(" (")[0] this will be added to line 138 when seed is working
+

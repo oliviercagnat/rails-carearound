@@ -64,17 +64,37 @@ task seed_ingredient: :environment do
       end
     rest_of_ingredient_list = result[:composition].chomp.split("、")[1..-1]
     full_ingredient_list = rest_of_ingredient_list << split_first_ingredient
+    ingredients = []
     full_ingredient_list.each do |ingredient_jp|
       if Ingredient.find_by(name_jp: ingredient_jp).present?
-        next
+        ingredients << Ingredient.find_by(name_jp: ingredient_jp)
       else
+        puts ingredient_jp
         name_en = DeepL.translate ingredient_jp, 'JA', 'EN'
-        Ingredient.create!(name_en: name_en.text.split(" (")[0], name_jp: ingredient_jp)
+        ingredients << Ingredient.create!(name_en: name_en.text.split(" (")[0], name_jp: ingredient_jp)
       end
     end
+    new_cosme = Cosmetic.create!(name: DeepL.translate(result[:product], 'JA', 'EN'), cosmetic_image: result[:image_link][1..-2], category: "Skin care", description: "Skin care is the range of practices that support skin integrity, enhance its appearance and relieve skin conditions. They can include nutrition, avoidance of excessive sun exposure and appropriate use of emollients.", average_price: rand(1000...20000), brand: ["Seiko", "SKII", "Pelume", "Japan Labo"].sample )
+    new_cosme.ingredients << ingredients
   end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #$ rails (rake) seed_ingredient
 #  "description" => "#{DeepL.translate element.text.strip, 'JA', 'EN'}",
 #r = "【成分】水、グリセリン、ハイドロキノン、フェノキシエタノール、クエン酸Ｎａ、ピロ亜硫酸Ｎａ、カラメル、クエン酸\n"
