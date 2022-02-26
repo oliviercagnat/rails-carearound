@@ -7,7 +7,8 @@
             <%= image_tag SearchJp.image(cosmetic["link"]), class: "img" %>
           </div>
           <div class="cosme-card-body">
-            <p>About this product : <%= cosmetic["description"] %></p>
+            <p>Brand : <%= cosmetic["description"] %></p>
+            <p>Description : <%= SearchJp.description(cosmetic["link"]) %></p>
           </div>
         </div>
       <% end %>
