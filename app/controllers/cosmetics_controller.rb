@@ -1,5 +1,5 @@
 class CosmeticsController < ApplicationController
-  before_action :set_cosmectic, only: %i[show]
+  before_action :set_cosmectic, only: %i[show compare]
   before_action :skip_authorization, only: [:search, :compare]
   # The user must be logged in to like a cosmetic.
   # The toggle_favorite action is called if the user is logged in,
@@ -61,7 +61,9 @@ class CosmeticsController < ApplicationController
   end
 
   def compare
-    @cosmetics = SearchJp.search
+    #@cosmetics = SearchJp.search
+    @cosmetics = Cosmetic.includes(:ingredients).where.not(ingredients: {id: nil}).where(ingredients: {name_en: @cosmetic.tag_list })
+    #@cosmetic_ingredients = Ingredient.find_by([:id]params[:cosmetic_id])
   end
 
   private
