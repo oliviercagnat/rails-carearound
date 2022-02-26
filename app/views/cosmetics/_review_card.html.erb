@@ -1,16 +1,18 @@
 
-
-  <div id="review">
-        <% @cosmetic.reviews.reverse_each do |review| %>
-        <% @review = review %>
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <div class="d-flex border">
-          <h5 class="card-title mr-2"><%= current_user.name %> </h5>
-            <p class="card-subtitle mb-1 text-muted"><span class="text-muted"><%= render "components/star_rating" %></p>
+<div data-controller="expandable">
+    <div id="review" data-expandable-target="reviews">
+          <% @cosmetic.reviews.reverse_each do |review| %>
+          <% @review = review %>
+      <div class="review-card" style="width: 18rem; height: 13em">
+          <div class="card-body">
+            <div class="d-flex">
+            <h5 class="card-title mr-2"><%= current_user.name %> </h5>
+              <p class="card-subtitle mb-1 text-muted"><span class="text-muted"><%= render "components/star_rating" %></p>
+            </div>
+            <p class="card-text"><%= review.content %></p>
           </div>
-          <p class="card-text"><%= review.content %></p>
-        </div>
+      </div>
+          <% end %>
     </div>
-        <% end %>
+    <button class="button w-100" data-action="click->expandable#expand">See All Reviews!</button>
   </div>
