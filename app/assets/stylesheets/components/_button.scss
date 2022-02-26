@@ -50,3 +50,9 @@ a.button.align-center {
   display: flex;
   justify-content: center;
 }
+
+.reveal {
+  height: 15em;
+  overflow: hidden;
+  transition: height 500ms ease-out;
+}
