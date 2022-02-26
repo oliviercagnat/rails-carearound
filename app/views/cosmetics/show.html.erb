@@ -44,7 +44,7 @@
         <%= link_to "Find my match", compare_path, class: "button cosme-card-body-button-match"  %>
         <div class="cosme-card-line"><hr /></div>
            <div class=""> <%= render "cosmetics/review_form", locals: {cosmetic: @cosmetic, review: @review} %> </div>
-          <div class="user-reviews"> <%= render "cosmetics/review_card", locals: {cosmetic: @cosmetic} %> </div>
+          <div class="user-reviews"> <%= render "review_card_list", reviews: @cosmetic.reviews.reverse %> </div>
       </div>
     </div>
   </div>

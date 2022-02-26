@@ -1,9 +1,12 @@
 .card {
     border-radius: 5px;
     background-color: #fff;
-    margin-top: 30px;
-    padding-top: 30px;
     padding-bottom: 30px;
+}
+.review-card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem;
 }
 
 .border {
@@ -33,7 +36,8 @@ td {
 .star-active {
     color: #FBC02D;
     margin-top: 5px;
-    margin-bottom: 5px
+    margin-bottom: 5px;
+    padding-top: .3rem;
 }
 
 .star-active:hover {
