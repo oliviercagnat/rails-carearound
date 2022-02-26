@@ -101,13 +101,13 @@ puts "Creating users..."
       # Can create a random number of reviews for products we saved above (only the product we just save)
       Cosmetic.all.each do |cosmetic|
         5.times do
-        Review.create!(cosmetic_id: cosmetic.id,
-        user_id: user.id,
-        content: new_review.sample,
-        rating: rand(1..5),
-        shop_url: new_shop_url.sample
-        )
-      end
+          Review.create!(cosmetic_id: cosmetic.id,
+          user_id: user.id,
+          content: new_review.sample,
+          rating: rand(1..5),
+          shop_url: new_shop_url.sample
+          )
+        end
       end
 # this was on master file, seems like we still need it
       # new_cosmetic.tag_list = item["tag_list"]
@@ -142,3 +142,4 @@ puts "Creating users..."
     new_cosme.ingredients << ingredients
   end
 
+#.text.split(" (")[0] this will be added to line 138 when seed is working
