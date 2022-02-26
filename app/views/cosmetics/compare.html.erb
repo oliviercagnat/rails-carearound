@@ -4,11 +4,16 @@
       <% @cosmetics.each do |cosmetic| %>
         <div class="cosme-card">
           <div class="cosme-card-header">
-            <%= image_tag SearchJp.image(cosmetic["link"]), class: "img" %>
+            <%= image_tag "https://www.matsukiyo.co.jp"+cosmetic.cosmetic_image, class: "img" %>
           </div>
           <div class="cosme-card-body">
-            <p>Brand : <%= cosmetic["description"] %></p>
-            <p>Description : <%= SearchJp.description(cosmetic["link"]) %></p>
+            <p>Brand : <%= cosmetic.brand %></p>
+            <p>Description : <%= cosmetic.description %></p>
+            <p class="tag-green">
+              <% cosmetic.ingredients.each do |ingredient|  %>
+                <%= ingredient.name_en %>
+              <% end %>
+            </p>
           </div>
         </div>
       <% end %>
