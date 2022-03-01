@@ -18,7 +18,7 @@ puts "Cleaning DB..."
 Review.destroy_all
 Cosmetic.destroy_all
 User.destroy_all
-Ingredient.destroy_all
+# Ingredient.destroy_all
 
 puts "Creating users..."
 
@@ -100,6 +100,8 @@ puts "Creating users..."
 
 # json = URI.open("http://makeup-api.herokuapp.com/api/v1/products.json").read => original file
   item_info = JSON.parse(json)
+
+
     item_info.first(10).each do |item|
       created_cosmetic = Cosmetic.create!(  # => I saved the new cosmetic created into the a varible to be used later on while creating reviews
       name: item["name"],
@@ -145,7 +147,9 @@ puts "Creating users..."
   file = File.read("results.json")
 
   results_json = JSON.parse(file)
+
   results_json.first(10).each do |result|
+
     split_first_ingredient =
       if result["composition"].match(/】/)
         result["composition"].chomp.split("、")[0].split("】")[1]
