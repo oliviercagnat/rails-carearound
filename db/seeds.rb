@@ -161,7 +161,13 @@ puts "Creating users..."
         ingredients << Ingredient.create!(name_en: name_en.text.split(" (")[0], name_jp: ingredient_jp)
       end
     end
-    new_cosme = Cosmetic.create!(name: DeepL.translate(result["product"], 'JA', 'EN'), cosmetic_image: result["image_link"][1..-2], category: "Skin care", description: "Skin care is the range of practices that support skin integrity, enhance its appearance and relieve skin conditions. They can include nutrition, avoidance of excessive sun exposure and appropriate use of emollients.", average_price: rand(1000...20000), brand: ["Seiko", "SKII", "Pelume", "Japan Labo"].sample )
+    new_cosme = Cosmetic.create!(
+      name: DeepL.translate(result["product"], 'JA', 'EN'),
+      cosmetic_image: result["image_link"][1..-2],
+      category: "Skin care",
+      description: "Skin care is the range of practices that support skin integrity, enhance its appearance and relieve skin conditions. They can include nutrition, avoidance of excessive sun exposure and appropriate use of emollients.",
+      average_price: rand(1000...20000),
+      brand: ["Seiko", "SKII", "Pelume", "Japan Labo"].sample )
     new_cosme.ingredients << ingredients
   end
 

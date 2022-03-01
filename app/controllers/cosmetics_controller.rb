@@ -6,6 +6,25 @@ class CosmeticsController < ApplicationController
   # using the Devise helper.
   before_action :authenticate_user!, only: [:toggle_favorite, :update, :index]
 
+  def create
+    @cosmetic = Cosmetic.new(cosmetic_params)
+    cosmetic_policy_authorize
+    if @cosmetic.save
+      redirect_to confirm_cosmetic_path(@cosmetic)
+    else
+      redirect_to scan_path
+    end
+  end
+
+  def confirm
+    @cosmetic = Cosmetic.find(params[:id])
+  end
+
+  def new
+    cosmetic_policy_authorize
+    Cosmetic.new
+  end
+
   def index
     @cosmetics = policy_scope(Cosmetic).first(50)
     # When we display all, we get some cosmetics with no brand, description, etc.
@@ -58,6 +77,7 @@ class CosmeticsController < ApplicationController
 
   def search
     @info = Ocr.extract_text("https://img.makeupalley.com/0/0/1/3/2548142.JPG")
+    @cosmetic = Cosmetic.create
   end
 
   def compare
