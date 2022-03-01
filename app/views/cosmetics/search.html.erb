@@ -1,4 +1,31 @@
-<div class="global-padding">
-  <%= image_tag "https://img.makeupalley.com/0/0/1/3/2548142.JPG", alt:"cosmetic", width: 200 %>
+<div class="container">
+  <div class="row justify-content-center text-center">
+    <div class="col-10">
+    <h2 class="my-4" >Take or Upload a clear picture of your product with visible text</h2>
+    <div class="form-inputs">
+    <%= simple_form_for(@cosmetic) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :brand %>
+      <%= f.input :category %>
+      <%= f.input :description %>
+      <%= f.input :average_price %>
+      <%= f.input :cosmetic_image, as: :file %>
+      <%= f.button :submit, as: 'Confirm my product', class: "button" %>
+    </div>
+    <% end %>
+    <div class="image-container">
+      <video class="image-video">
+        Video stream not available.
+      </video>
+      <p class="image-startbutton">📸</p>
+    </div>
+    <%= link_to 'Back', root_path, class: 'button'  %>
+
+
+
+<% if @cosmetic.cosmetic_image.present? %>
+
+  <%#= image_tag "https://img.makeupalley.com/0/0/1/3/2548142.JPG", alt:"cosmetic", width: 200 %>
   <%= render 'form_search' %>
 </div>
+<% end %>

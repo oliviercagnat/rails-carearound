@@ -24,6 +24,10 @@ import "bootstrap";
 //import 'jquery'
 //import 'select2'
 
+import { initCosmeImage } from '../components/camera';
+
+
+
 import { initStarRating } from '../plugins/init_star_rating';
 
 
@@ -34,6 +38,9 @@ document.addEventListener('turbolinks:load', () => {
     //$('.js-example-basic-multiple').select2();
     // });
     //console.log("hello")
+  if (document.querySelector('.image-video')) {
+    initCosmeImage();
+  }
     initStarRating();  // => You have to put hte function inside tubolinks or it wont load until the page has been reloded (AJAX)
 });
 
