@@ -2,7 +2,7 @@ require "json"
 require "open-uri"
 import 'results.json'
 
-DEFAULT_IMAGE = "https://cdn.shopify.com/s/files/1/1338/0845/collections/lippie-pencil_grande.jpg?v=1512588769"
+DEFAULT_IMAGE = "https://4.imimg.com/data4/MJ/EN/MY-4313393/nourishing-face-cream-500x500.jpg"
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -18,7 +18,7 @@ puts "Cleaning DB..."
 Review.destroy_all
 Cosmetic.destroy_all
 User.destroy_all
-Ingredient.destroy_all
+# Ingredient.destroy_all
 
 puts "Creating users..."
 
@@ -93,12 +93,16 @@ puts "Creating users..."
 
   #!!!! API Seeds below !!!!!!!
   # puts Dir.pwd # => is it really usefull ?
+
+
   file_path = File.join(Rails.public_path.join('Cosmetics_file.json')) #=> In order to speed up the process I downloded the file (Also there were issues from too many pull requests)
   json = File.read(file_path)
 
 # json = URI.open("http://makeup-api.herokuapp.com/api/v1/products.json").read => original file
   item_info = JSON.parse(json)
-    item_info.each do |item|
+
+
+    item_info.first(10).each do |item|
       created_cosmetic = Cosmetic.create!(  # => I saved the new cosmetic created into the a varible to be used later on while creating reviews
       name: item["name"],
       description: item["description"].blank? ? "Test" : item["description"],  # Some of the itmes were not getting anything for the below field so i needed to add ternary operators
@@ -135,15 +139,17 @@ puts "Creating users..."
         end
       end
 
-
   puts "#{Cosmetic.count} cosmetics created!"
 # Create review for each cosmetic ()
 
 #parsing the japanese json below and creating jp products for out db
 
   file = File.read("results.json")
+
   results_json = JSON.parse(file)
-  results_json.each do |result|
+
+  results_json.first(10).each do |result|
+
     split_first_ingredient =
       if result["composition"].match(/】/)
         result["composition"].chomp.split("、")[0].split("】")[1]
@@ -161,16 +167,26 @@ puts "Creating users..."
         ingredients << Ingredient.create!(name_en: name_en.text.split(" (")[0], name_jp: ingredient_jp)
       end
     end
-    new_cosme = Cosmetic.create!(
+
+    japanese_cosme = Cosmetic.create!(
       name: DeepL.translate(result["product"], 'JA', 'EN'),
-      cosmetic_image: result["image_link"][1..-2],
       category: "Skin care",
       description: "Skin care is the range of practices that support skin integrity, enhance its appearance and relieve skin conditions. They can include nutrition, avoidance of excessive sun exposure and appropriate use of emollients.",
       average_price: rand(1000...20000),
-      brand: ["Seiko", "SKII", "Pelume", "Japan Labo"].sample )
-    new_cosme.ingredients << ingredients
+      brand: ["Seiko", "SKII", "Pelume", "Japan Labo"].sample
+    )
+    image_link = "https://www.matsukiyo.co.jp" + result["image_link"][1..-2]
+    if image_link == "https://www.matsukiyo.co.jp"
+      image_link = "Test"
+    end
+    begin
+      image_uri = URI.open(image_link)
+    rescue
+      image_uri = URI.open(DEFAULT_IMAGE)
+    end
+    japanese_cosme.cosmetic_image.attach(io: image_uri, filename: "picture")
+    japanese_cosme.ingredients << ingredients
+    japanese_cosme.save
   end
 
-
 #.text.split(" (")[0] this will be added to line 138 when seed is working
-
