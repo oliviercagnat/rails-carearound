@@ -16,10 +16,6 @@ class CosmeticsController < ApplicationController
     end
   end
 
-  def confirm
-    @cosmetic = Cosmetic.find(params[:id])
-  end
-
   def new
     cosmetic_policy_authorize
     Cosmetic.new
@@ -77,7 +73,7 @@ class CosmeticsController < ApplicationController
   end
 
   def search
-    @info = Ocr.extract_text("https://img.makeupalley.com/0/0/1/3/2548142.JPG")
+    @info = Ocr.extract_text(:cosmetic_image)
     @cosmetic = Cosmetic.create
   end
 
@@ -85,6 +81,10 @@ class CosmeticsController < ApplicationController
     #@cosmetics = SearchJp.search
     @cosmetics = Cosmetic.includes(:ingredients).where.not(ingredients: {id: nil}).where(ingredients: {name_en: @cosmetic.tag_list })
     #@cosmetic_ingredients = Ingredient.find_by([:id]params[:cosmetic_id])
+  end
+
+  def confirm
+    @cosmetic = Cosmetic.find(params[:id])
   end
 
   private
