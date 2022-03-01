@@ -7,7 +7,8 @@ class CosmeticsController < ApplicationController
   before_action :authenticate_user!, only: [:toggle_favorite, :update, :index]
 
   def index
-    @cosmetics = policy_scope(Cosmetic).first(50)
+    # @cosmetics = policy_scope(Cosmetic).first(50)
+    @cosmetics = policy_scope(Cosmetic)
     # When we display all, we get some cosmetics with no brand, description, etc.
     # Display less so we don't get too much errors".
     # Later will implement search button anyway and will get only the ones we look for.
