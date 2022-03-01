@@ -18,7 +18,7 @@ puts "Cleaning DB..."
 Review.destroy_all
 Cosmetic.destroy_all
 User.destroy_all
-Ingredient.destroy_all
+# Ingredient.destroy_all
 
 puts "Creating users..."
 
@@ -98,7 +98,7 @@ puts "Creating users..."
 
 # json = URI.open("http://makeup-api.herokuapp.com/api/v1/products.json").read => original file
   item_info = JSON.parse(json)
-    item_info.each do |item|
+    item_info.first(20).each do |item|
       created_cosmetic = Cosmetic.create!(  # => I saved the new cosmetic created into the a varible to be used later on while creating reviews
       name: item["name"],
       description: item["description"].blank? ? "Test" : item["description"],  # Some of the itmes were not getting anything for the below field so i needed to add ternary operators
@@ -143,7 +143,7 @@ puts "Creating users..."
 
   file = File.read("results.json")
   results_json = JSON.parse(file)
-  results_json.each do |result|
+  results_json.first(20).each do |result|
     split_first_ingredient =
       if result["composition"].match(/】/)
         result["composition"].chomp.split("、")[0].split("】")[1]
@@ -160,11 +160,12 @@ puts "Creating users..."
         name_en = DeepL.translate ingredient_jp, 'JA', 'EN'
         ingredients << Ingredient.create!(name_en: name_en.text.split(" (")[0], name_jp: ingredient_jp)
       end
+
+      # cosmetic_image: result["image_link"][1..-2] => Need actual image link
     end
-    new_cosme = Cosmetic.create!(name: DeepL.translate(result["product"], 'JA', 'EN'), cosmetic_image: result["image_link"][1..-2], category: "Skin care", description: "Skin care is the range of practices that support skin integrity, enhance its appearance and relieve skin conditions. They can include nutrition, avoidance of excessive sun exposure and appropriate use of emollients.", average_price: rand(1000...20000), brand: ["Seiko", "SKII", "Pelume", "Japan Labo"].sample )
+    new_cosme = Cosmetic.create!(name: DeepL.translate(result["product"], 'JA', 'EN'), category: "Skin care", description: "Skin care is the range of practices that support skin integrity, enhance its appearance and relieve skin conditions. They can include nutrition, avoidance of excessive sun exposure and appropriate use of emollients.", average_price: rand(1000...20000), brand: ["Seiko", "SKII", "Pelume", "Japan Labo"].sample )
     new_cosme.ingredients << ingredients
   end
 
 
 #.text.split(" (")[0] this will be added to line 138 when seed is working
-

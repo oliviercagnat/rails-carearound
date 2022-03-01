@@ -1,3 +1,16 @@
 .review-card {
-  background-color: #fbf3f7;
+  border-radius: 5px;
+  background-color: #fff;
+  overflow: hidden;
+  margin-top: .3rem;
+  width: 18rem;
+  height: 14rem;
+  padding-top: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.review-card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem;
 }
