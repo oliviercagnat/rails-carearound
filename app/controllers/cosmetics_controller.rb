@@ -80,6 +80,4 @@ class CosmeticsController < ApplicationController
   def cosmetic_params
     params.require(:cosmetic).permit(:cosmetic_image, :name, :description, :brand, :average_price, :category, :ingredient_id, tag_list: [])
   end
-
-
 end
