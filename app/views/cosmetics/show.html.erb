@@ -1,4 +1,4 @@
-<div class="col-12 global-padding">
+<div class="col-12 col-md-4 global-padding">
     <div class="cosme-card">
       <div class="cosme-card-image">
         <%= cl_image_tag @cosmetic.cosmetic_image.key, class: "img"%>
@@ -7,8 +7,8 @@
         <div class="cosme-card-header-info">
           <div class="cosme-card-header-info-rating">
             <div class="cosme-card-header-info-rating-numbers">
-              <h3>4.0</h3>
-              <p>12<br>ratings</p>
+              <h3><%=@cosmetic.average_review %></h3>
+              <p><%= @cosmetic.total_reviews %><br>ratings</p>
             </div>
             <p class="mb-0">Stars</p>
           </div>
@@ -43,7 +43,7 @@
         <p>Compare your product and find the best fit through the tags</p>
         <%= link_to "Find my match", compare_cosmetic_path(@cosmetic), class: "button cosme-card-body-button-match"  %>
         <div class="cosme-card-line"><hr /></div>
-           <div class=""> <%= render "cosmetics/review_form", locals: {cosmetic: @cosmetic, review: @review} %> </div>
+           <div class="review-all"> <%= render "cosmetics/review_form", locals: {cosmetic: @cosmetic, review: @review} %> </div>
           <div class="user-reviews"> <%= render "review_card_list", reviews: @cosmetic.reviews.reverse %> </div>
       </div>
     </div>

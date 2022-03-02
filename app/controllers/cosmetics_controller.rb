@@ -67,6 +67,7 @@ class CosmeticsController < ApplicationController
     #@cosmetic_ingredients = Ingredient.find_by([:id]params[:cosmetic_id])
   end
 
+
   private
 
   def cosmetic_policy_authorize
