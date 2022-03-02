@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   #get 'cosmetics//compare', to: 'cosmetics#compare', as: :compare
 
 
+
   get 'pages/user_profile' => 'pages#user_profile'
 
   # users can leave a review about a cosmetic and display them on cosmetic's page
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
     member do
       post 'toggle_favorite', to: "cosmetics#toggle_favorite"
       get 'compare', to: 'cosmetics#compare'
+      get 'confirm', to: 'cosmetics#confirm'
 
     end
 

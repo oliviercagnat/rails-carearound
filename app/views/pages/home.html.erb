@@ -4,6 +4,7 @@
     <div class="container">
       <div class="row">
         <% @cosmetics.each do |cosmetic| %>
+        <%#<% @jp_cosmetics.each do |cosmetic| %>%>
           <%= render 'cosmetics/mini_cosme_card', cosmetic: cosmetic %>
         <% end %>
       </div>
