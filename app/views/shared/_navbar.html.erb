@@ -1,14 +1,27 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag("logos/carearound_logo.png") %>
   <% end %>
 
+
+  <% if !user_signed_in? %>
+  <ul class="navbar-nav ml-auto login">
+    <li class="nav-item">
+      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+    </li>
+  </ul>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <% if policy(Cosmetic).index? %>
+      <div class="d-flex justify-content-between form-inline"><%= render "shared/search_form" %></div>
+    <% end %>
+
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <% if policy(Cosmetic).index? %>
-    <div class="d-flex justify-content-between form-inline"><small>*Separate search terms by commas</small><%= render "shared/search_form" %></div>
-  <% end %>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -16,14 +29,9 @@
         <li class="nav-item dropdown">
           <%= image_tag "avatar.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", pages_user_profile_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
-        <li class="nav-item">
-          <%= link_to "Scan Another Item", scan_path, class: "nav-link" %>
-        </li>
-
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
@@ -31,4 +39,7 @@
       <% end %>
     </ul>
   </div>
+
+<% end %>
+
 </div>
