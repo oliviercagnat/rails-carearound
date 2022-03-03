@@ -78,13 +78,13 @@ class CosmeticsController < ApplicationController
   def search
     if params[:cosmetic].present?
       binding.pry
-      @cosmetic = Cosmetic.new(cosmetic_params)
+      #@cosmetic = Cosmetic.new(cosmetic_params)
       cosmetic_policy_authorize
-      if @cosmetic.save
-        redirect_to confirm_cosmetic_path(@cosmetic)
-      else
-        redirect_to scan_path
-      end
+      #if @cosmetic.save
+        #redirect_to confirm_cosmetic_path(@cosmetic)
+      #else
+        #redirect_to scan_path
+      #end
     end
   end
 
@@ -95,10 +95,9 @@ class CosmeticsController < ApplicationController
   end
 
   def confirm
-    p @cosmetic
-    @image = @cosmetic.cosmetic_image
-    @info = Ocr.extract_text(@image)
-
+    image = @cosmetic.cosmetic_image
+    @info = Ocr.extract_text(image)
+    @cosmetic.update
     cosmetic_policy_authorize
   end
 

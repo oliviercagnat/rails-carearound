@@ -14,7 +14,7 @@
 </div>
 
   <tr>
-    <% if @cosmetic.cosmetic_image.attached? %>
+    <%#= if @cosmetic.cosmetic_image.attached? %>
       <td><%= cl_image_tag @cosmetic.cosmetic_image.key , alt: "alttext", style: "width: 200px" %></td>
-    <% end %>
+    <%#= end %>
   </tr>

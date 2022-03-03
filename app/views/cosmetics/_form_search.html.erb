@@ -1,4 +1,4 @@
-<%= simple_form_for :search, url: scan_path, method: "get" do |f| %>
+<%= simple_form_for :search, url: scan_path, method: "patch" do |f| %>
   <%= f.input :cosmetic_image, as: :file, height: 200 %>
   <%= f.input :brand, input_html: {value: "EGO"} %>
   <%= f.input :name, input_html: {value: "#{@info[0].downcase.capitalize}"} %>
