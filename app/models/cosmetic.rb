@@ -23,6 +23,7 @@ class Cosmetic < ApplicationRecord
   end
 
   def average_review
+    total_reviews = self.reviews.count.to_f
     total_rating = self.reviews.sum(:rating)
     total_rating / total_reviews
   end
