@@ -1,5 +1,6 @@
 class CosmeticsController < ApplicationController
-  before_action :set_cosmectic, only: %i[show compare]
+  skip_before_action :verify_authenticity_token, only: [:create]
+  before_action :set_cosmectic, only: %i[show compare confirm]
   before_action :skip_authorization, only: [:search, :compare]
   # The user must be logged in to like a cosmetic.
   # The toggle_favorite action is called if the user is logged in,
@@ -7,7 +8,9 @@ class CosmeticsController < ApplicationController
   before_action :authenticate_user!, only: [:toggle_favorite, :update, :index]
 
   def create
-    @cosmetic = Cosmetic.new(cosmetic_params)
+    p params
+    @cosmetic = Cosmetic.new({cosmetic_image: cosmetic_params[:cosmetic_image], name: "Name", description: "Description", brand:
+      "Brand", average_price: 0, category: "Category"})
     cosmetic_policy_authorize
     if @cosmetic.save
       redirect_to confirm_cosmetic_path(@cosmetic)
@@ -73,8 +76,16 @@ class CosmeticsController < ApplicationController
   end
 
   def search
-    @info = Ocr.extract_text(:cosmetic_image)
-    @cosmetic = Cosmetic.create
+    if params[:cosmetic].present?
+      binding.pry
+      @cosmetic = Cosmetic.new(cosmetic_params)
+      cosmetic_policy_authorize
+      if @cosmetic.save
+        redirect_to confirm_cosmetic_path(@cosmetic)
+      else
+        redirect_to scan_path
+      end
+    end
   end
 
   def compare
@@ -84,7 +95,11 @@ class CosmeticsController < ApplicationController
   end
 
   def confirm
-    @cosmetic = Cosmetic.find(params[:id])
+    p @cosmetic
+    @image = @cosmetic.cosmetic_image
+    @info = Ocr.extract_text(@image)
+
+    cosmetic_policy_authorize
   end
 
   private

@@ -41,12 +41,19 @@ const takePicture = async () => {
   startbutton.innerText = "✅";
   video.pause();
   // Send the selfie to Rails backend to store it
-  Rails.ajax({
-    url: "/scan",
-    type: "post",
-    data: formData
-  })
+  const newForm = document.getElementById("cosmetic_cosmetic_image");
+  newForm.append('cosmetic[cosmetic_image]', data, 'cosme_image.png');
+
+    let response = await fetch('/cosmetics', {
+      method: 'POST',
+      body: formData
+    });
+
+    let result = await response.json();
+
+    alert(result.message);
 }
+
 navigator.mediaDevices.getUserMedia({ video: true, audio: false })
   .then(function (stream) {
     video.srcObject = stream;

@@ -7,9 +7,14 @@
         <%= f.input :brand, input_html: {value: "#{@info[0].downcase.capitalize}"} %>
         <%= f.input :name, input_html: {value: "#{@info[1].downcase.capitalize}"} %>
         <%= f.input :description, input_html: {value: "#{@info[2].downcase.capitalize} #{@info[2].downcase.capitalize}"} %>
-        <%= f.submit "Find your match", cosmetic_compare_path, class: "button" %>
+        <%= f.submit class: "button" %>
       <% end %>
     </div>
   </div>
 </div>
 
+  <tr>
+    <% if @cosmetic.cosmetic_image.attached? %>
+      <td><%= cl_image_tag @cosmetic.cosmetic_image.key , alt: "alttext", style: "width: 200px" %></td>
+    <% end %>
+  </tr>

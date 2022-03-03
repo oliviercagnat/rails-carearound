@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'cosmetics/search', to: 'cosmetics#search', as: :scan
+  post 'cosmetics/search', to: 'cosmetics#create'
   #get 'cosmetics//compare', to: 'cosmetics#compare', as: :compare
 
 
