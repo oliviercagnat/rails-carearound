@@ -23,7 +23,11 @@ class Cosmetic < ApplicationRecord
   end
 
   def average_review
+    if total_reviews == 0
+      0
+    else
     total_rating = self.reviews.sum(:rating)
     total_rating / total_reviews
+    end
   end
 end

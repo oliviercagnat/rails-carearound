@@ -128,18 +128,6 @@ puts "Creating users..."
       new_shop_url = ["https://www.the-body-shop.co.jp/shop/","https://www.sephora.com/", "https://www.maccosmetics.jp/collections-ruby-woo-tokyo", "https://maison.kose.co.jp/site/awake/c/c01/", "https://online.naturesway.jp/"]
 
       # Can create a random number of reviews for products we saved above (only the product we just save)
-      Cosmetic.all.each do |cosmetic|
-        5.times do
-          Review.create!(cosmetic_id: cosmetic.id,
-          user_id: user.id,
-          content: new_review.sample,
-          rating: rand(1..5),
-          shop_url: new_shop_url.sample
-          )
-        end
-      end
-
-  puts "#{Cosmetic.count} cosmetics created!"
 # Create review for each cosmetic ()
 
 #parsing the japanese json below and creating jp products for out db
@@ -188,5 +176,18 @@ puts "Creating users..."
     japanese_cosme.ingredients << ingredients
     japanese_cosme.save
   end
+
+   Cosmetic.all.each do |cosmetic|   ### Because this wasnt moved down the new cosmetics from the scrapped file were not in the loop and did not get any reviews
+        5.times do
+          Review.create!(cosmetic_id: cosmetic.id,
+          user_id: user.id,
+          content: new_review.sample,
+          rating: rand(1..5),
+          shop_url: new_shop_url.sample
+          )
+        end
+      end
+
+  puts "#{Cosmetic.count} cosmetics created!"
 
 #.text.split(" (")[0] this will be added to line 138 when seed is working
