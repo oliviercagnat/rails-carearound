@@ -13,7 +13,7 @@
                 <% end %>
               </div>
               <div class="mini-cosme-card-header-info-rating">
-                <h3 class="mini-cosme-card-header-info-rating-number"><%= cosmetic.average_review %></h3>
+                <h3 class="mini-cosme-card-header-info-rating-number"><%= render "components/average_star_rating",cosmetic: cosmetic%></h3>
                 <p class="mini-cosme-card-header-info-rating-text"><%= cosmetic.total_reviews %><br>ratings</p>
               </div>
               <p>Stars</p>

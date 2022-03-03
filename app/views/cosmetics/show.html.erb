@@ -7,7 +7,7 @@
         <div class="cosme-card-header-info">
           <div class="cosme-card-header-info-rating">
             <div class="cosme-card-header-info-rating-numbers">
-              <p><%= @cosmetic.average_review %></p>
+              <p><%= render "components/average_star_rating", cosmetic: @cosmetic%></p>
               <p><%= @cosmetic.total_reviews %><br>ratings</p>
             </div>
             <p class="mb-0">Stars</p>
