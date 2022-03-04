@@ -92,12 +92,14 @@ class CosmeticsController < ApplicationController
     #@cosmetic_ingredients = Ingredient.find_by([:id]params[:cosmetic_id])
   end
 
+
   def confirm
     image = "http://res.cloudinary.com/dhkk2emak/image/upload/v1/development/#{@cosmetic.cosmetic_image.key}"#helpers.url_for(@cosmetic.cosmetic_image)
     @info = Ocr.extract_text(image)
     update
     cosmetic_policy_authorize
   end
+
 
   private
 
@@ -112,6 +114,4 @@ class CosmeticsController < ApplicationController
   def cosmetic_params
     params.require(:cosmetic).permit(:cosmetic_image, :name, :description, :brand, :average_price, :category, :ingredient_id, tag_list: [])
   end
-
-
 end
