@@ -1,10 +1,23 @@
+<%# This page should display a container with the last product edited and dispay its basinc info %>
+<%# then should display a list of products WHERE %>
+<%# japanese_cosmetic.brand && japanese_cosmetic.name includes this.brand && this.name %>
+<%# OR japanese_cosme.ingredient includes this.ingredient.first(5)%>
+<header class="container-fluid col-12">
+  <h1 class="text-center">Your product</h1>
+  <%= render 'cosmetics/mini_cosme_card', cosmetic: @cosmetic %>
+</header>
+
 <div class="row">
   <div class="col-12">
     <h1 class="text-center">Results</h1>
+
       <% @cosmetics.each do |cosmetic| %>
+
         <div class="cosme-card">
           <div class="cosme-card-header">
-            <%= cl_image_tag cosmetic.cosmetic_image.key, class: "img" %>
+            <% if cosmetic.cosmetic_image.key != nil %>
+              <%= cl_image_tag cosmetic.cosmetic_image.key, class: "img" %>
+            <% end %>
           </div>
           <div class="cosme-card-body">
             <p>Brand : <%= cosmetic.brand %></p>

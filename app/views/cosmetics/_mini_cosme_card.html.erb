@@ -1,4 +1,5 @@
 <div class="mini-cosme-card">
+
   <div class="mini-cosme-card-header">
     <%= cl_image_tag cosmetic.cosmetic_image.key, class: "img"%>
     <div class="mini-cosme-card-header-info">
@@ -23,5 +24,6 @@
   <div class="mini-cosme-card-body-bottom">
     <p class="mini-cosme-card-body-bottom-tag"><%= cosmetic.category.capitalize %></p>
     <%= link_to "See more", cosmetic_path(cosmetic), class: "button mini-cosme-card-body-bottom-button"  %>
+    <%= link_to "Edit", edit_cosmetic_path(cosmetic), class: "button mini-cosme-card-body-bottom-button"  %>
   </div>
 </div>

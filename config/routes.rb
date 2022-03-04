@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   get 'cosmetics/search', to: 'cosmetics#search', as: :scan
   #get 'cosmetics//compare', to: 'cosmetics#compare', as: :compare
 
-
-
   get 'pages/user_profile' => 'pages#user_profile'
 
   # users can leave a review about a cosmetic and display them on cosmetic's page
@@ -15,10 +13,9 @@ Rails.application.routes.draw do
     # while the method post ensures that the action will be sent securely to the db and not replicated on page refresh.
     # The generated route will look like this: cosmetics/:id/toggle_favorite
     member do
-      post 'toggle_favorite', to: "cosmetics#toggle_favorite"
       get 'compare', to: 'cosmetics#compare'
+      post 'toggle_favorite', to: "cosmetics#toggle_favorite"
       get 'confirm', to: 'cosmetics#confirm'
-
     end
 
     resources :reviews, only: [ :new, :create ]

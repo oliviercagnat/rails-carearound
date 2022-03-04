@@ -89,12 +89,8 @@ puts "Creating users..."
   cosmetic5.cosmetic_image.attach(io: image5, filename: "picture")
   puts "created Cosmetic 5"
 
-
-
   #!!!! API Seeds below !!!!!!!
   # puts Dir.pwd # => is it really usefull ?
-
-
   file_path = File.join(Rails.public_path.join('Cosmetics_file.json')) #=> In order to speed up the process I downloded the file (Also there were issues from too many pull requests)
   json = File.read(file_path)
 
@@ -145,20 +141,24 @@ puts "Creating users..."
 #parsing the japanese json below and creating jp products for out db
 
   file = File.read("results.json")
-
   results_json = JSON.parse(file)
 
   results_json.first(10).each do |result|
 
     split_first_ingredient =
+    # take ingredient list without the unwanted text in the scraped data
       if result["composition"].match(/】/)
         result["composition"].chomp.split("、")[0].split("】")[1]
       else
         result["composition"].chomp.split("、")[0].split("＞")[1]
       end
+    # insert in array list of ingredient
     rest_of_ingredient_list = result["composition"].chomp.split("、")[1..-1]
+    # add the first ingredient without the unwanted info
     full_ingredient_list = rest_of_ingredient_list << split_first_ingredient
+
     ingredients = []
+
     full_ingredient_list.each do |ingredient_jp|
       if Ingredient.find_by(name_jp: ingredient_jp).present?
         ingredients << Ingredient.find_by(name_jp: ingredient_jp)

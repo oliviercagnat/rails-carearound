@@ -79,12 +79,18 @@ class CosmeticsController < ApplicationController
   def search
     @info = Ocr.extract_text("https://img.makeupalley.com/0/0/1/3/2548142.JPG")
     @cosmetic = Cosmetic.create
+    # if this products exists, compare datas with DB
+    # else create a new product & save it to our DB
   end
 
   def compare
-    #@cosmetics = SearchJp.search
+    @cosmetic = Cosmetic.find(params[:id])
     @cosmetics = Cosmetic.includes(:ingredients).where.not(ingredients: {id: nil}).where(ingredients: {name_en: @cosmetic.tag_list })
     #@cosmetic_ingredients = Ingredient.find_by([:id]params[:cosmetic_id])
+
+    # After scanning a product and looking in the DB for potential doppleganger, display them
+    # But let's start by displaying our json file
+    @cosmetics = policy_scope(Cosmetic)
   end
 
   private
