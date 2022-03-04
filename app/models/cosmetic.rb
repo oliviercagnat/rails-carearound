@@ -16,4 +16,15 @@ class Cosmetic < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  def total_reviews
+    total_reviews = self.reviews.count
+    return total_reviews
+  end
+
+  def average_review
+    total_reviews = self.reviews.count.to_f
+    total_rating = self.reviews.sum(:rating)
+    total_rating / total_reviews
+  end
 end
