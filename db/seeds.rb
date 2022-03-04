@@ -34,60 +34,60 @@ puts "Creating users..."
   puts "User #{user.name} created!"
   puts "Creating Cosmetics..."
 
-  cosmetic1 = Cosmetic.create!(
-    name: "Repair and Care",
-    description: "Repair & Care Body Lotion cares for your very dry skin & works in balance with its Microbiome. Skin's Microbiome is like an invisible layer of natural bacteria on your body - they're important for maintaining skin's health & beauty. This repairing NIVEA body lotion with Dexpanthenol strengthens the natural barrier of your skin, instantly calms irritated areas and gives you relief from very dry, tight skin for 72h with regular use. It is infused with 'Intense Moisture Serum'; a unique composition of skin’s own moisturiser, moisture-locking lipids and care providing oils that bind and hold water in the skin so the moisture cannot evaporate easily into the surrounding area. Try Repair & Care Lotion body cream for 72h relief from dry, tight skin & works in balance with its microbiome.",
-    brand: "Nivea",
-    average_price: 1899,
-    category: "Skin care"
-  )
-  image1 = URI.open("https://images-us.nivea.com/-/media/media-center-items/6/5/e/212376-screen.jpg")
-  cosmetic1.cosmetic_image.attach(io: image1, filename: "picture")
-  puts "created Cosmetic 1"
+  # cosmetic1 = Cosmetic.create!(
+  #   name: "Repair and Care",
+  #   description: "Repair & Care Body Lotion cares for your very dry skin & works in balance with its Microbiome. Skin's Microbiome is like an invisible layer of natural bacteria on your body - they're important for maintaining skin's health & beauty. This repairing NIVEA body lotion with Dexpanthenol strengthens the natural barrier of your skin, instantly calms irritated areas and gives you relief from very dry, tight skin for 72h with regular use. It is infused with 'Intense Moisture Serum'; a unique composition of skin’s own moisturiser, moisture-locking lipids and care providing oils that bind and hold water in the skin so the moisture cannot evaporate easily into the surrounding area. Try Repair & Care Lotion body cream for 72h relief from dry, tight skin & works in balance with its microbiome.",
+  #   brand: "Nivea",
+  #   average_price: 1899,
+  #   category: "Skin care"
+  # )
+  # image1 = URI.open("https://images-us.nivea.com/-/media/media-center-items/6/5/e/212376-screen.jpg")
+  # cosmetic1.cosmetic_image.attach(io: image1, filename: "picture")
+  # puts "created Cosmetic 1"
 
-  cosmetic2 = Cosmetic.create!(
-    name: "Honey Bee Lip Balm",
-    description: "Loved by nature and perfectly sweet. Kind of like you. This natural balm helps nourish your dry lips with a touch of golden Honey and Vitamin E, leaving them soft, supple and super happy",
-    brand: "Burts Bees",
-    average_price: 3007,
-    category: "Lip care"
-  )
-  image2 = URI.open("https://static.thcdn.com/images/large/original//productimg/1600/1600/10302464-1554760859219636.jpg")
-  cosmetic2.cosmetic_image.attach(io: image2, filename: "picture")
-  puts "created Cosmetic 2"
+  # cosmetic2 = Cosmetic.create!(
+  #   name: "Honey Bee Lip Balm",
+  #   description: "Loved by nature and perfectly sweet. Kind of like you. This natural balm helps nourish your dry lips with a touch of golden Honey and Vitamin E, leaving them soft, supple and super happy",
+  #   brand: "Burts Bees",
+  #   average_price: 3007,
+  #   category: "Lip care"
+  # )
+  # image2 = URI.open("https://static.thcdn.com/images/large/original//productimg/1600/1600/10302464-1554760859219636.jpg")
+  # cosmetic2.cosmetic_image.attach(io: image2, filename: "picture")
+  # puts "created Cosmetic 2"
 
-  cosmetic3 = Cosmetic.create!(
-    name: "Double Wear Stay-in-Place Foundation",
-    description: "A 24-hour liquid foundation with a flawless, natural, matte finish that unifies uneven skin tone and covers imperfections with buildable coverage.",
-    brand: "Estee Lauder",
-    average_price: 5050,
-    category: "Skin care",
-  )
-  image3 = URI.open("https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_YA6FCT_640x640_0.jpg")
-  cosmetic3.cosmetic_image.attach(io: image3, filename: "picture")
-  puts "created Cosmetic 3"
+  # cosmetic3 = Cosmetic.create!(
+  #   name: "Double Wear Stay-in-Place Foundation",
+  #   description: "A 24-hour liquid foundation with a flawless, natural, matte finish that unifies uneven skin tone and covers imperfections with buildable coverage.",
+  #   brand: "Estee Lauder",
+  #   average_price: 5050,
+  #   category: "Skin care",
+  # )
+  # image3 = URI.open("https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_YA6FCT_640x640_0.jpg")
+  # cosmetic3.cosmetic_image.attach(io: image3, filename: "picture")
+  # puts "created Cosmetic 3"
 
-  cosmetic4 = Cosmetic.create!(
-    name: "Black Ecstasy Mascara ",
-    description: "Black Ecstasy features a lightweight formula and unique brush that achieve the ultimate volume, length, and curl in a flash. The cylindrical, multidirectional brush is designed to capture and coat every lash. Formulated with four patented, multi-effect waxes for seamless application, this mascara is formulated with exclusive color-boosting polymers to coat lashes with intense black pigment.",
-    brand: "Armani",
-    average_price: 10988,
-    category: "Eye care"
-  )
-  image4 = URI.open("https://canary.contestimg.wish.com/api/webimage/589d0fc6ae37de52328d9dce-large.jpg?cache_buster=b46d423327769ef90dcff369143e0acc")
-  cosmetic4.cosmetic_image.attach(io: image4, filename: "picture")
-  puts "created Cosmetic 4"
+  # cosmetic4 = Cosmetic.create!(
+  #   name: "Black Ecstasy Mascara ",
+  #   description: "Black Ecstasy features a lightweight formula and unique brush that achieve the ultimate volume, length, and curl in a flash. The cylindrical, multidirectional brush is designed to capture and coat every lash. Formulated with four patented, multi-effect waxes for seamless application, this mascara is formulated with exclusive color-boosting polymers to coat lashes with intense black pigment.",
+  #   brand: "Armani",
+  #   average_price: 10988,
+  #   category: "Eye care"
+  # )
+  # image4 = URI.open("https://canary.contestimg.wish.com/api/webimage/589d0fc6ae37de52328d9dce-large.jpg?cache_buster=b46d423327769ef90dcff369143e0acc")
+  # cosmetic4.cosmetic_image.attach(io: image4, filename: "picture")
+  # puts "created Cosmetic 4"
 
-  cosmetic5 = Cosmetic.create!(
-    name: "NYX PROFESSIONAL MAKEUP HD Studio Photogenic Concealer Wand",
-    description: "This concealer covers blemishes, imperfections, skin discoloration, dark circles under eye, and is safe for all skin types; can also be used as a contouring concealer to sculpt chin and cheekbones",
-    brand: "NYX PROFESSIONAL MAKEUP",
-    average_price: 5899,
-    category: "Skin care"
-  )
-  image5 = URI.open("https://adn-static1.nykaa.com/media/catalog/product/8/0/800897123284_01_1.jpg")
-  cosmetic5.cosmetic_image.attach(io: image5, filename: "picture")
-  puts "created Cosmetic 5"
+  # cosmetic5 = Cosmetic.create!(
+  #   name: "NYX PROFESSIONAL MAKEUP HD Studio Photogenic Concealer Wand",
+  #   description: "This concealer covers blemishes, imperfections, skin discoloration, dark circles under eye, and is safe for all skin types; can also be used as a contouring concealer to sculpt chin and cheekbones",
+  #   brand: "NYX PROFESSIONAL MAKEUP",
+  #   average_price: 5899,
+  #   category: "Skin care"
+  # )
+  # image5 = URI.open("https://adn-static1.nykaa.com/media/catalog/product/8/0/800897123284_01_1.jpg")
+  # cosmetic5.cosmetic_image.attach(io: image5, filename: "picture")
+  # puts "created Cosmetic 5"
 
 
 
@@ -102,7 +102,7 @@ puts "Creating users..."
   item_info = JSON.parse(json)
 
 
-    item_info.first(10).each do |item|
+    item_info.first(100).each do |item|
       created_cosmetic = Cosmetic.create!(  # => I saved the new cosmetic created into the a varible to be used later on while creating reviews
       name: item["name"],
       description: item["description"].blank? ? "Test" : item["description"],  # Some of the itmes were not getting anything for the below field so i needed to add ternary operators
@@ -148,7 +148,7 @@ puts "Creating users..."
 
   results_json = JSON.parse(file)
 
-  results_json.first(10).each do |result|
+  results_json.first(50).each do |result|
 
     split_first_ingredient =
       if result["composition"].match(/】/)
