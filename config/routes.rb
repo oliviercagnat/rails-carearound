@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'cosmetics/search', to: 'cosmetics#search', as: :scan
+  post 'cosmetics/search', to: 'cosmetics#create'
   #get 'cosmetics//compare', to: 'cosmetics#compare', as: :compare
 
 
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
       post 'toggle_favorite', to: "cosmetics#toggle_favorite"
       get 'compare', to: 'cosmetics#compare'
       get 'confirm', to: 'cosmetics#confirm'
+      patch 'confirm', to: 'cosmetics#confirm'
 
     end
 
