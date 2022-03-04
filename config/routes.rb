@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       post 'toggle_favorite', to: "cosmetics#toggle_favorite"
       get 'compare', to: 'cosmetics#compare'
       get 'confirm', to: 'cosmetics#confirm'
+      patch 'confirm', to: 'cosmetics#confirm'
 
     end
 

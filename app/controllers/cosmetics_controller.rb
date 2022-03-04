@@ -1,6 +1,6 @@
 class CosmeticsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
-  before_action :set_cosmectic, only: %i[show compare confirm]
+  before_action :set_cosmetic, only: %i[show compare confirm update]
   before_action :skip_authorization, only: [:search, :compare]
   # The user must be logged in to like a cosmetic.
   # The toggle_favorite action is called if the user is logged in,
@@ -59,7 +59,6 @@ class CosmeticsController < ApplicationController
   end
 
   def update
-    @cosmetic = Cosmetic.find(params[:id])
     #@cosmetic.update(cosmetic_params)
     @cosmetic.tag_list.add(cosmetic_params[:tag_list])
     @cosmetic.save
@@ -77,14 +76,13 @@ class CosmeticsController < ApplicationController
 
   def search
     if params[:cosmetic].present?
-      binding.pry
       #@cosmetic = Cosmetic.new(cosmetic_params)
       cosmetic_policy_authorize
-      #if @cosmetic.save
-        #redirect_to confirm_cosmetic_path(@cosmetic)
-      #else
-        #redirect_to scan_path
-      #end
+      if @cosmetic.save
+        redirect_to confirm_cosmetic_path(@cosmetic)
+      else
+        redirect_to root_path
+      end
     end
   end
 
@@ -95,10 +93,12 @@ class CosmeticsController < ApplicationController
   end
 
   def confirm
-    image = @cosmetic.cosmetic_image
+    image = "http://res.cloudinary.com/dhkk2emak/image/upload/v1/development/#{@cosmetic.cosmetic_image.key}"#helpers.url_for(@cosmetic.cosmetic_image)
+
     @info = Ocr.extract_text(image)
-    @cosmetic.update
+    update
     cosmetic_policy_authorize
+
   end
 
   private
@@ -107,7 +107,7 @@ class CosmeticsController < ApplicationController
     authorize @cosmetic
   end
 
-  def set_cosmectic
+  def set_cosmetic
     @cosmetic = Cosmetic.find(params[:id])
   end
 

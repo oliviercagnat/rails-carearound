@@ -52,6 +52,7 @@ const takePicture = async () => {
     let result = await response.json();
 
     alert(result.message);
+  window.location.href("")
 }
 
 navigator.mediaDevices.getUserMedia({ video: true, audio: false })

@@ -5,10 +5,6 @@
     <div class="form-inputs">
     <%= simple_form_for Cosmetic.new , url: cosmetics_path, method: "post" do |f| %>
       <%= f.input :name %>
-      <%= f.input :brand %>
-      <%= f.input :category %>
-      <%= f.input :description %>
-      <%= f.input :average_price %>
       <%= f.input :cosmetic_image, as: :file %>
       <%= f.button :submit, class: "button" %>
     </div>
