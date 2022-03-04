@@ -94,11 +94,9 @@ class CosmeticsController < ApplicationController
 
   def confirm
     image = "http://res.cloudinary.com/dhkk2emak/image/upload/v1/development/#{@cosmetic.cosmetic_image.key}"#helpers.url_for(@cosmetic.cosmetic_image)
-
     @info = Ocr.extract_text(image)
     update
     cosmetic_policy_authorize
-
   end
 
   private
