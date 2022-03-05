@@ -59,9 +59,8 @@ class CosmeticsController < ApplicationController
   end
 
   def update
-    #@cosmetic.update(cosmetic_params)
     @cosmetic.tag_list.add(cosmetic_params[:tag_list])
-    @cosmetic.save
+    @cosmetic.update(cosmetic_params)
     cosmetic_policy_authorize
     redirect_to cosmetic_path(@cosmetic)
   end
@@ -94,7 +93,11 @@ class CosmeticsController < ApplicationController
 
 
   def confirm
-    image = "http://res.cloudinary.com/dhkk2emak/image/upload/v1/development/#{@cosmetic.cosmetic_image.key}"#helpers.url_for(@cosmetic.cosmetic_image)
+    if Rails.env == "development"
+      image = "http://res.cloudinary.com/dhkk2emak/image/upload/v1/development/#{@cosmetic.cosmetic_image.key}"#helpers.url_for(@cosmetic.cosmetic_image)
+    else
+      image = "http://res.cloudinary.com/dhkk2emak/image/upload/v1/production/#{@cosmetic.cosmetic_image.key}"
+    end
     @info = Ocr.extract_text(image)
     cosmetic_policy_authorize
   end

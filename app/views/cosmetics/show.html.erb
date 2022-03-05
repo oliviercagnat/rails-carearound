@@ -10,24 +10,24 @@
         <div class="cosme-card-header-info">
           <div class="cosme-card-header-info-rating">
             <div class="cosme-card-header-info-rating-numbers">
-              <p><%= @cosmetic.average_review%></p>
-              <p><%= @cosmetic.total_reviews %><br>ratings</p>
+              <h3 class="cosme-card-header-info-rating-number"><%= @cosmetic.average_review%></h3>
+              <p class="cosme-card-header-info-rating-text"><%= @cosmetic.total_reviews %><br>ratings</p>
             </div>
             <p class="mb-0"><%= render "components/average_star_rating", cosmetic: @cosmetic%></p>
           </div>
           <p class="cosme-card-header-info-price"><span>¥<%= @cosmetic.average_price %></span> avg.</p>
         </div>
         <div class="cosme-card-line"><hr /></div>
-        <% if @cosmetic.tag_list.size > 0 %>
-          <div class="cosme-card-header-tags">
+        <%# if @cosmetic.tag_list.size > 0 %>
+          <%# <div class="cosme-card-header-tags">
             <div class="row m-1">
                 <% @cosmetic.tag_list.each do |tag| %>
-                  <li class="tag tag-green"><%= tag %></li>
-                <% end %>
-                <div class="cosme-card-line"><hr /></div>
-            </div>
-          </div>
-        <% end %>
+                  <%# <li class="tag tag-green"><%= tag</li> %>
+                <%# <% end %>
+                <%# <div class="cosme-card-line"><hr /></div>
+            </div> %>
+          <%# </div> %>
+        <%# end %>
       </div>
       <div class="cosme-card-body">
         <div class="favorite-icon">

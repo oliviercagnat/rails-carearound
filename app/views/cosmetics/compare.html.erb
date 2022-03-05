@@ -1,22 +1,12 @@
-<div class="row">
-  <div class="col-12">
-    <h1 class="text-center">Results</h1>
-      <% @cosmetics.each do |cosmetic| %>
-        <div class="cosme-card">
-          <div class="cosme-card-header">
-            <%= cl_image_tag cosmetic.cosmetic_image.key, class: "img" %>
-          </div>
-          <div class="cosme-card-body">
-            <p>Brand : <%= cosmetic.brand %></p>
-            <p>Description : <%= cosmetic.description %></p>
-            <p class="tag-green">
-              <% cosmetic.ingredients.each do |ingredient|  %>
-                <%= ingredient.name_en %>
-              <% end %>
-            </p>
-          </div>
+<div class="row global-padding">
+  <div class="col-xs-12 col-sm-6">
+    <h3 class="text-center m-2">Pick your Japanese product.</h3>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <% @cosmetics.each do |cosmetic| %>
+            <%= render 'cosmetics/mini_cosme_card_with_favorite', cosmetic: cosmetic %>
+          <% end %>
         </div>
-      <% end %>
-    </ul>
+      </div>
   </div>
 </div>
