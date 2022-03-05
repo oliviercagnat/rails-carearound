@@ -15,11 +15,11 @@
 
   <% if user_signed_in? %>
     <% if policy(Cosmetic).index? %>
-    <div class= "navbar-title">
-      <%# <h3 class="navbar-title">CareAround</h3> %>
+    <div class= "navbar-title d-flex align-items-center m-auto">
       <%= link_to root_path do %>
-        <%= image_tag("logos/logo-long.png") %>
+        <%= image_tag("logos/logo.png") %>
       <% end %>
+      <h3>CareAround</h3>
     </div>
     <% end %>
   <% end %>
