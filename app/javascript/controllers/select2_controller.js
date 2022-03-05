@@ -7,10 +7,6 @@ export default class extends Controller {
   static values = { options: Object }
   connect() {
     $(this.element).select2(this.optionsValue);
-    console.log(this.element)
   }
 
 }
-
-
-
