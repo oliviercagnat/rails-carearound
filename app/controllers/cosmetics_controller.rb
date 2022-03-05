@@ -9,8 +9,8 @@ class CosmeticsController < ApplicationController
 
   def create
     p params
-    @cosmetic = Cosmetic.new({cosmetic_image: cosmetic_params[:cosmetic_image], name: "Name", description: "Description", brand:
-      "Brand", average_price: 0, category: "Category"})
+    @cosmetic = Cosmetic.new({ cosmetic_image: cosmetic_params[:cosmetic_image], name: "Name", description: "Description", brand:
+      "Brand", average_price: 0, category: "Category" })
     cosmetic_policy_authorize
     if @cosmetic.save
       redirect_to confirm_cosmetic_path(@cosmetic)
@@ -91,7 +91,6 @@ class CosmeticsController < ApplicationController
     #@cosmetic_ingredients = Ingredient.find_by([:id]params[:cosmetic_id])
   end
 
-
   def confirm
     if Rails.env == "development"
       image = "http://res.cloudinary.com/dhkk2emak/image/upload/v1/development/#{@cosmetic.cosmetic_image.key}"#helpers.url_for(@cosmetic.cosmetic_image)
@@ -101,7 +100,6 @@ class CosmeticsController < ApplicationController
     @info = Ocr.extract_text(image)
     cosmetic_policy_authorize
   end
-
 
   private
 
