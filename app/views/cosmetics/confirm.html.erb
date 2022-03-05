@@ -6,7 +6,7 @@
       <tr>
           <td><%= cl_image_tag @cosmetic.cosmetic_image.key , alt: "alttext", style: "width: 200px" %></td>
       </tr>
-      <h4>Add your Ingredient from teh tag list or add your own.</h4>
+      <h4>Add your Ingredient from the tag list or add your own.</h4>
       <% if policy(Cosmetic).update? %>
           <%= render 'layouts/tag_form' %>
         <% end %>
@@ -20,4 +20,3 @@
     </div>
   </div>
 </div>
-
