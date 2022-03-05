@@ -91,7 +91,7 @@ puts "Creating users..."
 
 
 
-  #!!!! API Seeds below !!!!!!!
+  #!!!! API western cosme Seeds below !!!!!!!
   # puts Dir.pwd # => is it really usefull ?
 
 
@@ -147,11 +147,11 @@ puts "Creating users..."
     rest_of_ingredient_list = result["composition"].chomp.split("、")[1..-1]
     full_ingredient_list = rest_of_ingredient_list << split_first_ingredient
     ingredients = []
-    full_ingredient_list.each do |ingredient_jp|
+    full_ingredient_list.compact.each do |ingredient_jp|
       if Ingredient.find_by(name_jp: ingredient_jp).present?
         ingredients << Ingredient.find_by(name_jp: ingredient_jp)
       else
-        name_en = DeepL.translate ingredient_jp, 'JA', 'EN'
+        name_en = DeepL.translate(ingredient_jp, 'JA', 'EN')
         ingredients << Ingredient.create!(name_en: name_en.text.split(" (")[0], name_jp: ingredient_jp)
       end
     end
@@ -163,8 +163,10 @@ puts "Creating users..."
       average_price: rand(1000...20000),
       brand: DeepL.translate(result["brand"], 'JA', 'EN')
     )
-    image_link = "https://www.matsukiyo.co.jp" + result["image_link"][1..-2]
-    if image_link == "https://www.matsukiyo.co.jp"
+    image_link_ending = result["image_link"][1..-2]
+    if image_link_ending
+      image_link = "https://www.matsukiyo.co.jp" + image_link_ending
+    else
       image_link = "Test"
     end
     begin
@@ -177,7 +179,8 @@ puts "Creating users..."
     japanese_cosme.save
   end
 
-   Cosmetic.all.each do |cosmetic|   ### Because this wasnt moved down the new cosmetics from the scrapped file were not in the loop and did not get any reviews
+  ### Because this wasnt moved down the new cosmetics from the scrapped file were not in the loop and did not get any reviews
+   Cosmetic.all.each do |cosmetic|
         5.times do
           Review.create!(cosmetic_id: cosmetic.id,
           user_id: user.id,
@@ -190,4 +193,3 @@ puts "Creating users..."
 
   puts "#{Cosmetic.count} cosmetics created!"
 
-#.text.split(" (")[0] this will be added to line 138 when seed is working

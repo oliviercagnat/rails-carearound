@@ -69,15 +69,21 @@ task seed_ingredient: :environment do
       if Ingredient.find_by(name_jp: ingredient_jp).present?
         ingredients << Ingredient.find_by(name_jp: ingredient_jp)
       else
-        puts ingredient_jp
-        name_en = DeepL.translate ingredient_jp, 'JA', 'EN'
+        #p name_en = DeepL.translate(ingredient_jp, 'JA', 'EN')
+        name_en = call_deepl(ingredient_jp, i)
         ingredients << Ingredient.create!(name_en: name_en.text.split(" (")[0], name_jp: ingredient_jp)
       end
     end
-    new_cosme = Cosmetic.create!(name: DeepL.translate(result[:product], 'JA', 'EN'), cosmetic_image: result[:image_link][1..-2], category: "Skin care", description: "Skin care is the range of practices that support skin integrity, enhance its appearance and relieve skin conditions. They can include nutrition, avoidance of excessive sun exposure and appropriate use of emollients.", average_price: rand(1000...20000), brand: ["Seiko", "SKII", "Pelume", "Japan Labo"].sample )
-    new_cosme.ingredients << ingredients
+    #new_cosme = Cosmetic.create!(name: DeepL.translate(result[:product], 'JA', 'EN'), cosmetic_image: result[:image_link][1..-2], category: "Skin care", description: "Skin care is the range of practices that support skin integrity, enhance its appearance and relieve skin conditions. They can include nutrition, avoidance of excessive sun exposure and appropriate use of emollients.", average_price: rand(1000...20000), brand: ["Seiko", "SKII", "Pelume", "Japan Labo"].sample )
+    #new_cosme.ingredients << ingredients
   end
 
+end
+
+def call_deepl(ingredient, index)
+  puts "there is an error in #{index}" if ingredient.blank?
+  return if ingredient.blank?
+  DeepL.translate(ingredient, 'JA', 'EN')
 end
 
 

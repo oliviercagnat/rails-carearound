@@ -1,4 +1,5 @@
-  {
+[
+ {
     "product": "旭研究所 業務用 ハイドロキノン １０ｇ ",
     "image_link": "'/medias/4589654980044-1.jpg?context=bWFzdGVyfGltYWdlc3wyNTcyOHxpbWFnZS9qcGVnfHN5cy1tYXN0ZXIvaW1hZ2VzL2g1ZC9oYjIvODk5OTU3MzUyMDQxNC80NTg5NjU0OTgwMDQ0XzEuanBnfDg0NTZiNTcyODY0ODE1NTBiMDhiNmQ0NTJmZTVjYzJlMmQ3MGU5NjY4OTVmMWY2YTgzYmQ2ZTUzNDU3NTk3OTM'",
     "price": "",
@@ -6,7 +7,7 @@
     "composition": "【成分】水、グリセリン、ハイドロキノン、フェノキシエタノール、クエン酸Ｎａ、ピロ亜硫酸Ｎａ、カラメル、クエン酸\n",
     "description": "医師の管理下でのみ使用できたハイドロキノンが、薬事法改正により解禁されました。これまでクリニックでもらうしかなかったハイドロキノンですが、一般購入することができるようになりました。紫外線の影響でできてしまった茶色い点々に実感があるのはこの成分だけと言われています。",
     "brand": [
-      "メーカー ：旭研究所 "
+      "メーカー ：旭研究所"
     ],
     "position": 1
   },
@@ -395,18 +396,6 @@
     "position": 33
   },
   {
-    "product": "ねば塾 ねば塾 白雪の詩 1×2個 １８０Ｇ×２ ",
-    "image_link": "",
-    "price": "",
-    "product_url": "https://www.matsukiyo.co.jp/store/online/p/4942722322229",
-    "composition": "脂肪酸ナトリウム（純石けん分）９８％　水分、グリセリン\n",
-    "description": "パームバージン油だけを原料にじっくり時間をかけて作った純石鹸。固まる前に何度もお湯をくぐらせ不純物を洗い落とした純粋な石鹸成分だけの自然派石鹸。何にでもご使用いただけます。",
-    "brand": [
-      "メーカー ：ねば塾 "
-    ],
-    "position": 34
-  },
-  {
     "product": "＿ ラ ロッシュ ポゼ UVイデア XL P BB 01 ３０ｍｌ ",
     "image_link": "'/medias/3337875482523-1.jpg?context=bWFzdGVyfGltYWdlc3wyMTQxMzF8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2gxZi9oMzUvOTAyNjQxNzY4ODYwNnw5MTg4YmUzNTA5OWJmMjBlYzQyMzYyYTQzM2JhYjExZTY0YWY2ZmU3MGQxMzIzYjY0OTZmMDQyYzczMWNiYjYz'",
     "price": "",
@@ -539,18 +528,6 @@
     "position": 45
   },
   {
-    "product": "コジット ヒルセリンクリーム ＿ （医薬部外品）",
-    "image_link": "'/medias/4969133276460-1.jpg?context=bWFzdGVyfGltYWdlc3wxNTcxMzZ8aW1hZ2UvanBlZ3xzeXMtbWFzdGVyL2ltYWdlcy9oZjUvaDkzLzkwMDY0OTEyMDU2NjIvNDk2OTEzMzI3NjQ2MF8xLmpwZ3w0YTMzNDA0YzBmNGQyNmMxMGE4YTlhZWVhYThiNDAzNGM5MjkyYzI5MzM2YmI1N2UxMjQ1NTE3MzI4ZjAyYzlh'",
-    "price": "",
-    "product_url": "https://www.matsukiyo.co.jp/store/online/p/4969133276460",
-    "composition": null,
-    "description": "ヘパリン類似物質配合の薬用スキンケアシリーズの高保湿クリームです。顔・肌の乾燥、保水や肌荒れ予防、粉ふきにご使用いただけます。お肌に潤いを与え角質層内を整えることで顔や身体の乾燥を防ぎます。低刺激、アルコールフリー、無香料・無着色です。",
-    "brand": [
-      "メーカー ：コジット "
-    ],
-    "position": 46
-  },
-  {
     "product": "サンスマイル ピュアスマイル エッセンスマスク ハニーアップル １枚 ",
     "image_link": "'/medias/4526371027973-1.jpg?context=bWFzdGVyfGltYWdlc3w4MTQwNHxpbWFnZS9qcGVnfHN5cy1tYXN0ZXIvaW1hZ2VzL2hmMi9oYmUvOTAwMDc3Mzk3NjA5NC80NTI2MzcxMDI3OTczXzEuanBnfDYwMzVlMTRiNGE2ZmQzYTI1Mzc2MWFlMzIwNDg3YTA3ZTZhMGZjMzkxMDYwZDYwMTFlYmIzYmU3YTc4ZWMwY2I'",
     "price": "",
@@ -611,18 +588,6 @@
     "position": 51
   },
   {
-    "product": "日本ロレアル ラロッシュポゼ ターマルウォーター １５０ｇ ",
-    "image_link": "'/medias/4992944701692-1.jpg?context=bWFzdGVyfGltYWdlc3wxMDM4OTR8aW1hZ2UvanBlZ3xzeXMtbWFzdGVyL2ltYWdlcy9oN2YvaDk3LzkwMjY0MTQ5Njg4NjJ8MTAxYmExYWQ4Zjc0ODY5MzY4ZTkyZTg0NDU3YWM4NWUwMTRiNzFjZWQ4NDA4NzgwN2E1ZGQ5ZGEzOTcxZWUwOA'",
-    "price": "",
-    "product_url": "https://www.matsukiyo.co.jp/store/online/p/4992944701692",
-    "composition": null,
-    "description": "フランス中西部にあるラロッシュポゼ村の湧水を無菌室でボトリングした顔・ボディ用ミスト状化粧水です。きめ細かく均一な、肌にやさしい感触のミストです。顔だけでなく全身のケアに。赤ちゃんから大人まで、男性、女性も、ご家族でお使いいただけます。ラロッシュポゼ村の湧水であるターマルウォーターは、この地方の特別な地層から１７００年かけてゆっくりにじみ出た水と判明しました。希少なミネラルや、肌への有用性について研究がおこなわれているセレンを豊富に含むため、肌をやわらげ、バリア機能（角層）をサポートします。最後までお使いいただくために、ボトルを振ったり、真横に倒してスプレーしないでください。",
-    "brand": [
-      "メーカー ：日本ロレアル "
-    ],
-    "position": 52
-  },
-  {
     "product": "菊正宗酒造 菊正宗 日本酒のクリーム １５０ｇ ",
     "image_link": "'/medias/4971650800912-1.jpg?context=bWFzdGVyfGltYWdlc3wzNzE5NnxpbWFnZS9qcGVnfHN5cy1tYXN0ZXIvaW1hZ2VzL2hiYi9oZjYvODk3MTk3MTk1MjY3MC80OTcxNjUwODAwOTEyXzEuanBnfGRjMmFlMWVjNDE0MDc2YWQzMDE4YmQ0OWViY2Y0ZjMxZTM3M2FhYzc3YWQ0MzA4OWE3YTEwYmM1ODcxZjVkMjI'",
     "price": "",
@@ -657,30 +622,6 @@
       "メーカー ：ロート製薬 "
     ],
     "position": 55
-  },
-  {
-    "product": "セラ ワンデイブライトナー １２０ｍｌ ",
-    "image_link": "'/medias/4994048924908-1.jpg?context=bWFzdGVyfGltYWdlc3w0NzA0NHxpbWFnZS9qcGVnfHN5cy1tYXN0ZXIvaW1hZ2VzL2hmYi9oZmQvODk5OTczNjU0MTIxNC80OTk0MDQ4OTI0OTA4XzEuanBnfDIxMGJkYzU0OTY2ZjMzM2IwZjA1ZWIyZGI5ZDA3YTU4YTcwNmFiOTlhODJhNTNkM2UyNDA4YmVkNjdhNmE3YjQ'",
-    "price": "",
-    "product_url": "https://www.matsukiyo.co.jp/store/online/p/4994048924908",
-    "composition": null,
-    "description": "うるおい カラーローション肌色をワントーン明るく塗るだけ白肌！！※メイクアップ効果全身にも使えます",
-    "brand": [
-      "メーカー ：セラ "
-    ],
-    "position": 56
-  },
-  {
-    "product": "ディリー三星 アレッポからの贈り物 １９０ｇ ",
-    "image_link": "'/medias/4517307003253-1.jpg?context=bWFzdGVyfGltYWdlc3w4ODM5MHxpbWFnZS9qcGVnfHN5cy1tYXN0ZXIvaW1hZ2VzL2g4My9oMWEvOTAwMjQ4MzkwODYzOC80NTE3MzA3MDAzMjUzXzEuanBnfGZmZmU2ZTliZGE3ZDk5YTc1OWQ1M2Y2MDY3NjE1MWU0OWVkZTJkNDY0OGQzZGUxZmJmZjQxMjljZWRhZTc0NzU'",
-    "price": "",
-    "product_url": "https://www.matsukiyo.co.jp/store/online/p/4517307003253",
-    "composition": null,
-    "description": "○シリア・アレッポ産○ピュアオリーブオイル石鹸",
-    "brand": [
-      "メーカー ：ディリー三星 "
-    ],
-    "position": 57
   },
   {
     "product": "Ｉ－ｎｅ スキンビル ホットクレンジングジェルＮ（ くまのプーさんとピグレットデザイン） ２００ｇ ",
@@ -753,18 +694,6 @@
       "メーカー ：サンスマイル "
     ],
     "position": 63
-  },
-  {
-    "product": "ムサシノ製薬 薬用フタアミンｈｉクリーム ５５ｇ （医薬部外品）",
-    "image_link": "'/medias/4969432401136-1.jpg?context=bWFzdGVyfGltYWdlc3wzMjgyNHxpbWFnZS9qcGVnfHN5cy1tYXN0ZXIvaW1hZ2VzL2gzYS9oYmMvODkwNzk5ODU2MDI4Ni80OTY5NDMyNDAxMTM2XzEuanBnfDExMWQxZmM0ZTk4ZDYyMzljMTFjZjdjZWJmODE4MzY5ZTQyY2E2NGU3NDM0MDE0OGU4NGFkNTg0YjYwOTE1ZjM'",
-    "price": "",
-    "product_url": "https://www.matsukiyo.co.jp/store/online/p/4969432401136",
-    "composition": null,
-    "description": "無香料フタアミンhiクリームは、ビタミンEアセテートとグリチルレチン酸（甘草から抽出）を主剤にしています。そして、基剤に使用しているホホバ油、卵黄油や保湿剤であるグリセリンとがあいまって、べとつかず、下記の効能をもつ、さっぱりとした薬用クリームです。",
-    "brand": [
-      "メーカー ：ムサシノ製薬 "
-    ],
-    "position": 64
   },
   {
     "product": "＿ ラ ロッシュ ポゼ エフェクラ モイスチャー バランス ローション ２００ｍｌ （医薬部外品）",
@@ -849,18 +778,6 @@
       "メーカー ：富士フイルム "
     ],
     "position": 71
-  },
-  {
-    "product": "小六 白雪美精 リップクリーム ４ｇ ",
-    "image_link": "'/medias/4560101979064-1.jpg?context=bWFzdGVyfGltYWdlc3w1MzQ2MnxpbWFnZS9qcGVnfHN5cy1tYXN0ZXIvaW1hZ2VzL2hlNi9oYTUvODk5OTEzOTk2NzAwNi80NTYwMTAxOTc5MDY0XzEuanBnfGIyYzk0ODcxODJiODgwMjkzYTVjNzAzYjc1ZjYxNjU5Y2FkODkwMTY3YThiNzk1ODFhOGE4ZmNlZDA0NmY3ODE'",
-    "price": "",
-    "product_url": "https://www.matsukiyo.co.jp/store/online/p/4560101979064",
-    "composition": null,
-    "description": "国内産馬油、ココナツオイルでうるうるにビタミンEでハリのある唇に",
-    "brand": [
-      "メーカー ：小六 "
-    ],
-    "position": 72
   },
   {
     "product": "ロート製薬 オバジC セラムファンデーション ピンクオークル10 ３０ｇ ",
@@ -1091,18 +1008,6 @@
     "position": 91
   },
   {
-    "product": "アレッポの石鹸 アレッポの石鹸 極上 ＿ ",
-    "image_link": "'/medias/4524973000028-1.jpg?context=bWFzdGVyfGltYWdlc3w4MDY5MXxpbWFnZS9qcGVnfHN5cy1tYXN0ZXIvaW1hZ2VzL2hlMC9oMzEvOTAwMjU2MDk3ODk3NC80NTI0OTczMDAwMDI4XzEuanBnfDhjNzVhYmZlZmI2NzgxMzEyNTlmZGRkNThkOWUyZWRmMWQ0YTE3MWZmODY4ZGJhODg2NWZjMDhhZmYzYWY1MTg'",
-    "price": "",
-    "product_url": "https://www.matsukiyo.co.jp/store/online/p/4524973000028",
-    "composition": null,
-    "description": "○オリーブオイルソープ○シリア製",
-    "brand": [
-      "メーカー ：アレッポの石鹸 "
-    ],
-    "position": 92
-  },
-  {
     "product": "アンドシーム ホワイトラッシュ　ＨＱクリーム １５ｇ ",
     "image_link": "'/medias/4560207841685-1.jpg?context=bWFzdGVyfGltYWdlc3w0MDkzMnxpbWFnZS9qcGVnfHN5cy1tYXN0ZXIvaW1hZ2VzL2gyNi9oMzAvOTAyNzkwNTMyMzAzOC80NTYwMjA3ODQxNjg1XzEuanBnfGQwYjg4ODdkMTg1YWNjZWQ2ZTY5ZTEzMmVhMjliM2UwMzE3YzMyM2YzM2YwZmJmY2UxYTZjZTYzMTc3MmJhZGQ'",
     "price": "",
@@ -1295,18 +1200,6 @@
     "position": 108
   },
   {
-    "product": "トレンディハウス ビューティーワールド　毛穴小鼻つるりんこ ＿ ",
-    "image_link": "'/medias/4537715962577-1.jpg?context=bWFzdGVyfGltYWdlc3wxMzUyODF8aW1hZ2UvanBlZ3xzeXMtbWFzdGVyL2ltYWdlcy9oMjQvaDQ0LzkwMDU3MzA0MzEwMDYvNDUzNzcxNTk2MjU3N18xLmpwZ3wyOGNiZjM2YWNjMWM2ZjM2NTM3YzcxMGViNzgxNjEwYmU1Njg2NjMwMWQ4M2E0OWE5MzdhNzRmMzE2ZmE5Y2My'",
-    "price": "",
-    "product_url": "https://www.matsukiyo.co.jp/store/online/p/4537715962577",
-    "composition": null,
-    "description": "やわらか繊細毛で角栓をやさしくおそうじする竹炭配合の小鼻洗顔ブラシと、ピンポイントで角栓を除去する角栓ループを１本にしました。",
-    "brand": [
-      "メーカー ：トレンディハウス "
-    ],
-    "position": 109
-  },
-  {
     "product": "サプライズ ＳＡＱＵＬＡ クレンジングタオル ピンク ピンク ",
     "image_link": "'/medias/4562439960509-1.jpg?context=bWFzdGVyfGltYWdlc3wyMDU0OXxpbWFnZS9qcGVnfHN5cy1tYXN0ZXIvaW1hZ2VzL2g5YS9oZjUvODk5ODYwNTE2MDQ3OC80NTYyNDM5OTYwNTA5XzEuanBnfDIwYjA1YmYyMjg2NzY2NGJlYTYzN2NhZmQwNWNjNmRkZTYxZDhjMzQ2NDc2MWZjYzkwMjhkMjEwNzgwMTIyNmQ'",
     "price": "",
@@ -1439,3 +1332,4 @@
     "position": 120
   }
 ]
+
