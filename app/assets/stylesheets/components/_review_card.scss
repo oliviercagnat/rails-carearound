@@ -4,13 +4,25 @@
   overflow: hidden;
   margin-top: .3rem;
   width: 18rem;
-  height: 14rem;
+  height: 100%;
   padding-top: 1rem;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .review-card-body {
   flex: 1 1 auto;
   min-height: 1px;
-  padding: 1rem;
+  font-size:  .75rem;
+  text-align: justify;
+  text-justify: inter-character;
+  margin-bottom: 8px;
+}
+
+.h5-shop-url {
+  font-size: 1rem;
+  overflow-wrap: break-word;
+  margin-top: 0.5rem;
+}
+
+.p-review-card-content {
+  font-size: .75rem;
 }
