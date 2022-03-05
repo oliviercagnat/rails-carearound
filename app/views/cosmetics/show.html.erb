@@ -26,38 +26,42 @@
           <%# </div> %>
         <%# end %>
       </div>
+
       <div class="cosme-card-body">
+        <%# FAVORITES %>
         <div class="favorite-icon">
           <%= link_to toggle_favorite_cosmetic_path(@cosmetic), remote: true, method: :post do %>
             <%= render 'cosmetics/like_button', cosmetic: @cosmetic %>
           <% end %>
         </div>
+
         <h3> <%= @cosmetic.name %></h3>
         <p class="cosme-card-body-brand"><%= @cosmetic.brand.upcase %></p>
         <div class="tag tag-brown"><%= @cosmetic.category.capitalize %></div>
         <div class="cosme-card-line"><hr /></div>
+
+        <%# DESCRIPTION %>
         <p><%= @cosmetic.description %></p>
         <div class="cosme-card-line"><hr /></div>
-        <% if @cosmetic.ingredients.size > 0 %>
-          <div class="cosme-card-header-tags">
-            <div class="row m-1">
-                <p>Ingredients:</p><br>
-                <% @cosmetic.ingredients.each do |ingredient| %>
-                  <li class="tag tag-green"><%= ingredient.name_en %></li>
-                <% end %>
-            </div>
-          </div>
-          <div class="cosme-card-line"><hr /></div>
-        <% end %>
+
+        <%# INGREDIENTS LIST %>
+        <div class="cosme-card-header-tags">
+          <%= render 'cosmetics/ingredients_list', locals: {cosmetic: @cosmetic, ingredient: @ingredient} %>
+        </div>
+        <div class="cosme-card-line"><hr /></div>
+
         <% if policy(Cosmetic).update? %>
           <%= render 'layouts/tag_form' %>
         <% end %>
+
         <div class="cosme-card-line"><hr /></div>
         <p>Compare your product and find the best fit through the tags</p>
         <%= link_to "Find my match", compare_cosmetic_path(@cosmetic), class: "button cosme-card-body-button-match"  %>
         <div class="cosme-card-line"><hr /></div>
-           <div class="review-all"> <%= render "cosmetics/review_form", locals: {cosmetic: @cosmetic, review: @review} %> </div>
-          <div class="user-reviews"> <%= render "review_card_list", reviews: @cosmetic.reviews.reverse %> </div>
+
+        <%# REVIEWS %>
+        <div class="review-all"> <%= render "cosmetics/review_form", locals: {cosmetic: @cosmetic, review: @review} %> </div>
+        <div class="user-reviews"> <%= render "review_card_list", reviews: @cosmetic.reviews.reverse %> </div>
       </div>
     </div>
   </div>

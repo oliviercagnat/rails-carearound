@@ -1,0 +1,11 @@
+<% if @cosmetic.ingredients.size >= 5 %>
+  <div class="row m-1">
+    <p>Ingredients:</p><br>
+    <div data-controller="expandable">
+    <div id="review" data-expandable-target="reviews">
+      <% @cosmetic.ingredients.each do |ingredient| %>
+        <li class="tag tag-green"><%= ingredient.name_en %></li>
+      <% end %>
+  </div>
+  <button class="button w-100" data-action="click->expandable#expand">See all ingredients!</button>
+<% end %>
