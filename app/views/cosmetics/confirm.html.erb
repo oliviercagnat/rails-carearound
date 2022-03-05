@@ -15,6 +15,7 @@
         <%= f.input :brand, input_html: {value: "#{@info[0].downcase.capitalize}"} %>
         <%= f.input :name, input_html: {value: "#{@info[1].downcase.capitalize}"} %>
         <%= f.input :description, input_html: {value: "#{@info[2].downcase.capitalize}"} %>
+        <%= f.input :country_of_origin, label: 'Where did you buy this product?', as: :country %>
         <%= f.submit class: "button" %>
       <% end %>
     </div>
