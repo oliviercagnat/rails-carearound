@@ -1,8 +1,8 @@
 <% # search form for navbar %>
-<%= form_tag cosmetics_path, method: :get do %>
+<%= form_tag cosmetics_path, method: :get, class: "d-flex align-items-center" do %>
   <%= text_field_tag :query,
     params[:query], class: "form-control input-lg col-10", placeholder: "Find your cosmetic.", input_html:  { class: "select2" } %>
-  <%= button_tag(type: "submit", class: "button") do %>
+  <%= button_tag(type: "submit", class: "button search-bar-button col-2") do %>
     <i class="fas fa-search"></i>
   <% end %>
 <% end %>

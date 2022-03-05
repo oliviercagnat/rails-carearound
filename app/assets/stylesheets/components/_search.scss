@@ -1,0 +1,30 @@
+.search-card {
+  position: relative;
+  margin: 10px;
+  margin-left: 6%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 90%;
+}
+
+.search-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  padding-top: 0px;
+  min-height: 250px;
+}
+
+.search-card-body h3, p {
+  margin: auto;
+}
+
+.search-bar-button{
+  margin-top: 0;
+  margin-left: 2px;
+  padding-left: 12px;
+}
