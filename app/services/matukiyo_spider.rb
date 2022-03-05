@@ -40,10 +40,12 @@ class MatukiyoSpider < Kimurai::Base
 
     item[:product] = response.xpath("//div[@class='goodsBox']/h3").text
     # p item[:product]
-    if response.search("//li[@class='disp_image']//a").includes?(self)
+    begin
       item[:image_link] = response.xpath("//li[@class='disp_image']//a").first.values.first[/url\((.+)\)/, 1]
-    else
+  # do something that might cause an exception
+    rescue
       item[:image_link] = ""
+      # handle the exception here
     end
       # p item[:image_link]
     item[:price] = response.xpath("//p[@class='price']/span/span[0]").text
@@ -52,6 +54,12 @@ class MatukiyoSpider < Kimurai::Base
     # p item[:product_url]
     item[:composition] = response.xpath("//div[@class='inner']/p[1]").text.split("\t").grep(/水/).first
     # p item[:composition]
+    item[:description] = response.xpath("//div[@class='goodsDetail']/div[@class='ctBox02']/p").text
+    # p item[:description]
+    item[:brand] = response.xpath("//div[@class='goodsBox']/p[@class='cpde']").text.split("\t").grep(/メーカー/).first.split("\n")
+     # p item[:brand]
     save_to "results.json", item, format: :pretty_json, append: true
   end
 end
+
+#MatukiyoSpider.crawl!
