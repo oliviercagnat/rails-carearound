@@ -177,7 +177,7 @@ puts "Creating users..."
     japanese_cosme.save
   end
 
-   Cosmetic.all.each do |cosmetic|   ### Because this wasnt moved down the new cosmetics from the scrapped file were not in the loop and did not get any reviews
+  Cosmetic.all.each do |cosmetic|   ### Because this wasnt moved down the new cosmetics from the scrapped file were not in the loop and did not get any reviews
         5.times do
           Review.create!(cosmetic_id: cosmetic.id,
           user_id: user.id,

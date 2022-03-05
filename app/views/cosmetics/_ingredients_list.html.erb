@@ -1,4 +1,4 @@
-<% if @cosmetic.ingredients.size >= 5 %>
+
   <div class="row m-1">
     <p>Ingredients:</p><br>
     <div data-controller="expandable">
@@ -7,5 +7,17 @@
         <li class="tag tag-green"><%= ingredient.name_en %></li>
       <% end %>
   </div>
-  <button class="button w-100" data-action="click->expandable#expand">See all ingredients!</button>
-<% end %>
+  <% if @cosmetic.ingredients.size > 10 %>
+    <button class="button w-100" data-action="click->expandable#expand">See all ingredients!</button>
+  <% end %>
+
+<%# <% if @cosmetic.tag_list.size > 0 %>
+  <%# <div class="cosme-card-header-tags">
+    <div class="row m-1"> %>
+      <%# <% @cosmetic.tag_list.each do |tag| %>
+        <%# <li class="tag tag-green"><%= tag</li> %>
+      <%# <% end %>
+      <%# <div class="cosme-card-line"><hr /></div>
+    </div>
+  </div> %>
+<%# <% end %>

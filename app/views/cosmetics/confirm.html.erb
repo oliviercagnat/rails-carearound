@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row justify-content-center text-center">
     <div class="col-10">
-      <h2 class="my-4" >Add ingrdients to your product and check the informations</h2>
+      <h2 class="my-4" >Add ingredients to your product and check the informations</h2>
         <tr>
             <td><%= cl_image_tag @cosmetic.cosmetic_image.key , alt: "alttext", style: "width: 300px" %></td>
         </tr>
         <h4>Choose from the list below or add your own:</h4>
         <% if policy(Cosmetic).update? %>
           <%= simple_form_for(@cosmetic) do |f| %>
-            <%= f.input :tag_list, collection: Cosmetic::TAGS, name: "tag_list", input_html: {multiple: true, :maxlength =>200,:style=> 'width: 80%', data: { controller: "select2", select2_options_value: {tags: true} }}, class: "p-1 tag-form" %>
+            <%= f.input :tag_list, collection: Cosmetic::INGREDIENTS, label: 'Add ingredients', input_html: {multiple: true, :maxlength =>200,:style=> 'width: 80%', data: { controller: "select2", select2_options_value: {tags: true} }}, class: "p-1 tag-form" %>
             <%= f.input :brand, input_html: {value: "#{@info[0].downcase.capitalize}"} %>
             <%= f.input :name, input_html: {value: "#{@info[1].downcase.capitalize}"} %>
             <%= f.input :description, input_html: {value: "#{@info[2].downcase.capitalize}"} %>
