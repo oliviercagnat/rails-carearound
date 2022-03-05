@@ -1,5 +1,5 @@
 
- <%= simple_form_for(@cosmetic) do |f| %>
+<%= simple_form_for(@cosmetic) do |f| %>
   <%= f.input :tag_list, collection: Cosmetic::TAGS, name: "tag_list", label: 'Ingredients ', input_html: {multiple: true, :maxlength =>200,:style=> 'width: 80%', data: { controller: "select2", select2_options_value: {tags: true} }}, class: "p-1 tag-form" %>
   <%= f.submit "Add Tags", class: "button tag-form-button" %>
- <% end %>
+<% end %>
