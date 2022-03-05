@@ -59,9 +59,8 @@ class CosmeticsController < ApplicationController
   end
 
   def update
-    #@cosmetic.update(cosmetic_params)
     @cosmetic.tag_list.add(cosmetic_params[:tag_list])
-    @cosmetic.save
+    @cosmetic.update(cosmetic_params)
     cosmetic_policy_authorize
     redirect_to cosmetic_path(@cosmetic)
   end
