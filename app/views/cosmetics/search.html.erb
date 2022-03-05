@@ -1,10 +1,18 @@
 <div class="container">
   <div class="row justify-content-center text-center">
     <div class="col-10">
-    <h2 class="my-4" >Take or Upload a clear picture of your product with visible text</h2>
-    <div class="form-inputs">
-    <%= simple_form_for Cosmetic.new , url: cosmetics_path, method: "post" do |f| %>
-      <%= f.input :cosmetic_image, as: :file %>
-      <%= f.button :submit, class: "button" %>
+      <div class="cosme-card">
+        <div class="cosme-card-body">
+          <h2 class="my-4" >Take or Upload a clear picture of your product with visible text</h2>
+          <div class="form-inputs">
+          <%= simple_form_for Cosmetic.new , url: cosmetics_path, method: "post" do |f| %>
+            <%= f.input :cosmetic_image, label: false, as: :file %>
+            <%= f.button :submit, class: "button" %>
+          </div>
+          <% end %>
+        </div>
     </div>
-    <% end %>
+  </div>
+</div>
+
+
