@@ -18,7 +18,7 @@ class Cosmetic < ApplicationRecord
     }
 
   def total_reviews
-    total_reviews = self.reviews.count.to_f.round(1)
+    total_reviews = self.reviews.count
     return total_reviews
   end
 
