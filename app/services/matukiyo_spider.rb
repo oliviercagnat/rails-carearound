@@ -40,10 +40,12 @@ class MatukiyoSpider < Kimurai::Base
 
     item[:product] = response.xpath("//div[@class='goodsBox']/h3").text
     # p item[:product]
-    if response.search("//li[@class='disp_image']//a").includes?(self)
+    begin
       item[:image_link] = response.xpath("//li[@class='disp_image']//a").first.values.first[/url\((.+)\)/, 1]
-    else
+  # do something that might cause an exception
+    rescue
       item[:image_link] = ""
+      # handle the exception here
     end
       # p item[:image_link]
     item[:price] = response.xpath("//p[@class='price']/span/span[0]").text
@@ -59,3 +61,5 @@ class MatukiyoSpider < Kimurai::Base
     save_to "results.json", item, format: :pretty_json, append: true
   end
 end
+
+#MatukiyoSpider.crawl!

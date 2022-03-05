@@ -44,6 +44,8 @@ gem 'cloudinary', '~> 1.18.1'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem 'geckodriver-helper', '~> 0.24.0'
+gem 'nokogiri', '~> 1.13', '>= 1.13.3'
 
 # OC: I might have put this gem, I can't remember
 # gem 'jquery-rails'

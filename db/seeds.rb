@@ -159,9 +159,9 @@ puts "Creating users..."
     japanese_cosme = Cosmetic.create!(
       name: DeepL.translate(result["product"], 'JA', 'EN'),
       category: "Skin care",
-      description: "Skin care is the range of practices that support skin integrity, enhance its appearance and relieve skin conditions. They can include nutrition, avoidance of excessive sun exposure and appropriate use of emollients.",
+      description: DeepL.translate(result["description"], 'JA', 'EN'),
       average_price: rand(1000...20000),
-      brand: ["Seiko", "SKII", "Pelume", "Japan Labo"].sample
+      brand: DeepL.translate(result["brand"], 'JA', 'EN')
     )
     image_link = "https://www.matsukiyo.co.jp" + result["image_link"][1..-2]
     if image_link == "https://www.matsukiyo.co.jp"
