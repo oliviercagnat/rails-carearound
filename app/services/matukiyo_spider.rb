@@ -52,6 +52,10 @@ class MatukiyoSpider < Kimurai::Base
     # p item[:product_url]
     item[:composition] = response.xpath("//div[@class='inner']/p[1]").text.split("\t").grep(/水/).first
     # p item[:composition]
+    item[:description] = response.xpath("//div[@class='goodsDetail']/div[@class='ctBox02']/p").text
+    # p item[:description]
+    item[:brand] = response.xpath("//div[@class='goodsBox']/p[@class='cpde']").text.split("\t").grep(/メーカー/).first.split("\n")
+     # p item[:brand]
     save_to "results.json", item, format: :pretty_json, append: true
   end
 end
