@@ -15,3 +15,15 @@
 .navbar-lewagon .navbar-brand img {
  height: 68px;
 }
+
+.navbar-title {
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  img {
+    height: 68px;
+  }
+  h3 {
+    margin-top: 6%;
+  }
+}

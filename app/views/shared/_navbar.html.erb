@@ -1,11 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
 
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag("logos/carearound_logo.png") %>
-  <% end %>
 
 
   <% if !user_signed_in? %>
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag("logos/logo-short.png") %>
+  <% end %>
   <ul class="navbar-nav ml-auto login">
     <li class="nav-item">
       <%= link_to "Login", new_user_session_path, class: "nav-link" %>
@@ -15,12 +15,13 @@
 
   <% if user_signed_in? %>
     <% if policy(Cosmetic).index? %>
-      <div class="d-flex justify-content-between form-inline"><%= render "shared/search_form" %></div>
+    <div class= "navbar-title d-flex align-items-center m-auto">
+      <%= link_to root_path do %>
+        <%= image_tag("logos/logo.png") %>
+      <% end %>
+      <h3>CareAround</h3>
+    </div>
     <% end %>
-
-
-
-
-<% end %>
+  <% end %>
 
 </div>
