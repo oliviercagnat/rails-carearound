@@ -1,14 +1,5 @@
 <%= render 'banner' %>
-<div class="col-12">
-  <div class="global-padding">
-    <div class="container">
-      <div class="row">
-        <% @jp_cosmetics.each do |cosmetic| %>
-          <%= render 'cosmetics/mini_cosme_card', cosmetic: cosmetic %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'steps' %>
+
 
 <%# option + shift + F for auto-style %>

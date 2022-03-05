@@ -1,7 +1,7 @@
 class Cosmetic < ApplicationRecord
   has_many :reviews
   has_and_belongs_to_many :ingredients
-  validates :name, :description, :brand, :average_price, :category, presence: true
+  #validates :name, :description, :brand, :average_price, :category, presence: true
   acts_as_favoritable
   acts_as_taggable_on :tags
   acts_as_taggable_on :cosmetics
@@ -18,7 +18,7 @@ class Cosmetic < ApplicationRecord
     }
 
   def total_reviews
-    total_reviews = self.reviews.count
+    total_reviews = self.reviews.count.to_f.round(1)
     return total_reviews
   end
 

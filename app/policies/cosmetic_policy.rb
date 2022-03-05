@@ -32,4 +32,8 @@ class CosmeticPolicy < ApplicationPolicy
   def toggle_favorite?
     true
   end
+
+  def confirm?
+    true
+  end
 end
