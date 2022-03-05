@@ -18,13 +18,16 @@ class Cosmetic < ApplicationRecord
     }
 
   def total_reviews
-    total_reviews = self.reviews.count
+    total_reviews = self.reviews.count.to_f.round(1)
     return total_reviews
   end
 
   def average_review
-    total_reviews = self.reviews.count.to_f
+    if total_reviews == 0
+      0
+    else
     total_rating = self.reviews.sum(:rating)
     total_rating / total_reviews
+    end
   end
 end
