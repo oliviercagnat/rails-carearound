@@ -1,13 +1,18 @@
 
 
-<div class=“review-card” style="width: 18rem; height: 14rem; padding-top: 1rem;">
+<div class=“review-card” style="height: 100%; padding-top: 1rem;">
   <div class=“review-card-body”>
     <div class="d-flex">
-    <h5 class="card-title mr-2"><strong><%= review.user.name %></strong></h5>
-      <p class= "card-subtitle mb01 text-muted">
-        <span class=“text-muted”><%= render "components/star_rating", review: review %></span>
-      </p>
+      <h5 class="card-title mr-2"><strong><%= review.user.name %></strong></h5>
+        <p class= "card-subtitle mb01 text-muted">
+          <span class=“text-muted”><%= render "components/star_rating", review: review %></span>
+        </p>
     </div>
-    <h5 class="card-text mt-2"><%= review.content %></h5>  <%# you only need this button %>
+      <div class="review-card-body">
+         <p class="p-review-card-content"><%= review.content %></p>
+      </div>
+        <div class="mt-2">
+          <a class="h5-shop-url"> <%= review.shop_url %></a>
+        </div>
   </div>
 </div>
