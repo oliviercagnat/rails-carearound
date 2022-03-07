@@ -2,6 +2,10 @@
   <div class="container">
     <h1>CareAround</h1>
     <p>Find your favorite <br><strong>skincare doppelgänger</strong> <br>in your new country</p>
-    <%= link_to "Find your match", scan_path, class: "button align-center" %>
+    <% if !user_signed_in? %>
+      <%= link_to "Find your match", new_user_session_path, class: "button align-center" %>
+    <% else %>
+      <%= link_to "Find your match", scan_path, class: "button align-center" %>
+    <% end %>
   </div>
 </div>
