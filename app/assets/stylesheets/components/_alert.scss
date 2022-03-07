@@ -3,6 +3,9 @@
   bottom: 16px;
   right: 16px;
   z-index: 1000;
-  background-color: #f6dfeb;
+  background: rgb(221,235,242);
+  background: linear-gradient(90deg, rgba(221,235,242,1) 0%, rgba(246,223,235,1) 50%, rgba(221,235,242,1) 100%);
   color: #545d7a;
+  border: 1px solid white;
+  border-radius: 4px;
 }
