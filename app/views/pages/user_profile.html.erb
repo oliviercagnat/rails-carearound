@@ -1,35 +1,37 @@
 
-<div class="card mb-4">
-  <div class="text-center">
-    <h1 class="my-3 border-bottom pb-3">Hello <%= current_user.name %></h1>
-  </div>
-  <div class="card-body d-flex flex-direction-column justify-content-around">
-    <div class="text-center">
-      <% if current_user.avatar.attached? %>
-        <%= cl_image_tag current_user.avatar.key, class: "avatar-large" %>
-      <% else %>
-        <img class="avatar-large" alt="avatar-large" src="<%= current_user.avatar %>"  />
-      <% end %>
-        <p class="card-text">Country: <%= current_user.country %></p>
-        <p class="card-text">Skin type: <%= current_user.skin_type %></p>
-        <%= link_to "Edit", edit_user_registration_path, class:'button w-3' %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "button w-3", id: "grey" %>
-    </div>
-  </div>
-</div>
 
 <div class="global-padding">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <div class="container">
-      <h3 class="text-center">Your favorited cosmetics</h3>
-        <% if current_user.all_favorites == [] %>
-          <p>No cosmetic in your basket</p>
-        <% else %>
-          <% current_user.favorited_by_type('Cosmetic').each do |cosmetic| %>
-          <%= render 'cosmetics/mini_cosme_card_with_favorite', cosmetic: cosmetic %>
+        <div class="profile-card">
+          <div class="profile-card-header">
+            <div class="profile-card-header-picture">
+              <% if current_user.avatar.attached? %>
+                  <%= cl_image_tag current_user.avatar.key, class: "img" %>
+              <% else %>
+                <img class="avatar-large" alt="avatar-large" src="<%= current_user.avatar %>"  />
+              <% end %>
+            </div>
+            <div class="profile-card-header-info">
+                <h4 class="card-text"><%= current_user.name %></h4>
+                <p class="card-text">Country: <%= current_user.country %></p>
+                <p class="card-text">Skin type: <%= current_user.skin_type %></p>
+            </div>
+          </div>
+          <div class="profile-card-buttons">
+            <%= link_to "Edit", edit_user_registration_path, class:'button w-3' %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "button w-3", id: "grey" %>
+          </div>
+        </div>
+        <h3 class="text-center">Your favorited cosmetics</h3>
+          <% if current_user.all_favorites == [] %>
+            <p class="text-center">No cosmetic in your basket</p>
+          <% else %>
+            <% current_user.favorited_by_type('Cosmetic').each do |cosmetic| %>
+            <%= render 'cosmetics/mini_cosme_card_with_favorite', cosmetic: cosmetic %>
+            <% end %>
           <% end %>
-        <% end %>
       </div>
     </div>
   </div>

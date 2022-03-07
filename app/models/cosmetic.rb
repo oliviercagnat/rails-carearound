@@ -4,7 +4,7 @@ class Cosmetic < ApplicationRecord
   #validates :name, :description, :brand, :average_price, :category, presence: true
   acts_as_favoritable
   acts_as_taggable_on :tags
-  acts_as_taggable_on :ingredients
+  acts_as_taggable_on :cosmetics
   has_one_attached :cosmetic_image
   TAGS = [ "Oil Free", "Purpicks", 'Silicone Free', "Water Free" ] + Ingredient.pluck(:name_en)
   INGREDIENTS = Ingredient.pluck(:name_en)
