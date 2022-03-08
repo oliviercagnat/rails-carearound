@@ -8,9 +8,8 @@ class CosmeticsController < ApplicationController
   before_action :authenticate_user!, only: [:toggle_favorite, :update, :index]
 
   def create
-    p params
     @cosmetic = Cosmetic.new({ cosmetic_image: cosmetic_params[:cosmetic_image], name: "Name", description: "Description", brand:
-      "Brand", average_price: 0, category: "Category" })
+      "Brand", category: "Category" })
     cosmetic_policy_authorize
     if @cosmetic.save
       redirect_to confirm_cosmetic_path(@cosmetic)
@@ -21,7 +20,7 @@ class CosmeticsController < ApplicationController
 
   def new
     cosmetic_policy_authorize
-    Cosmetic.new
+    @cosmetic = Cosmetic.new
   end
 
   def index

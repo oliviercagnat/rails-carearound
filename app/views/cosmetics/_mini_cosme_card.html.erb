@@ -10,17 +10,17 @@
       </div>
       <p><%= render "components/average_star_rating",cosmetic: cosmetic%></p>
       <p class="mini-cosme-card-header-info-price"><span>¥<%= cosmetic.average_price %></span> avg.</p>
-        <span class="row m-1">
-        <% cosmetic.tag_list.each do |tag| %>
-          <li class="mini-tag mini-tag-green"><%= tag %></li>
-        <% end %>
-        </span>
     </div>
   </div>
   <div class="mini-cosme-card-line"><hr/></div>
   <div class="mini-cosme-card-body">
     <p class="mini-cosme-card-body-name"><%= cosmetic.name %></p>
     <p class="mini-cosme-card-body-brand"><%= cosmetic.brand.upcase %></p>
+        <span class="row m-1">
+        <% cosmetic.tag_list.each do |tag| %>
+          <li class="mini-tag mini-tag-green"><%= tag %></li>
+        <% end %>
+        </span>
   </div>
   <div class="mini-cosme-card-body-bottom">
     <p class="mini-cosme-card-body-bottom-tag"><%= cosmetic.category.capitalize %></p>
