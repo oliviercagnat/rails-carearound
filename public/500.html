@@ -6,10 +6,11 @@
 <style>
   @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700');
   @import url('https://fonts.googleapis.com/css?family=Catamaran:400,800');
+  @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&family=Nunito:wght@200;300;400;500;600;700;800&family=Open+Sans:wght@300;400;500&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
   .error-container {
     text-align: center;
-    font-size: 180px;
+    font-size: 120px;
     font-family: 'Catamaran', sans-serif;
     font-weight: 800;
     margin: 20px 15px;
@@ -39,8 +40,8 @@
   }
 
   .error-container>span:nth-of-type(2) {
-    width: 120px;
-    height: 120px;
+    width: 90px;
+    height: 90px;
     border-radius: 999px;
   }
 
@@ -162,7 +163,7 @@
   }
 
   body {
-    background-color: #416475;
+    background-color: #545d7a;
     margin-bottom: 50px;
   }
 
@@ -171,8 +172,8 @@
   input,
   select,
   textarea {
-    font-family: 'Montserrat', Helvetica, sans-serif;
-    color: #92a4ad;
+      font-family: "Nunito", "Helvetica", "sans-serif";
+      color: #f6dfeb;
   }
 
   h1 {
@@ -194,24 +195,52 @@
   a.more-link {
     text-transform: uppercase;
     font-size: 13px;
-    background-color: #92a4ad;
-    padding: 10px 15px;
-    border-radius: 0;
-    color: #416475;
-    display: inline-block;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    line-height: 1.5;
-    text-decoration: none;
-    margin-top: 50px;
-    letter-spacing: 1px;
+      background-color: #f6dfeb;
+      padding: 8px 16px;
+      margin-top: 8px;
+      border-radius: 4px;
+      color: #545d7a;
+      display: inline-block;
+      border: 0ch;
+      transition: all 0.5s;
+      text-align: center;
+      line-height: 1.5;
+      text-decoration: none;
+      letter-spacing: 1px;
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
   }
+
+    a.more-link:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 8px;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  a.more-link:hover{
+  padding-right: 24px;
+  padding-left:8px;
+  color: black;
+  background-color: #E5E6FD;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  a.more-link:hover{
+    opacity: 1;
+    right: 10px;
+  }
+
 </style>
 </head>
 
 <body>
   <!-- This file lives in public/404.html -->
-  <h1>500 Error</h1>
+  <h1>500 ERROR</h1>
   <p class="zoom-area">We're <b>sorry</b>, but something went wrong.</p>
   <section class="error-container">
     <span>5</span>
@@ -219,7 +248,7 @@
     <span>0</span>
   </section>
   <div class="link-container">
-    <a target="_blank" href="https://www.carearound.life/" class="more-link">Go back to the home page</a>
+    <a href="https://www.carearound.life/" class="more-link">Go back to the home page</a>
   </div>
 </body>
 </html>
