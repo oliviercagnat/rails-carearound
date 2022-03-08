@@ -10,7 +10,7 @@
           <%= simple_form_for(@cosmetic) do |f| %>
             <%= f.input :brand, input_html: {value: "#{@info[0].downcase.capitalize}"} %>
             <%= f.input :name, input_html: {value: "#{@info[1].downcase.capitalize}"} %>
-            <%= f.input :description, input_html: {value: "#{@info[2].downcase.capitalize}, #{@info[3].downcase.capitalize}, #{@info[4].downcase.capitalize}, #{@info[5].downcase.capitalize}, #{@info[6].downcase.capitalize}, #{@info[7].downcase.capitalize} "} %>
+            <%= f.input :description, input_html: {value: "#{@info[2].downcase.capitalize}, #{@info[3].downcase.capitalize}, #{@info[4].downcase.capitalize} "} %>
             <%= f.input :category, collection: [["skincare"], ["lipcare"], ["eyecare"]] %>
             <%= f.input :average_price %>
             <%= f.input :tag_list, collection: Cosmetic::TAGS, name: "tag_list", input_html: {multiple: true, :maxlength =>200,:style=> 'width: 80%', data: { controller: "select2", select2_options_value: {tags: true} }}, class: "p-1 tag-form" %>

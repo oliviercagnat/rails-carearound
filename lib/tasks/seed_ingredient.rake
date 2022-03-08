@@ -101,6 +101,8 @@ end
 
 
 
+
+
 #$ rails (rake) seed_ingredient
 #  "description" => "#{DeepL.translate element.text.strip, 'JA', 'EN'}",
 #r = "【成分】水、グリセリン、ハイドロキノン、フェノキシエタノール、クエン酸Ｎａ、ピロ亜硫酸Ｎａ、カラメル、クエン酸\n"
