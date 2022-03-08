@@ -6,9 +6,10 @@ class Cosmetic < ApplicationRecord
   acts_as_taggable_on :tags
   acts_as_taggable_on :cosmetics
   has_one_attached :cosmetic_image
-  TAGS = ["For sensitive skin", "sulphate-free", "Canadian", "CertClean","Chemical Free", "Dairy Free", "EWG Verified", "EcoCert", "Fair Trade", "Gluten Free", "Hypoallergenic", "Natural", "No Talc", "Non-GMO", "Organic", "Peanut Free Product", "Sugar Free", "USDA Organic", "Vegan", "Alcohol Free", "Cruelty Free", "Oil Free", "Purpicks", 'Silicone Free', "Water Free" ] + Ingredient.pluck(:name_en)
-  scope :by_join_date, -> { order("name DESC") }
-
+  TAGS = [ "Oil Free", "Purpicks", 'Silicone Free', "Water Free" ] + Ingredient.pluck(:name_en)
+  INGREDIENTS = Ingredient.pluck(:name_en)
+  scope :by_join_date, -> { order("created_at DESC") }
+# other-tags ["For sensitive skin", "sulphate-free", "Canadian", "CertClean","Chemical Free", "Dairy Free", "EWG Verified", "EcoCert", "Fair Trade", "Gluten Free", "Hypoallergenic", "Natural", "No Talc", "Non-GMO", "Organic", "Peanut Free Product", "Sugar Free", "USDA Organic", "Vegan", "Alcohol Free", "Cruelty Free",]
   #the above is so we can search by tags
   include PgSearch::Model
   pg_search_scope :search_by_brand_and_description,

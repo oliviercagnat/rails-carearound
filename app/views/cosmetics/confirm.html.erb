@@ -1,21 +1,23 @@
 <div class="container">
   <div class="row justify-content-center text-center confirm-page">
     <div class="col-10">
-      <h2 class="my-4" >Please confirm your product</h2>
+      <h2 class="my-4" >Add ingredients to your product and check the informations</h2>
         <tr>
             <td><%= cl_image_tag @cosmetic.cosmetic_image.key , alt: "alttext", style: "width: 300px", class:"confirm-page-picture" %></td>
         </tr>
-        <h4>Add your Ingredient from the tag list or add your own.</h4>
+        <h4>Choose from the list below or add your own:</h4>
         <% if policy(Cosmetic).update? %>
           <%= simple_form_for(@cosmetic) do |f| %>
+            <%= f.input :tag_list, collection: Cosmetic::INGREDIENTS, label: 'Add ingredients', input_html: {multiple: true, :maxlength =>200,:style=> 'width: 80%', data: { controller: "select2", select2_options_value: {tags: true} }}, class: "p-1 tag-form" %>
             <%= f.input :brand, input_html: {value: "#{@info[0].downcase.capitalize}"} %>
             <%= f.input :name, input_html: {value: "#{@info[1].downcase.capitalize}"} %>
             <%= f.input :description, input_html: {value: "#{@info[2].downcase.capitalize}, #{@info[3].downcase.capitalize}, #{@info[4].downcase.capitalize} "} %>
             <%= f.input :category, collection: [["skincare"], ["lipcare"], ["eyecare"]] %>
             <%= f.input :average_price %>
-            <%= f.input :tag_list, collection: Cosmetic::TAGS, name: "tag_list", input_html: {multiple: true, :maxlength =>200,:style=> 'width: 80%', data: { controller: "select2", select2_options_value: {tags: true} }}, class: "p-1 tag-form" %>
+            <%= f.input :country_of_origin, label: 'Where did you buy this product?', as: :country %>
             <%= f.submit "Add Tags", class: "button tag-form-button" %>
           <% end %>
+
         <% end %>
     </div>
   </div>
