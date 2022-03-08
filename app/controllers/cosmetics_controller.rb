@@ -91,11 +91,11 @@ class CosmeticsController < ApplicationController
   end
 
   def confirm
-    if Rails.env == "development"
+    # if Rails.env == "development"
       image = "http://res.cloudinary.com/dhkk2emak/image/upload/v1/development/#{@cosmetic.cosmetic_image.key}"#helpers.url_for(@cosmetic.cosmetic_image)
-    else
-      image = "http://res.cloudinary.com/dhkk2emak/image/upload/v1/production/#{@cosmetic.cosmetic_image.key}"
-    end
+    # else
+    #   image = "http://res.cloudinary.com/dhkk2emak/image/upload/v1/production/#{@cosmetic.cosmetic_image.key}"
+    # end
     @info = Ocr.extract_text(image)
     cosmetic_policy_authorize
   end
@@ -114,3 +114,4 @@ class CosmeticsController < ApplicationController
     params.require(:cosmetic).permit(:cosmetic_image, :name, :description, :brand, :average_price, :category, :ingredient_id, tag_list: [])
   end
 end
+

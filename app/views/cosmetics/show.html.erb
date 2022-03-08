@@ -20,6 +20,17 @@
           <p class="cosme-card-header-info-price"><span>¥<%= @cosmetic.average_price %></span> avg.</p>
         </div>
         <div class="cosme-card-line"><hr /></div>
+
+        <% if @cosmetic.tag_list.size > 0 %>
+           <div class="cosme-card-header-tags">
+            <div class="row m-1">
+                <% @cosmetic.tag_list.each do |tag| %>
+                  <li class="tag tag-green"><%= tag %></li>
+                <% end %>
+                <div class="cosme-card-line"><hr /></div>
+            </div>
+          </div>
+        <% end %>
       </div>
 
       <div class="cosme-card-body">
@@ -44,27 +55,31 @@
           <div class="cosme-card-header-tags">
             <%= render 'cosmetics/ingredients_list', locals: {cosmetic: @cosmetic, ingredient: @ingredient} %>
           </div>
-          <%# <div class="cosme-card-line"><hr /></div> %>
+           <div class="cosme-card-line"><hr /></div>
         <% end %>
-
         <% if policy(Cosmetic).update? %>
           <%= render 'layouts/tag_form' %>
+          <div class="cosme-card-line"><hr /></div>
         <% end %>
-        <% if @cosmetic.tag_list.size > 0 %>
-          <div class="cosme-card-header-tags">
+      
+          <% if @cosmetic.tag_list.size > 0 %>
+           <div class="cosme-card-header-tags">
             <div class="row m-1">
-              <% @cosmetic.tag_list.each do |tag| %>
-                <li class="tag tag-green"><%= tag%> </li>
-              <% end %>
-              <%# <div class="cosme-card-line"><hr /></div> %>
+                <% @cosmetic.tag_list.each do |tag| %>
+                  <li class="tag tag-green"><%= tag %></li>
+                <% end %>
+                <div class="cosme-card-line"><hr /></div>
             </div>
           </div>
         <% end %>
 
-        <div class="cosme-card-line"><hr /></div>
-        <p>Compare your product and find the best fit through the tags</p>
-          <%= link_to "Find my match", compare_cosmetic_path(@cosmetic), class: "button cosme-card-body-button-match", data: {action: "click->processing#loading"} %>
-        <div class="cosme-card-line"><hr /></div>
+
+        <% if @cosmetic.ingredients.blank? %>
+          <div class="cosme-card-line"><hr /></div>
+          <p>Compare your product and find the best fit through the tags</p>
+           <%= link_to "Find my match", compare_cosmetic_path(@cosmetic), class: "button cosme-card-body-button-match", data: {action: "click->processing#loading"} %>
+         <div class="cosme-card-line"><hr /></div>
+        <% end %>
 
         <%# REVIEWS %>
         <div class="review-all"> <%= render "cosmetics/review_form", locals: {cosmetic: @cosmetic, review: @review} %> </div>
