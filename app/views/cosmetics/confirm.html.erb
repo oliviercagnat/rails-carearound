@@ -8,16 +8,14 @@
         <h4>Choose from the list below or add your own:</h4>
         <% if policy(Cosmetic).update? %>
           <%= simple_form_for(@cosmetic) do |f| %>
-            <%= f.input :tag_list, collection: Cosmetic::INGREDIENTS, label: 'Add ingredients', input_html: {multiple: true, :maxlength =>200,:style=> 'width: 80%', data: { controller: "select2", select2_options_value: {tags: true} }}, class: "p-1 tag-form" %>
+            <%= f.input :tag_list, collection: Cosmetic::INGREDIENTS, label: 'Add ingredients ', input_html: {multiple: true, :maxlength =>200,:style=> 'width: 80%', data: { controller: "select2", select2_options_value: {tags: true} }}, class: "p-1 tag-form" %>
             <%= f.input :brand, input_html: {value: "#{@info[0].downcase.capitalize}"} %>
             <%= f.input :name, input_html: {value: "#{@info[1].downcase.capitalize}"} %>
             <%= f.input :description, input_html: {value: "#{@info[2].downcase.capitalize}"} %>
-            <%= f.input :category, collection: [["skincare"], ["lipcare"], ["eyecare"]] %>
-            <%= f.input :average_price %>
+            <%= f.input :category, collection: ["skincare", "lipcare", "eyecare"] %>
             <%= f.input :country_of_origin, label: 'Where did you buy this product?', as: :country %>
             <%= f.submit "Add Tags", class: "button tag-form-button" %>
           <% end %>
-
         <% end %>
     </div>
   </div>

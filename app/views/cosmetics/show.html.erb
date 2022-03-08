@@ -47,23 +47,23 @@
           <%# <div class="cosme-card-line"><hr /></div> %>
         <% end %>
 
-        <%# <% if policy(Cosmetic).update? %>
-          <%# <%= render 'layouts/tag_form' %>
-        <%# <% end %>
-        <%# <% if @cosmetic.tag_list.size > 0 %>
-          <%# <div class="cosme-card-header-tags">
+        <% if policy(Cosmetic).update? %>
+          <%= render 'layouts/tag_form' %>
+        <% end %>
+        <% if @cosmetic.tag_list.size > 0 %>
+          <div class="cosme-card-header-tags">
             <div class="row m-1">
               <% @cosmetic.tag_list.each do |tag| %>
-                <%# <li class="tag tag-green"><%= tag</li> %>
-              <%# <% end %>
-              <%# <div class="cosme-card-line"><hr /></div>
+                <li class="tag tag-green"><%= tag%> </li>
+              <% end %>
+              <%# <div class="cosme-card-line"><hr /></div> %>
             </div>
-          </div>   %>
-        <%# <% end %>
+          </div>
+        <% end %>
 
         <div class="cosme-card-line"><hr /></div>
         <p>Compare your product and find the best fit through the tags</p>
-           <%= link_to "Find my match", compare_cosmetic_path(@cosmetic), class: "button cosme-card-body-button-match", data: {action: "click->processing#loading"} %>
+          <%= link_to "Find my match", compare_cosmetic_path(@cosmetic), class: "button cosme-card-body-button-match", data: {action: "click->processing#loading"} %>
         <div class="cosme-card-line"><hr /></div>
 
         <%# REVIEWS %>
