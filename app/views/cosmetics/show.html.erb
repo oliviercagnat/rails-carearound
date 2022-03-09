@@ -32,6 +32,7 @@
             <%= render 'cosmetics/like_button', cosmetic: @cosmetic %>
           <% end %>
         </div>
+
         <%# NAME - BRAND - CATEGORY %>
         <h3> <%= @cosmetic.name %></h3>
         <p class="cosme-card-body-brand"><%= @cosmetic.brand.upcase %></p>
@@ -52,7 +53,7 @@
 
         <%# CONFIRM PAGE - ADD TAGS %>
         <% if policy(Cosmetic).update? %>
-          <%= render 'layouts/ingredients_form' %>
+          <%= render 'layouts/tag_form' %>
           <%# <div class="cosme-card-line"><hr /></div> %>
         <% end %>
 

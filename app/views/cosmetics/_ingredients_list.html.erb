@@ -1,10 +1,9 @@
-
   <div data-controller="expandable">
     <div id="review" class="row m-1" data-expandable-target="reviews">
       <% @cosmetic.ingredients.each do |ingredient| %>
         <li class="tag tag-green"><%= ingredient.name_en %></li>
       <% end %>
-      <% if @cosmetic.ingredients.size > 10 %>
+      <% if @cosmetic.ingredients.size > 5 %>
         <button class="button w-100" data-action="click->expandable#expand">See all ingredients!</button>
       <% end %>
     </div>
