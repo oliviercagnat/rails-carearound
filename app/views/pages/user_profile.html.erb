@@ -1,9 +1,8 @@
-
-
 <div class="global-padding">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <div class="container">
+        <%# USER PROFILE CARD %>
         <div class="profile-card">
           <div class="profile-card-header">
             <div class="profile-card-header-picture">
@@ -24,11 +23,12 @@
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "button w-3", id: "grey" %>
           </div>
         </div>
-        <h3 class="text-center">Your favorited cosmetics</h3>
+
+        <h3 class="text-center">Your ❤️ cosmetics</h3>
           <% if current_user.all_favorites == [] %>
-            <p class="text-center">No cosmetic in your basket</p>
+            <p class="text-center">No favorite yet</p>
           <% else %>
-            <% current_user.favorited_by_type('Cosmetic').each do |cosmetic| %>
+            <% @favorite_cosmetics.each do |cosmetic| %>
             <%= render 'cosmetics/mini_cosme_card_with_favorite', cosmetic: cosmetic %>
             <% end %>
           <% end %>

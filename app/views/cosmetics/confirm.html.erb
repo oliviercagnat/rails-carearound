@@ -11,7 +11,13 @@
             <%= f.input :tag_list, collection: Cosmetic::INGREDIENTS, label: 'Add ingredients ', input_html: {multiple: true, :maxlength =>200,:style=> 'width: 80%', data: { controller: "select2", select2_options_value: {tags: true} }}, class: "p-1 tag-form" %>
             <%= f.input :brand, input_html: {value: "#{@info[0].downcase.capitalize}"} %>
             <%= f.input :name, input_html: {value: "#{@info[1].downcase.capitalize}"} %>
-            <%= f.input :description, input_html: {value: "#{@info[2].downcase.capitalize}, #{@info[3].downcase.capitalize}, #{@info[4].downcase.capitalize} "} %>
+            <% if @info[5].present? %>
+              <%= f.input :description, input_html: {value: "#{@info[2].downcase.capitalize}, #{@info[3].downcase.capitalize}, #{@info[4].downcase.capitalize}, #{@info[5].downcase.capitalize} "} %>
+            <% elsif @info[4].present? %>
+              <%= f.input :description, input_html: {value: "#{@info[2].downcase.capitalize}, #{@info[3].downcase.capitalize}, #{@info[4].downcase.capitalize}" } %>
+            <% else %>
+              <%= f.input :description, input_html: {value: "#{@info[2].downcase.capitalize}, #{@info[3].downcase.capitalize}" } %>
+            <% end %>
             <%= f.input :category, collection: ["skincare", "lipcare", "eyecare"] %>
             <%= f.input :country_of_origin, label: 'Where did you buy this product?', as: :country %>
             <%= f.submit "Add Tags", class: "button tag-form-button" %>

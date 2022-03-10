@@ -6,9 +6,8 @@
   padding-right: 0;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0)), url('banner2.jpeg');
   border-bottom: 1px solid #b3b3b3;
-}
 
-.banner h1 {
+  h1 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -16,9 +15,9 @@
   font-weight: bold;
   padding-left: 16px;
   padding-right: 16px;
-}
+  }
 
-.banner p {
+  p {
   font-size: 20px;
   color: white;
   opacity: 1;
@@ -26,8 +25,11 @@
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 4px;
-}
+  }
 
-.banner .button {
+  .button {
   background-color: #F6DFEB;
+  position: relative;
+  left: 5%;
+  }
 }
