@@ -46,7 +46,7 @@
         <%# INGREDIENTS LIST %>
         <% if @cosmetic.ingredients.exists? %>
           <div class="cosme-card-header-tags">
-            <%= render 'cosmetics/ingredients_list', locals: {cosmetic: @cosmetic, ingredient: @ingredient} %>
+              <%= render 'cosmetics/ingredients_list', locals: {cosmetic: @cosmetic, ingredient: @ingredient} %>
           </div>
           <div class="cosme-card-line"><hr /></div>
         <% end %>
