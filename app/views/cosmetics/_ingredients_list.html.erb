@@ -1,13 +1,13 @@
 
   <div class="ingredient-body">
     <div data-controller="expandable">
-      <div  class="row m-1" data-expandable-target="ingredients" id="ingredient-id" >
+      <div  class="row m-1" data-expandable-target="list" id="ingredient-id" >
         <% @cosmetic.ingredients.each do |ingredient| %>
           <li class="tag tag-green"><%= ingredient.name_en %></li>
         <% end %>
       </div>
       <% if @cosmetic.ingredients.size > 10 %>
-        <button class="button w-100" data-action="click->expandable#expandIngredient">See all ingredients!</button>
+        <button class="button w-100" data-action="click->expandable#expand">See all ingredients!</button>
       <% end %>
     </div>
   </div>
