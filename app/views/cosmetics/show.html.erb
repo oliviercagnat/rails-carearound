@@ -55,7 +55,6 @@
           <div class="cosme-card-header-tags">
             <%= render 'cosmetics/ingredients_list', locals: {cosmetic: @cosmetic, ingredient: @ingredient} %>
           </div>
-
            <div class="cosme-card-line"><hr /></div>
         <% end %>
         <% if policy(Cosmetic).update? %>
@@ -73,6 +72,7 @@
             </div>
           </div>
         <% end %>
+
 
         <% if @cosmetic.ingredients.blank? %>
           <div class="cosme-card-line"><hr /></div>

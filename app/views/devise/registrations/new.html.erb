@@ -11,7 +11,7 @@
                   input_html: { autocomplete: "email" }%>
       <%= f.input :password,
                   required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  hint: ("Password must be eight characters and have one number and one special character!"),
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :password_confirmation,
                   required: true,

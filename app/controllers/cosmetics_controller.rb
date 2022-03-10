@@ -8,9 +8,8 @@ class CosmeticsController < ApplicationController
   before_action :authenticate_user!, only: [:toggle_favorite, :update, :index]
 
   def create
-    p params
     @cosmetic = Cosmetic.new({ cosmetic_image: cosmetic_params[:cosmetic_image], name: "Name", description: "Description", brand:
-      "Brand", average_price: 0, category: "Category" })
+      "Brand", category: "Category" })
     cosmetic_policy_authorize
     if @cosmetic.save
       redirect_to confirm_cosmetic_path(@cosmetic)
@@ -21,7 +20,7 @@ class CosmeticsController < ApplicationController
 
   def new
     cosmetic_policy_authorize
-    Cosmetic.new
+    @cosmetic = Cosmetic.new
   end
 
   def index
@@ -92,11 +91,12 @@ class CosmeticsController < ApplicationController
   end
 
   def confirm
-     if Rails.env == "development"
+    # Never comment when push on heroku
+    if Rails.env == "development"
       image = "http://res.cloudinary.com/dhkk2emak/image/upload/v1/development/#{@cosmetic.cosmetic_image.key}"#helpers.url_for(@cosmetic.cosmetic_image)
     else
-       image = "http://res.cloudinary.com/dhkk2emak/image/upload/v1/production/#{@cosmetic.cosmetic_image.key}"
-     end
+      image = "http://res.cloudinary.com/dhkk2emak/image/upload/v1/production/#{@cosmetic.cosmetic_image.key}"
+    end
     @info = Ocr.extract_text(image)
     cosmetic_policy_authorize
   end
@@ -115,4 +115,3 @@ class CosmeticsController < ApplicationController
     params.require(:cosmetic).permit(:cosmetic_image, :name, :description, :brand, :average_price, :category, :ingredient_id, tag_list: [])
   end
 end
-
