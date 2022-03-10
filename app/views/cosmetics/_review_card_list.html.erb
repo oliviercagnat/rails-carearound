@@ -1,9 +1,9 @@
 <% if @cosmetic.reviews.count >= 3 %>
-  <div data-controller="expandable">
-    <div id="review" data-expandable-target="reviews">
-      <% reviews.each do |review| %>
-        <%= render "review_card", review: review %>
-      <% end %>
+<div data-controller="expandable">
+    <div data-expandable-target="reviews" id="reviews-id">
+          <% reviews.each do |review| %>
+          <%= render "review_card", review: review %>
+        <% end %>
     </div>
     <button class="button w-100" data-action="click->expandable#expand">See All Reviews!</button>
   </div>
