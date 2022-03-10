@@ -11,7 +11,7 @@
           <div class="form-inputs mt-4">
             <%= simple_form_for Cosmetic.new , url: cosmetics_path, method: "post", class: "row justify-content-center" do |f| %>
               <%= f.input :cosmetic_image, label: false, as: :file %>
-              <%= f.submit "Register your product", class: "button cosme-card-body-button-match", data: {action: "click->processing#loadingCosme"} %>
+              <%= f.submit "Scan your product", class: "button cosme-card-body-button-match", data: {action: "click->processing#loadingCosme"} %>
             <% end %>
           </div>
           <div class="cosme-card-line"><hr /></div>
