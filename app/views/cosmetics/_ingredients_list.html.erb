@@ -6,9 +6,9 @@
           <li class="tag tag-green"><%= ingredient.name_en %></li>
         <% end %>
       </div>
-    <% if @cosmetic.ingredients.size > 5 %>
-      <button class="button w-100" data-action="click->expandable#expandIngredient">See all ingredients!</button>
-    <% end %>
+      <% if @cosmetic.ingredients.size > 10 %>
+        <button class="button w-100" data-action="click->expandable#expandIngredient">See all ingredients!</button>
+      <% end %>
     </div>
   </div>
 <%# <% if @cosmetic.tag_list.size > 0 %>
