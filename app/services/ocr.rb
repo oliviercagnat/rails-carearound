@@ -7,4 +7,3 @@ class Ocr
     image.responses.first.text_annotations.first.description.split("\n").map(&:downcase).map(&:capitalize)
   end
 end
-

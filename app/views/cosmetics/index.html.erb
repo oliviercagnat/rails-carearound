@@ -1,6 +1,9 @@
 <div class="row global-padding">
   <div class="col-xs-12 col-sm-6">
-    <h3 class="text-center m-2">All cosmetics</h3>
+    <%# <div class="mini-cosme-card"> %>
+      <div class="form-inline d-flex justify-content-center col-12"><%= render "shared/search_form" %></div>
+    <%# </div> %>
+    <h3 class="text-center m-2">First <%= @cosmetics.count %> cosmetics out of <%= Cosmetic.all.count %></h3>
       <div class="row">
         <div class="col-xs-12 col-sm-6">
           <% @cosmetics.each do |cosmetic| %>
