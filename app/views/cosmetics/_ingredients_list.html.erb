@@ -6,12 +6,11 @@
           <li class="tag tag-green"><%= ingredient.name_en %></li>
         <% end %>
       </div>
-    <% if @cosmetic.ingredients.size > 10 %>
+    <% if @cosmetic.ingredients.size > 5 %>
       <button class="button w-100" data-action="click->expandable#expandIngredient">See all ingredients!</button>
     <% end %>
     </div>
   </div>
-<% end %>
 <%# <% if @cosmetic.tag_list.size > 0 %>
   <%# <div class="cosme-card-header-tags">
     <div class="row m-1"> %>
