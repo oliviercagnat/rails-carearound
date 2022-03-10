@@ -8,5 +8,6 @@ class PagesController < ApplicationController
   end
 
   def user_profile
+    @favorite_cosmetics = current_user.favorited_by_type('Cosmetic')
   end
 end
