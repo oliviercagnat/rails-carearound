@@ -9,6 +9,7 @@
       </div>
 
       <div class="cosme-card-header">
+        <% if @cosmetic.total_reviews > 0 %>
         <div class="cosme-card-header-info">
           <div class="cosme-card-header-info-rating">
             <div class="cosme-card-header-info-rating-numbers">
@@ -20,6 +21,7 @@
           <p class="cosme-card-header-info-price"><span>¥<%= @cosmetic.average_price %></span> avg.</p>
         </div>
         <div class="cosme-card-line"><hr /></div>
+        <% end %>
       </div>
 
 
