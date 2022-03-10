@@ -6,6 +6,7 @@
   width: 18rem;
   height: 100%;
   padding-top: 1rem;
+
 }
 
 .review-card-body {
@@ -15,7 +16,12 @@
   text-align: justify;
   text-justify: inter-character;
   margin-bottom: 8px;
+
 }
+
+.card-title {
+    width: 50%;
+  }
 
 .h5-shop-url {
   font-size: 1rem;
@@ -25,4 +31,8 @@
 
 .p-review-card-content {
   font-size: .75rem;
+}
+
+.card-subtitle .fa-star {
+    font-size: 11px;
 }
