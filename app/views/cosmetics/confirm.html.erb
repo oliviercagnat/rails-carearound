@@ -19,7 +19,11 @@
               <%= f.input :description, input_html: {value: "#{@info[2].downcase.capitalize}, #{@info[3].downcase.capitalize}" } %>
             <% end %>
             <%= f.input :category, collection: ["skincare", "lipcare", "eyecare"] %>
-            <%= f.input :country_of_origin, label: 'Where did you buy this product?', as: :country %>
+            <p>Where did you buy your product?</p>
+            <%= f.country_select :country_of_origin,
+                                  {priority_countries: ["JP", "UK", "US", "FR"]},
+                                  {class: "form-control"},
+                                  as: :country %>
             <%= f.submit "Add Tags", class: "button tag-form-button" %>
           <% end %>
         <% end %>
