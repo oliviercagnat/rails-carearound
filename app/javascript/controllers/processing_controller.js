@@ -22,7 +22,7 @@ export default class extends Controller {
     this.spinnerTarget.classList.toggle("d-none");
     setTimeout(() => {
       form.submit();
-    }, 2500);
+    }, 12000);
   // kill spinner (hide / d-none)
   }
 }
