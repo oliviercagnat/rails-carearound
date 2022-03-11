@@ -19,10 +19,10 @@ export default class extends Controller {
     console.log(event);
     event.preventDefault();
     const form = document.getElementById("new_cosmetic");
-    this.spinnerTarget.classList.toggle("d-none");
-    setTimeout(() => {
+    // setTimeout(() => {
       form.submit();
-    }, 1000);
+      this.spinnerTarget.classList.toggle("d-none");
+    // }, 1000);
   // kill spinner (hide / d-none)
   }
 }
