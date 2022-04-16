@@ -8,6 +8,20 @@ Carearound is mobil application desinged to help you find Japanese cosmetic prod
 ![IMG-1522](https://user-images.githubusercontent.com/74096717/158303016-f8f7283e-e475-40bf-a6f8-c2611b1d611e.jpg)
 
 
+# Research product:
+
+https://user-images.githubusercontent.com/75303846/163668496-96a77b17-b9fa-4855-b777-fa18962bf922.MP4
+
+# Product page:
+
+https://user-images.githubusercontent.com/75303846/163668513-fce95a2a-c503-4ba5-92a2-8187aa30031b.MP4
+
+# User page:
+
+https://user-images.githubusercontent.com/75303846/163668508-18bbc1eb-0cfb-4cfa-86b4-95770b9fb5f7.MP4
+
+
+
 
 <br>
 App home: https://www.carearound.life
