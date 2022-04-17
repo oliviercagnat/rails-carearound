@@ -1,6 +1,8 @@
 # Carearound
 
-Carearound is mobil application desinged to help you find Japanese cosmetic products that are similar to your favorite products back home! Its run by the community so the more people that contribute the more Carearound will grow!
+Carearound is mobile application designed to help you find Japanese cosmetic products that are similar to your favorite products back home. It is run by the community so the more people that contribute the more Carearound will grow.
+
+This app is not designed for computer screen so please visit the app with your mobile phone to enjoy the full experience.
 
 ![unnamed](https://user-images.githubusercontent.com/74096717/158303010-c90dbd66-0854-4d99-96ed-e7cc15978370.jpg)
 ![IMG-1520 (1)](https://user-images.githubusercontent.com/74096717/158303014-f9735f13-07c1-428a-9120-29583901c401.jpg)
