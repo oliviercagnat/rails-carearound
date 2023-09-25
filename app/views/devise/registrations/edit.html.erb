@@ -25,7 +25,8 @@
                   required: true %>
       <p>Country *</p>
       <%= f.country_select :country,
-                  priority_countries: ["JP", "UK", "US", "FR"],
+                  {priority_countries: ["JP", "UK", "US", "FR"]},
+                  {class: "form-control"},
                   required: true %> </b>
       <%= f.input :avatar,
                   as: :file %>

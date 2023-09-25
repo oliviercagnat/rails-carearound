@@ -1,78 +1,79 @@
 <div class="col-12 col-md-4 global-padding" data-controller="processing" data-processing-target="processingPage">
-    <div data-processing-target="spinner" class="processing-modal d-none">
-      <h1 class="justify-text-center">Translating</h1>
-    </div>
-    <div class="cosme-card">
-      <%# PICTURE %>
-      <div class="cosme-card-image">
-        <%= cl_image_tag @cosmetic.cosmetic_image.key, class: "img"%>
-      </div>
+  <div data-processing-target="spinner" class="processing-modal d-none">
+    <h1 class="justify-text-center">Translating</h1>
+  </div>
 
-      <div class="cosme-card-header">
-        <div class="cosme-card-header-info">
-          <div class="cosme-card-header-info-rating">
-            <div class="cosme-card-header-info-rating-numbers">
-              <h3 class="cosme-card-header-info-rating-number"><%= @cosmetic.average_review%></h3>
-              <p class="cosme-card-header-info-rating-text"><%= @cosmetic.total_reviews %><br>ratings</p>
-            </div>
-            <p class="mb-0"><%= render "components/average_star_rating", cosmetic: @cosmetic%></p>
+  <div class="cosme-card">
+  <%# HEADER = PICTURE %>
+  <div class="cosme-card-image">
+    <%= cl_image_tag @cosmetic.cosmetic_image.key, class: "img"%>
+  </div>
+
+  <%# HEADER = PRICE + REVIEWS %>
+  <div class="cosme-card-header">
+    <% if @cosmetic.total_reviews > 0 %>
+      <div class="cosme-card-header-info">
+        <div class="cosme-card-header-info-rating">
+          <div class="cosme-card-header-info-rating-numbers">
+            <h3 class="cosme-card-header-info-rating-number"><%= @cosmetic.average_review%></h3>
+            <p class="cosme-card-header-info-rating-text"><%= @cosmetic.total_reviews %><br>ratings</p>
           </div>
-          <p class="cosme-card-header-info-price"><span>¥<%= @cosmetic.average_price %></span> avg.</p>
+          <p class="mb-0"><%= render "components/average_star_rating", cosmetic: @cosmetic%></p>
         </div>
-        <div class="cosme-card-line"><hr /></div>
+        <p class="cosme-card-header-info-price"><span>¥<%= @cosmetic.average_price %></span> avg.</p>
       </div>
+      <div class="cosme-card-line"><hr /></div>
+    <% end %>
+  </div>
 
+  <div class="cosme-card-body">
+    <%# FAVORITES %>
+    <div class="favorite-icon">
+      <%= link_to toggle_favorite_cosmetic_path(@cosmetic), remote: true, method: :post do %>
+        <%= render 'cosmetics/like_button', cosmetic: @cosmetic %>
+      <% end %>
+    </div>
 
-      <div class="cosme-card-body">
-        <%# FAVORITES %>
-        <div class="favorite-icon">
-          <%= link_to toggle_favorite_cosmetic_path(@cosmetic), remote: true, method: :post do %>
-            <%= render 'cosmetics/like_button', cosmetic: @cosmetic %>
-          <% end %>
-        </div>
+    <h3> <%= @cosmetic.name %></h3>
+      <p class="cosme-card-body-brand"><%= @cosmetic.brand.upcase %></p>
+      <div class="tag tag-brown"><%= @cosmetic.category.capitalize %></div>
+    <div class="cosme-card-line"><hr /></div>
 
-        <h3> <%= @cosmetic.name %></h3>
-        <p class="cosme-card-body-brand"><%= @cosmetic.brand.upcase %></p>
-        <div class="tag tag-brown"><%= @cosmetic.category.capitalize %></div>
-        <div class="cosme-card-line"><hr /></div>
-
-        <%# DESCRIPTION %>
-        <p><%= @cosmetic.description %></p>
+    <%# DESCRIPTION %>
+      <p><%= @cosmetic.description %></p>
         <%# <div class="cosme-card-line"><hr /></div> %>
 
-        <%# INGREDIENTS LIST %>
-        <% if @cosmetic.ingredients.exists? %>
-          <div class="cosme-card-header-tags">
-              <%= render 'cosmetics/ingredients_list', locals: {cosmetic: @cosmetic, ingredient: @ingredient} %>
-          </div>
-        <% end %>
-          <%# <div class="cosme-card-line"><hr /></div> %>
-        <% if policy(Cosmetic).update? %>
-          <%= render 'layouts/tag_form' %>
-        <% end %>
-          <div class="cosme-card-line"><hr /></div>
-
-          <% if @cosmetic.tag_list.size > 0 %>
-            <div class="cosme-card-header-tags">
-            <div class="row m-1">
-                <% @cosmetic.tag_list.each do |tag| %>
-                  <li class="tag tag-green"><%= tag %></li>
-                <% end %>
-                <div class="cosme-card-line"><hr /></div>
-            </div>
-          </div>
-        <% end %>
-
-
-        <% if @cosmetic.ingredients.blank? %>
-          <p>Compare your product and find the best fit through the tags</p>
-            <%= link_to "Find my match", compare_cosmetic_path(@cosmetic), class: "button cosme-card-body-button-match", data: {action: "click->processing#loading"} %>
-          <div class="cosme-card-line"><hr /></div>
-        <% end %>
-
-        <%# REVIEWS %>
-        <div class="review-all"> <%= render "cosmetics/review_form", locals: {cosmetic: @cosmetic, review: @review} %> </div>
-        <div class="user-reviews"> <%= render "review_card_list", reviews: @cosmetic.reviews.reverse %> </div>
+    <%# INGREDIENTS LIST %>
+    <% if @cosmetic.ingredients.exists? %>
+      <div class="cosme-card-header-tags">
+        <%= render 'cosmetics/ingredients_list', locals: {cosmetic: @cosmetic, ingredient: @ingredient} %>
       </div>
-    </div>
+    <% end %>
+          <%# <div class="cosme-card-line"><hr /></div> %>
+    <% if policy(Cosmetic).update? %>
+      <%= render 'layouts/tag_form' %>
+    <% end %>
+    <div class="cosme-card-line"><hr /></div>
+
+    <% if @cosmetic.tag_list.size > 0 %>
+      <div class="cosme-card-header-tags">
+        <div class="row m-1">
+          <% @cosmetic.tag_list.each do |tag| %>
+            <li class="tag tag-green"><%= tag %></li>
+          <% end %>
+        </div>
+      </div>
+      <div class="cosme-card-line"><hr /></div>
+    <% end %>
+
+    <% if @cosmetic.ingredients.blank? %>
+      <p>Compare your product and find the best fit through the tags</p>
+      <%= link_to "Find my match", compare_cosmetic_path(@cosmetic), class: "button cosme-card-body-button-match", data: {action: "click->processing#loading"} %>
+      <div class="cosme-card-line"><hr /></div>
+    <% end %>
+
+    <%# REVIEWS %>
+    <div class="review-all"> <%= render "cosmetics/review_form", locals: {cosmetic: @cosmetic, review: @review} %> </div>
+    <div class="user-reviews"> <%= render "review_card_list", reviews: @cosmetic.reviews.reverse %> </div>
   </div>
+</div>
