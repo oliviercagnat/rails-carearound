@@ -24,7 +24,7 @@ puts "Creating users..."
 
   user = User.create!(
     email: "careuser@gmail.com",
-    password: "123456",
+    password: "Oreo09121992!",
     name: "Jane Doe",
     skin_type: "Dry and fair",
     country: "UK",
@@ -192,4 +192,3 @@ puts "Creating users..."
       end
 
   puts "#{Cosmetic.count} cosmetics created!"
-
