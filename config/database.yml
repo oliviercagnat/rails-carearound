@@ -29,7 +29,7 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  username: <%= ENV['DATABASE_USERNAME'] %>
+  username: rails_carearound
 
   # The password associated with the postgres role (username).
   password: <%= ENV['DATABASE_PASSWORD'] %>
@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: rails_carearound_production
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  username: rails_carearound
+  password: <%=ENV['DATABASE_PASSWORD'] %>
